@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Endava.DotNetCommunity.Common\Endava.DotNetCommunity.Common.csproj" />
+    <ProjectReference Include="..\Endava.DotNetCommunity.DAL\Endava.DotNetCommunity.DAL.csproj" />
+  </ItemGroup>
+
+</Project>
