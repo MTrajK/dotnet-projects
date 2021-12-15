@@ -1,0 +1,271 @@
+Dev Testing
+
+- Test code is just as important as production code. It requires thought, design, and care.
+- Having dirty tests is equivalent to (if not worse than) having no tests! 
+The problem is that tests must change as the production code evolves. The drtier the tests, the harder they are to change.
+- If you don't keep your tests clean, you'll lose them. And without them, you lose the very thing that keeps your production code flexible.
+- Readability is perhaps even more important in unit tests than it is in production code. Write tests (code) for the maintainer!
+- When refactoring you should always have some kind of tests (unit, integration) watching your back.
+- Tests are stories you tell the next generation of programmers on a project. They allow a developer to see exactly what an application is made of and where it started.
+- Dev tests doesn't replaces QA - A study by Glenford Myre showed that developers writing tests were not really looking for bugs, and so they found only half to two-thirds of the bugs in an application.
+
+-----------------------------------
+
+Why automated testing?
+
+- It gives high-quality code at any time as the code is being tested continuously
+- Helps in reducing software errors
+- Speed up the delivery process
+- Helps in increasing software development life cycle efficiency
+
+-----------------------------------
+
+Unit test
+
+Unit test is an automated piece of code that invokes the unit of work being tested and checks some assumptions about a single end result of that unit. It's trustworthy, readable, and maintainable. It's consistent in its results as long as the production code hasn't changed.
+Unit tests isolate the unit of work from its dependencies so that they're easily consistent in their results and can easily control and simulate any aspect of the unit's behavior.
+
+
+-----------------------------------
+
+SUT (System Under Test)
+
+When you test something, you refer to the thing you're testing as the SUT.
+* some people use CUT (class under test or code under test)
+
+
+-----------------------------------
+
+Namings
+
+- Name the tests as if you were describing the scenario in it to a non-programmer familiar with the problem domain.
+- A good name identifies the tested class or feature.
+
+Project - [ProjectUnderTest].UnitTests 
+	* for Integration tests create a separate project - [ProjectUnderTest].IntegrationTests (Locate your integration and unit tests in separate places)
+Class - [ClassName]Tests
+Method - [UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedBehavior]
+
+UnitOfWorkName - The name of the method or group of methods or class you're testing (usually a method!).
+ScenarioUnderTest - The condition under which the unit is tested (such as "bad login", "invalid user"...). You could describe the parameters being sent to the method! Or the initial state of the system when the unit of work is invoked (such "no user exist", "user already exists"...)
+ExpectedBehavior - What you expect the tested method to do under the specified conditions (ScenarioUnderTest). This could be one of three possibilities: 
+- return a value (a real value, or exception)
+- change the state of the system
+- call a third-party system.
+
+Example - Calculator.Sum()
+Test class: CalculatorTests
+Method name: Sum_ByDefault_ReturnsZero (when calling sum method without params)
+			Sum_TwoAndThree_ReturnsFive (when calling sum method with 2 and 3 as params)
+
+Test method name should be read like:
+When I call method X with Y, then it should Z.
+
+-----------------------------------
+
+Unit testing frameworks
+
+Parametrized test
+Be careful, the test name could become generic, and it will make the test less understandable. Don't put the expected result here, try to have meaningful name. If one of the [TestCase()] attributes fails, the other attributes are still executed by the test runner.
+
+Setup/teardown methods
+You may find that you're sharing state between tests if you're not careful. You almost never, ever use these things in unit tests, if you do you're very likely writing an INTEGRATION test.
+Instead of SetUp, TearDown, OneTimeSetUp, OneTimeTearDown - use factory method to reuse code in your tests, such as code for creating and initializing objects all your tests use!!! It'll be more readable when calling that method from the tests (it's a simple method in that class, nothing special).
+Setup methods can't have parameters or return values.
+Removing duplication isn't always about creating and initializing new instances of objects. Sometimes it's about removing duplication in assertion logic, calling out code in a specific way.
+Don't arrange fakes in a setup method! Doing so will make it hard to read and maintain the tests.
+
+Igonre attribute
+Try to not use it, it should be rare case, possibly never, it confuses the future developer, it's similar to commented code (or deleted).
+
+Assert class
+The Assert class has static methods and is located in the NUnit.Framework namespace. It's the bridge between your code and the unit testing frameworks, and its purpose is to declare that a specific assumption is supposed to exist.
+- Don't use the message parameter in Assert methods - It's like comments in the code, if you have to use this parameter, your method name should be clearer!
+- If you decide to use the message parameter then:
+	* Don't repeat what the built-in test framework outputs to the console.
+	* Don't repeat what the test name explains.
+	* If you don't have anything good to say, don't say anything.
+
+-----------------------------------
+
+AAA
+
+Arrange, Act, Assert
+Known also as Build-Operate-Check (uncle bob - clean code)
+also similar to GWT (Given - When - Then)
+
+Arrange objects, creating and setting them up as necessary. (Arrange a state or situation - which you set up in the test)
+Act on an object. (Act to do something or an event happens n)
+Assert that something is as expected. (Assert the expected an outcome collaborator interaction)
+
+Put an empty line between the arrange, act, and assert stages in each test (many developers also puts comments to separate these 3 sections - //Arrange //Assert //Act).
+
+Why?
+- Clearly separates what is being tested from the arrange and assert steps.
+- Less chance to intermix assertions with "Act" code
+
+-----------------------------------
+
+External dependency
+
+An external dependency is an object in your system that your code under test interact with and over which you have no control.
+
+Fake denotes an object that looks like another object but can be used as a mock or stub! Used to describe mocks and stubs.
+Stub is a controllable replacement for an existing dependency (or collaborator) in the system. By using a stub, you can test your code without dealing with the dependency directly. A stub can never fail your test and is strictly there to simulate various situations.
+Mock is a fake object in the system that DECIDES whether the unit test has passed or failed. It does so by verifying whether the object under test called the fake object as expected. 
+
+Mock vs Stub - Whether a fake is a stub or a mock depends on how it's used in the current test. If it's used to check an interaction (asserted against), it's a mock object, otherwise, it's a stub. Mocks are used in the assert part! Stubs aren't used in the assert part! 
+
+-----------------------------------
+
+Isolation frameworks (or mocking frameworks)
+
+Isolation because they allow you to isolate the unit of work from its dependencies.
+A set of programmable APIs that makes creating fake objects much simpler, faster, and shorter than hand-coding them.
+Isolation frameworks matches nicely with the structure of arrange-act-assert.
+
+Advantages of isolation frameworks vs manually creating fakes:
+- easier parameter verification
+- easier verification of multiple method calls
+- easier fakes creation
+
+Constrained and unconstrained isolation frameworks
+Constrained because there are some things these frameworks aren't able to fake! Unable to fake static methods, nonvirtual methods, nonpublic methods, and more!
+Unconstrained use the profiling APIs. They don't generate and compile code at runtime that inherits from other code.
+
+Why not using Moq? I'd prefer a framework that doesn't use the word mock for everything.
+
+-----------------------------------
+
+NSubstitute (short NSub)
+
+Constrained framework, it works best with interfaces. For real classes, it will only work with nonsealed classes, and for those, it will only be able to fake virtual methods
+
+fake = Substitute.For<IInterface>()
+
+fake.When(x => x.Method(Arg.Any<string>()))
+	.Do(context => { throw new Exception("fake exception"); });
+
+Assert.Throws<Exception>(() => fake.Method("anything"));
+
+-----------------------------------
+
+Only one...
+
+One test class per tested class!
+- You want to be able to quickly locate all tests for a specific class!
+	* (or one test class per unit of work under test - if the method test is doing too much)
+- If we are compelled to split unit tests for a class across multiple files, that may be an indication that the class itself is poorly designed (the class doesn't follow the single responsibility principle).
+
+One concept per test!
+- We don't want long test functions that go testing one miscellaneous thing after another.
+
+One assert per test! (one and only one assert statement)
+- The first time an assert fails, it actually throws a special type of exception that is caught by the test runner. That also means no other lines below the line that just failed will be executed. You never know if the other asserts in the same test method would have failed or not.
+- Testing only one concern - A concern is a single end result from a unit of work: a return value, a change to system state, or a call to a third-party object.
+- When you test just one concern, naming the test is easy!
+- Gives you the entire picture as to why your tests are failing.
+- Common approaches to using only one assert include:
+	* Create a separate test for each assert.
+	* Use parameterized tests.
+
+One mock per test! (mock is different thant stub, you can have more fakes in the test, but one mock)
+- In a test where you test only one thing, there should be no more than one mock object. All other fake object will act as stubs.
+- Having more than one mock per test usually means you're testing more than one thing.
+
+-----------------------------------
+
+The pillars of good unit tests:
+
+1. Trustworthiness - Developers will want to run trustworthy tests, and they'll accept the test results with confidence. Trustworthy tests don't have bugs, and they test the right things.
+2. Maintainability - Unmaintainable tests are nightmares because they can ruin project schedules, or they may be sidelined when the project is put on a more aggressive schedule. Developers will simply stop maintaining and fixing tests that take too long to change or that need to change very often on very minor production code changes.
+3. Readability - This means not just being able to read a test but also figuring out the problem if the test seems to be wrong. Without readability, the other two pillars fail pretty quickly: Maintaining tests becomes harder, and you can't trust them anymore because you don't understand them.
+
+-----------------------------------
+
+F.I.R.S.T.
+
+- Fast - Tests should be fast! They should run quickly. When tests run slow, you won't want to run them frequently.
+- Independent - Tests should not depend on each other! One test should not set up the conditions for the next test. You should be able to run each test independently and run the tests in any order you like. Isolated!
+- Repeatable - Tests should be repeatable in any environment! You should be able to run them in the production environment, in the QA environment, on your laptop while riding home on the train without a network.
+- Self-Validating - The tests should have a boolean output, either they pass or fail!
+- Timely - The tests need to be written in a timely fashion. Unit tests should be written JUST BEFORE the production code that make them pass! 
+
+
+-----------------------------------
+
+Avoiding logic in tests
+
+The chances of having bugs in your tests increase almost exponentially as you include more and more logic in them!
+Focus on the end result, rather than implementation details.
+If you have any of the following inside a unit test, your test contains logic that shouldn't be there:
+- switch, if, or else statements
+- foreach, for, or while loops
+
+-----------------------------------
+
+Testing private methods
+
+Private methods are usually private for a good reason in the developer's mind.
+For testing purposes, the public contract (the overall functionality) is all that you need to care about.
+Think of it this way: no private method exists without a reason. Some public method ends up invoking this private method.
+Private method is usually part of a bigger unit of work.
+
+Making a method public isn't a necessarily a bad thing. It may seem to go against the object-oriented principles.
+
+-----------------------------------
+
+Other notes about unit tests:
+- Don't skip trivial tests
+- Test boundary conditions
+- Use a coverage tool
+- Test should be easy to implement
+- Test should be relevant tomorrow
+- Test should be consistent in its results! (should always returns the same result if you don't change anything between runs)
+
+-----------------------------------
+
+
+TDD (Test Driven Development)
+
+The three laws (rules) of TDD:
+1. Don't write any production code until you have written a failing unit test.
+2. Don't write more of a unit test than is sufficient to fail or fail to COMPILE (if that is a new method/class, if refactoring something, etc).
+3. Don't write any more production code than is sufficient to pass the failing test.
+
+Why?
+In real programming you had to spend lots of time writing code, and then lots more time getting it to compile! And in this whole process you'll know if the code works in the end!
+But using TDD every part of the code will be tested in the same moment it's written! No need to wait to compile and run the whole codebase.
+
+Exampe steps:
+1. Add a test
+2. Run all tests and see if the new one fails
+3. Write some code
+4. Run tests
+5. Refactor code
+6. Repeat
+
+One of the biggest benefits of TDD is:
+You're testing the test itself! First you're seeing the test fails and later you're seeing it passes. If you expect it to fail and it passes, you might have a bug in your test or you're testing the wrong thing.
+
+
+-----------------------------------
+
+Integration tests
+
+Any tests that aren't FAST and consistent and that use one or more REAL DEPENDENCIES of the units under test.
+Integration testing is testing a unit of work without having full control over all of it and using one or more of its real dependencies, such as time, network, database, threads, random number generators, and so on.
+
+-----------------------------------
+
+Fluent Assertions
+
+Allow you to assert on anything, regardless the test API you're using.
+https://fluentassertions.com/
+
+-----------------------------------
+
+AutoFixture
+
+Is designed to make it easier to create objects under test that you don't care about.
+https://autofixture.github.io/

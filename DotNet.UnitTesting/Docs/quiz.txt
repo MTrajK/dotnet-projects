@@ -1,0 +1,128 @@
+Question:
+Unit test is an automated piece of code that invokes the unit of work and checks assumptions about a single end result
+
+Possible answers:
+True
+False
+
+The right answer:
+True
+
+----------------------------------------------------------
+
+Question:
+What is SUT?
+
+Possible answers:
+SUTlijas?
+System Under Torture
+Scenario Under Test
+System Under Test
+
+The right answer:
+System Under Test
+
+----------------------------------------------------------
+
+Question:
+What is the most readable unit testing method naming pattern?
+
+Possible answers:
+[UnitOfWorkName]_[TestNumber]
+[UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedBehavior]
+
+The right answer:
+[UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedBehavior]
+
+----------------------------------------------------------
+
+Question:
+AAA in unit testing stands for
+
+Possible answers:
+American Automobile Association
+Authentication, Authorization and Accounting
+Arrange, Act, Assert
+Act, Arrange, Assert
+
+The right answer:
+Arrange, Act, Assert
+
+----------------------------------------------------------
+
+Question:
+We are using isolation/mocking frameworks to isolate the unit tests from external dependencies
+
+Possible answers:
+True
+False
+
+The right answer:
+True
+
+----------------------------------------------------------
+
+Question:
+We should have logic in our tests
+
+Possible answers:
+True
+False
+
+The right answer:
+False
+
+----------------------------------------------------------
+
+Question:
+When using TDD, we start with
+
+Possible answers:
+Writing code
+Writing a failing test
+Writing a passing test
+Refactoring code
+
+The right answer:
+Writing a failing test
+
+----------------------------------------------------------
+
+Question:
+Integration tests are
+
+Possible answers:
+Fast
+Slow
+Non-isolated
+Isolated
+
+The right answer:
+Slow
+Non-isolated
+
+----------------------------------------------------------
+
+Question:
+Only the code should be readable, tests don't matter
+
+Possible answers:
+True
+False
+
+The right answer:
+False
+
+----------------------------------------------------------
+
+Question:
+Should we write unit tests?
+
+Possible answers:
+Nah
+When possible
+We should write unit tests even in our dreams
+When the manager asks for them
+
+The right answer:
+We should write unit tests even in our dreams
