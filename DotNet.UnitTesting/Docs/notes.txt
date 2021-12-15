@@ -9,6 +9,7 @@ The problem is that tests must change as the production code evolves. The drtier
 - Tests are stories you tell the next generation of programmers on a project. They allow a developer to see exactly what an application is made of and where it started.
 - Dev tests doesn't replaces QA - A study by Glenford Myre showed that developers writing tests were not really looking for bugs, and so they found only half to two-thirds of the bugs in an application.
 
+
 -----------------------------------
 
 Why automated testing?
@@ -17,6 +18,7 @@ Why automated testing?
 - Helps in reducing software errors
 - Speed up the delivery process
 - Helps in increasing software development life cycle efficiency
+
 
 -----------------------------------
 
@@ -61,6 +63,7 @@ Method name: Sum_ByDefault_ReturnsZero (when calling sum method without params)
 Test method name should be read like:
 When I call method X with Y, then it should Z.
 
+
 -----------------------------------
 
 Unit testing frameworks
@@ -79,12 +82,13 @@ Igonre attribute
 Try to not use it, it should be rare case, possibly never, it confuses the future developer, it's similar to commented code (or deleted).
 
 Assert class
-The Assert class has static methods and is located in the NUnit.Framework namespace. It's the bridge between your code and the unit testing frameworks, and its purpose is to declare that a specific assumption is supposed to exist.
+It's the bridge between your code and the unit testing frameworks, and its purpose is to declare that a specific assumption is supposed to exist.
 - Don't use the message parameter in Assert methods - It's like comments in the code, if you have to use this parameter, your method name should be clearer!
 - If you decide to use the message parameter then:
 	* Don't repeat what the built-in test framework outputs to the console.
 	* Don't repeat what the test name explains.
 	* If you don't have anything good to say, don't say anything.
+
 
 -----------------------------------
 
@@ -104,6 +108,7 @@ Why?
 - Clearly separates what is being tested from the arrange and assert steps.
 - Less chance to intermix assertions with "Act" code
 
+
 -----------------------------------
 
 External dependency
@@ -115,6 +120,7 @@ Stub is a controllable replacement for an existing dependency (or collaborator) 
 Mock is a fake object in the system that DECIDES whether the unit test has passed or failed. It does so by verifying whether the object under test called the fake object as expected. 
 
 Mock vs Stub - Whether a fake is a stub or a mock depends on how it's used in the current test. If it's used to check an interaction (asserted against), it's a mock object, otherwise, it's a stub. Mocks are used in the assert part! Stubs aren't used in the assert part! 
+
 
 -----------------------------------
 
@@ -133,20 +139,6 @@ Constrained and unconstrained isolation frameworks
 Constrained because there are some things these frameworks aren't able to fake! Unable to fake static methods, nonvirtual methods, nonpublic methods, and more!
 Unconstrained use the profiling APIs. They don't generate and compile code at runtime that inherits from other code.
 
-Why not using Moq? I'd prefer a framework that doesn't use the word mock for everything.
-
------------------------------------
-
-NSubstitute (short NSub)
-
-Constrained framework, it works best with interfaces. For real classes, it will only work with nonsealed classes, and for those, it will only be able to fake virtual methods
-
-fake = Substitute.For<IInterface>()
-
-fake.When(x => x.Method(Arg.Any<string>()))
-	.Do(context => { throw new Exception("fake exception"); });
-
-Assert.Throws<Exception>(() => fake.Method("anything"));
 
 -----------------------------------
 
@@ -173,6 +165,7 @@ One mock per test! (mock is different thant stub, you can have more fakes in the
 - In a test where you test only one thing, there should be no more than one mock object. All other fake object will act as stubs.
 - Having more than one mock per test usually means you're testing more than one thing.
 
+
 -----------------------------------
 
 The pillars of good unit tests:
@@ -180,6 +173,7 @@ The pillars of good unit tests:
 1. Trustworthiness - Developers will want to run trustworthy tests, and they'll accept the test results with confidence. Trustworthy tests don't have bugs, and they test the right things.
 2. Maintainability - Unmaintainable tests are nightmares because they can ruin project schedules, or they may be sidelined when the project is put on a more aggressive schedule. Developers will simply stop maintaining and fixing tests that take too long to change or that need to change very often on very minor production code changes.
 3. Readability - This means not just being able to read a test but also figuring out the problem if the test seems to be wrong. Without readability, the other two pillars fail pretty quickly: Maintaining tests becomes harder, and you can't trust them anymore because you don't understand them.
+
 
 -----------------------------------
 
@@ -202,6 +196,7 @@ If you have any of the following inside a unit test, your test contains logic th
 - switch, if, or else statements
 - foreach, for, or while loops
 
+
 -----------------------------------
 
 Testing private methods
@@ -213,6 +208,7 @@ Private method is usually part of a bigger unit of work.
 
 Making a method public isn't a necessarily a bad thing. It may seem to go against the object-oriented principles.
 
+
 -----------------------------------
 
 Other notes about unit tests:
@@ -222,6 +218,7 @@ Other notes about unit tests:
 - Test should be easy to implement
 - Test should be relevant tomorrow
 - Test should be consistent in its results! (should always returns the same result if you don't change anything between runs)
+
 
 -----------------------------------
 
@@ -255,17 +252,3 @@ Integration tests
 
 Any tests that aren't FAST and consistent and that use one or more REAL DEPENDENCIES of the units under test.
 Integration testing is testing a unit of work without having full control over all of it and using one or more of its real dependencies, such as time, network, database, threads, random number generators, and so on.
-
------------------------------------
-
-Fluent Assertions
-
-Allow you to assert on anything, regardless the test API you're using.
-https://fluentassertions.com/
-
------------------------------------
-
-AutoFixture
-
-Is designed to make it easier to create objects under test that you don't care about.
-https://autofixture.github.io/
