@@ -1,5 +1,5 @@
-﻿using DotNet.CleanCode.Functions.Old;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using DotNet.CleanCode.Functions.Old;
 
 namespace DotNet.CleanCode.Functions.UnitTests.Old
 {

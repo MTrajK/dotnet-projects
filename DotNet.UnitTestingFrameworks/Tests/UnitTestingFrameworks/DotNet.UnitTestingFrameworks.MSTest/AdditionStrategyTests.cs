@@ -1,5 +1,5 @@
-﻿using DotNet.UnitTestingFrameworks.BLL.Strategies;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using DotNet.UnitTestingFrameworks.BLL.Strategies;
 
 namespace DotNet.UnitTestingFrameworks.MSTest
 {

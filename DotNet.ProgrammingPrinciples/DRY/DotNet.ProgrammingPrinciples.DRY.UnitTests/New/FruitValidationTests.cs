@@ -1,5 +1,5 @@
-﻿using DotNet.ProgrammingPrinciples.DRY.New;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using DotNet.ProgrammingPrinciples.DRY.New;
 
 namespace DotNet.ProgrammingPrinciples.DRY.UnitTests.New
 {

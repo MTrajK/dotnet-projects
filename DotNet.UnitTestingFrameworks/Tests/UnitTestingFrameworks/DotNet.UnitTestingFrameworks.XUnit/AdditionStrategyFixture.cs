@@ -1,5 +1,5 @@
-﻿using DotNet.UnitTestingFrameworks.BLL.Strategies;
-using System;
+﻿using System;
+using DotNet.UnitTestingFrameworks.BLL.Strategies;
 
 namespace DotNet.UnitTestingFrameworks.XUnit
 {

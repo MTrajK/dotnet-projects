@@ -1,5 +1,5 @@
 # .NET Unit Testing
-.NET Core demos (with presentation) that explain several programming principles (KISS, YAGNI, DRY, SOLID).
+.NET Core demos (with a presentation) that explain several programming principles (KISS, YAGNI, DRY, SOLID).
 
 ## Project structure
 - [Docs](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.ProgrammingPrinciples/Docs) - PowerPoint presentation and some notes.

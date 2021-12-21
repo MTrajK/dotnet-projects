@@ -1,11 +1,11 @@
 ﻿using AutoFixture.NUnit3;
+using FluentAssertions;
+using NSubstitute;
+using NUnit.Framework;
 using DotNet.UnitTestingFrameworks.BLL.Service;
 using DotNet.UnitTestingFrameworks.Common.APIModels;
 using DotNet.UnitTestingFrameworks.Common.DomainModels;
 using DotNet.UnitTestingFrameworks.DAL.IPersistence;
-using FluentAssertions;
-using NSubstitute;
-using NUnit.Framework;
 
 namespace DotNet.UnitTestingFrameworks.FluentAssertions
 {

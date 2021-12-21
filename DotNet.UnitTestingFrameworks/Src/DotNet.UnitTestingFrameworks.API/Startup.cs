@@ -1,6 +1,6 @@
-﻿using DotNet.UnitTestingFrameworks.API;
+﻿using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using DotNet.UnitTestingFrameworks.API;
 using DotNet.UnitTestingFrameworks.API.Utils;
-using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 
 [assembly: FunctionsStartup(typeof(Startup))]
 namespace DotNet.UnitTestingFrameworks.API

@@ -1,4 +1,7 @@
-﻿using DotNet.UnitTestingFrameworks.BLL.Service;
+﻿using NSubstitute;
+using NSubstitute.ReceivedExtensions;
+using NUnit.Framework;
+using DotNet.UnitTestingFrameworks.BLL.Service;
 using DotNet.UnitTestingFrameworks.BLL.Strategies;
 using DotNet.UnitTestingFrameworks.BLL.Strategies.Context;
 using DotNet.UnitTestingFrameworks.BLL.Strategies.Factory;
@@ -7,9 +10,6 @@ using DotNet.UnitTestingFrameworks.Common.DomainModels;
 using DotNet.UnitTestingFrameworks.Common.Exceptions;
 using DotNet.UnitTestingFrameworks.Common.Utils;
 using DotNet.UnitTestingFrameworks.DAL.IPersistence;
-using NSubstitute;
-using NSubstitute.ReceivedExtensions;
-using NUnit.Framework;
 
 namespace DotNet.UnitTestingFrameworks.NSubstitute
 {

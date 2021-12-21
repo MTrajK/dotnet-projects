@@ -1,5 +1,5 @@
-﻿using DotNet.UnitTestingFrameworks.BLL.Strategies;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using DotNet.UnitTestingFrameworks.BLL.Strategies;
 
 namespace DotNet.UnitTestingFrameworks.NUnit
 {

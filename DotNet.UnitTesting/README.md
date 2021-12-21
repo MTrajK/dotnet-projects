@@ -1,5 +1,5 @@
 # .NET Unit Testing
-.NET Core demos (with presentation) that explain unit testing+isolation best practices (using NUnit and NSubstitute).
+.NET Core demos (with a presentation) that explain unit testing+isolation best practices (using NUnit and NSubstitute).
 
 ## Project structure
 - [Docs](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.UnitTesting/Docs) - PowerPoint presentation and some notes.

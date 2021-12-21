@@ -1,6 +1,6 @@
-﻿using DotNet.CleanCode.Functions.New;
+﻿using System.Linq;
 using NUnit.Framework;
-using System.Linq;
+using DotNet.CleanCode.Functions.New;
 
 namespace DotNet.CleanCode.Functions.UnitTests.New
 {

@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace DotNet.UnitTestingFrameworks.Common.Exceptions
 {
     public class MissingStrategyException : Exception

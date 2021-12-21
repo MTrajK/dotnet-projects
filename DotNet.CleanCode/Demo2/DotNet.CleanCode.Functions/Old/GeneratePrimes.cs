@@ -15,7 +15,7 @@
 ///
 /// Written by Robert C. Martin on 9 Dec 1999 in Java
 /// Translated to C# by Micah Martin on 12 Jan 2005.
-/// </remark>
+/// </remarks>
 
 using System;
 

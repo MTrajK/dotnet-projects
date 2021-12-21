@@ -1,4 +1,7 @@
-﻿namespace DotNet.CleanCode.Date
+﻿/*
+ * Final step (final refactoring)
+ */
+namespace DotNet.CleanCode.Date
 {
     public class Year
     {
@@ -24,7 +27,7 @@
 }
 
 /*
- * Step 2 - first test fails
+ * Step 1 - first test fails
 using System;
 
 namespace DotNet.CleanCode.Date
@@ -44,7 +47,7 @@ namespace DotNet.CleanCode.Date
 */
 
 /*
- * Step 3 - first & second test pass, third fails
+ * Step 2 - first & second test pass, third fails
 namespace DotNet.CleanCode.Date
 {
     public class Year
@@ -65,7 +68,7 @@ namespace DotNet.CleanCode.Date
 */
 
 /*
- * Step 4 - first, second, third test pass, fourth fails
+ * Step 3 - first, second, third test pass, fourth fails
 namespace DotNet.CleanCode.Date
 {
     public class Year
@@ -93,7 +96,7 @@ namespace DotNet.CleanCode.Date
 */
 
 /*
- * Step 5 - all tests pass
+ * Step 4 - all tests pass
 namespace DotNet.CleanCode.Date
 {
     public class Year
@@ -128,7 +131,7 @@ namespace DotNet.CleanCode.Date
 */
 
 /*
- * Step 6 - First refactoring
+ * Step 5 - First refactoring
 namespace DotNet.CleanCode.Date
 {
     public class Year

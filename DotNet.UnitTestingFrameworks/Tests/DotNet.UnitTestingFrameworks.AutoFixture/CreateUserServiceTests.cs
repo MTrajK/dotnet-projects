@@ -1,6 +1,8 @@
 ﻿using AutoFixture;
 using AutoFixture.AutoNSubstitute;
 using AutoFixture.NUnit3;
+using NSubstitute;
+using NUnit.Framework;
 using DotNet.UnitTestingFrameworks.BLL.Service;
 using DotNet.UnitTestingFrameworks.BLL.Strategies.Context;
 using DotNet.UnitTestingFrameworks.BLL.Strategies.Factory;
@@ -8,8 +10,6 @@ using DotNet.UnitTestingFrameworks.Common.APIModels;
 using DotNet.UnitTestingFrameworks.Common.DomainModels;
 using DotNet.UnitTestingFrameworks.Common.Utils;
 using DotNet.UnitTestingFrameworks.DAL.IPersistence;
-using NSubstitute;
-using NUnit.Framework;
 
 namespace DotNet.UnitTestingFrameworks.AutoFixture
 {

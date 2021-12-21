@@ -1,9 +1,9 @@
-﻿using DotNet.UnitTestingFrameworks.Common.Exceptions;
+﻿using System;
+using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.IO;
+using DotNet.UnitTestingFrameworks.Common.Exceptions;
 
 namespace DotNet.UnitTestingFrameworks.API.Utils
 {

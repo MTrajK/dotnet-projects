@@ -1,6 +1,6 @@
-﻿using Castle.DynamicProxy;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Castle.DynamicProxy;
 
 namespace DotNet.UnitTestingFrameworks.Mock
 {
