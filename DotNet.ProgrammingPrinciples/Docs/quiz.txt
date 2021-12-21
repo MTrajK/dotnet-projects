@@ -1,0 +1,136 @@
+1 question:
+KISS is:
+
+Possible answers:
+French kiss
+Rock band
+Keep It Simple, Stupid
+Keep It Short, Smart
+
+The correct answer:
+Keep It Simple, Stupid
+
+---------------------------------------------------
+
+
+2 question:
+YAGNI is about:
+
+Possible answers:
+Not adding functionality until deemed necessary
+Japan anime
+Not repeating functionalities
+Single responsibility
+
+The correct answer:
+Not adding functionality until deemed necessary
+
+---------------------------------------------------
+
+
+3 question:
+DRY is also known as:
+
+Possible answers:
+Don't retreat yourself
+Once and only once
+Do it right
+Damn right, yes
+
+The correct answer:
+Once and only once
+
+---------------------------------------------------
+
+
+4 question:
+SOLID is a mnemonic acronym for four design principles.
+
+Possible answers:
+True
+False
+
+The correct answer:
+False
+
+---------------------------------------------------
+
+
+5 question:
+SRP stands for Single Responsibility Pattern.
+
+Possible answers:
+True
+False
+
+The correct answer:
+False
+
+---------------------------------------------------
+
+
+6 question:
+OCP stands for Open/Closed Principle.
+
+Possible answers:
+True
+False
+
+The correct answer:
+True
+
+---------------------------------------------------
+
+
+7 question:
+LSP stands for:
+
+Possible answers:
+Language Server Protocol
+Label-Switched Path
+Liskov Substitution Principle
+Language Substraction Principle
+
+The correct answer:
+Liskov Substitution Principle
+
+---------------------------------------------------
+
+
+8 question:
+ISP deals with the disadvantages of:
+
+Possible answers:
+Fat interfaces
+Slim classes
+Fat methods
+Slim methods
+
+The correct answer:
+Fat interfaces
+
+---------------------------------------------------
+
+
+9 question:
+DIP stands for Dependency-Injection Principle.
+
+Possible answers:
+True
+False
+
+The correct answer:
+False
+
+---------------------------------------------------
+
+
+10 question:
+We can refactor some parts of the code without having unit tests for that part.
+
+Possible answers:
+True
+False
+
+The correct answer:
+False

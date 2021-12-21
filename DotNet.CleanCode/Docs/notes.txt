@@ -1,0 +1,325 @@
+There will be code
+
+Someone will say that the code is no longer the issue! That we should be concerned about models and requirements instead. Indeed some have suggested that we are close to the end of code. That soon all code will be generated instead of written (GitHub Copilot). The programmers won't be needed because business people will generate programs from specification.
+
+NONSENSE! We will NEVER be rid of code, because code represents the details of the requirements.  
+These machines will have to be able to understand us so well that they can translate vaguely specified needs into perfectly executing programs that precisely meet those needs. This will never happen! Not even humans, with all their intuition and creativity, have been able to create successful systems from the vague feelings of their customers.
+
+Remember that code is really the language in which we ultimately express the requirements. We may create languages that are closer to the requirements. We may create tools that help us parse and assemble those requirements into formal structures. But we will never eliminate necessary precision - so there will always be code.
+
+
+----------------------------------------------
+
+Bad code
+
+Bad code can bring companies down!
+We've all looked at the mess we've just made and then have chosen to leave it for another day. We've all felt the relief of seeing our messy program work and deciding that a working mess is better than nothing. We've all said we'd go back and clean it up later. But LATER EQUALS NEVER.
+
+Requirements
+The most prominent facts in software development: REQUIREMENTS ALWAYS CHANGE (especially in the agile world)! Remember, the most volatile things in most software projects are requirements. We live in a world of changing requirements, and our job is to make sure that our software can survive those changes.
+New requirements, new changes (requirements change in ways that thwart the original code).
+The requirements make life hell if we have bad code.
+
+
+
+The cost of owning a mess
+Every change we make to the code breaks two or three other parts of the code. No change is trivial. Over time the mess becomes so big and so deep and so tall, we can not clean it up. There is no way at all.
+In the end we end up complaining about deadlines, managers, intolerant customers, etc etc... But the only fault is ours!
+The managers, customers, etc defend the schedule and requirements with passion - but that's their job. But it's our job to DEFEND the code with equal passion! (fighting for more time for - clean code, refactoring, unit tests, etc) Because we know more about ours codebase than anyone else!!!
+The only way to make the deadline - the only way to go fast - is to keep the code as CLEAN as possible at all the times!!!
+
+
+----------------------------------------------
+
+Clean code
+
+Why clean code?
+The ratio of time spent reading vs. writing is well over 10:1. So we are constantly READING old code as part of the effort to write new code!
+Because the ratio is so high, we want the reading of code to be easy, even if it makes the writing harder!
+Making the code easy to read actually makes it easier to write! There is no escape from this logic. You cannot write code if you cannot read the surrounding code.
+
+The boy scout rule
+- Leave the campground cleaner than you found it!
+If we all checked-in our code a little cleaner than when we checked it out, the code simply could not rot. (change one variable name, eliminate one small bit of duplication, etc...)
+
+
+
+
+REQUIREMENTS ALWAYS CHANGE. So if we want to make our live easier, then we want to write clean code that future us will understand. Remember, we aren't writing code for the client, or for the manager, or for some other stakeholder! WE ARE WRITING CODE FOR THE FUTURE US!
+The most important thing is: YOU'RE NOT WRITING CODE TO MAKE YOUR MANAGER HAPPY, YOU'RE WRITING CODE TO MAKE THE FUTURE YOU HAPPY! So don't let someone to encourage you to use bad practices.
+
+
+
+Care - clean code is code that has been taken care of. Someone has taken the time to keep it simple and orderly. They have paid appropriate attention to details. They have cared.
+
+
+----------------------------------------------
+
+Meaningful names
+
+Names are everywhere in software. We name our variables, our functions, our arguments, classes, and packages. We name source files and the directories that contain them. We name and name and name. Because we do so much of it, we'd better do it well. 
+Choosing good names takes time but saves more than it takes. So take care with your names and change them when you find better ones.
+The hardest thing about choosing good names is that it requires good descriptive skills and a shared cultural background.
+One difference between a smart programmer and a professional programmer is that the professional understands that clarity is king. Professionals use their powers for good and write code that others can understand!
+
+- Use intention-revealing names
+The name of a variable, function, or class, should answer ALL the big questions. It should tell you why it exists, what it does, and how it is used. If name requires a comment, then the name does not reveal its intent!
+int d; // elapsed time in days 		- reveals nothing
+int elapsedTimeInDays;				- says everything
+
+- Avoid disinformation
+Beware of using names which vary in small ways.
+XYZControllerForEfficientHandlingOfStrings and XYZControllerForEfficientStorageOfStrings - it is hard to spot the difference.
+A truly awful example of disinformative names would be the use of lower-case L or uppercase o as variable names, especially in combination. Look like the constant one and zero.
+int a = 1;
+if ( O = l)
+	a = Ol;
+else
+	l = 01;
+
+- Make meaningful distinctions
+Number-series naming (a1, a2, ... aN) is the opposite of intentional naming. Such names are not disinformative - they are noninformative; they provide no clue to the author's intention.
+Avoid noise words: Name instead NameString, Customer instead CustomerObject, money instead moneyAmount, account instead accountData.
+
+- Use pronounceable names
+If you can't pronounce it, you can't discuss it without sounding like an idiot. This matters because programming is a social activity!
+Date genymdhms;				- can not be pronounced
+Date generationTimestamp; 
+
+- Use searchable names
+Single-letter names and numeric constants have a particular problem in that they are not easy to locate across a body of text.
+
+- Interfaces and Implementations
+Uncle Bob prefer not using I in front of the interface name, ShapeFactory instead of IShapeFactory. But I don't agree, I'm using I in front of interface (and many of you will use it).
+
+- Class names
+Classes and objects should have noun or noun phrase names like Customer, WikiPage, Account, AddressParser... Avoid words like Manager, Processor, Data, or Info in the name of a class. A class name should not be a verb!
+
+- Method names
+Methods should have verb or verb phrase names like postPayment, deletePage, or saveSomething.
+
+- Pick one word per concept
+Pick one word for one abstract concept and stick with it. For instance, it's confusing to have fetch, retrieve, and get as equivalent methods of different classes. Likewise it's confusing to have a controller and a manager and a driver in the same code base.
+
+- Don't be cute
+Don't use humor. 
+
+- Don't pun
+Using same word for two purposes. One word per concept.
+
+- Don't add gratuitous context
+If the imaginary application called "Gas Station Deluxe", it is a bad idea to prefix every class with GSD!
+
+
+----------------------------------------------
+
+Functions
+
+Functions are the verbs of that language, and classes are the nouns.
+
+- Small!
+The first rule of functions is that they should be small. The second rule of functions is that they should be smaller than that.
+Functions should hardly ever be 20 lines long (maximum size). Functions should be several lines long (5? 10?).
+
+- Blocks and indenting
+The blocks within if statements, else statements, while statements, and so on should be one line long. Probably that line should be a function call.
+
+- Do one thing
+Functions should do one thing. They should do it well. They should do it only.
+Sections within functions - This is an obvious symptom of doing more than one thing. Functions that do one thing cannot be reasonably divided into sections.
+
+- Switch statements
+It's hard to make a small switch statement.
+It's also hard to make a switch statement that does one thing.
+Unfortunately we can't always avoid switch statements, but we can make sure that each switch statement is buried in a low-level class and is never repeated. We do this of course, with polymorphism. Also another solution is to bury the switch statement in the basement of an factory pattern.
+
+- Use descriptive names
+You know you are working on clean code when each routine turns out to be pretty much what you expected.
+The smaller and more focused a function is, the easier it is to chose a descriptive name.
+Don't be afraid to make a name long. A long descriptive name is better than a short enigmatic name. A long descriptive name is better than a long descriptive comment.
+Don't be afraid to spend time choosing a name.
+Be consistent in your names. Use the same phrases, nouns, and verbs in the function names you choose for your modules.
+
+- Function arguments
+The ideal number of arguments for a function is zero.
+Next comes one, followed by two. The arguments should be avoided where possible.
+More than three requires very special justification and then shouldn't be used anyway. When function seems to need more than two or three arguments, it is likely that some of those arguments ought to be wrapped into a class of their own.
+Arguments are even harder from a testing point of view. With more than two arguments, testing every combination of appropriate values can be daunting.
+Output arguments
+Output arguments are harder to understand than input arguments. We don't usually expect information to be going out through the arguments (out through return value).
+
+- Flag arguments
+Flag arguments are ugly. Passing a boolean into a function is a truly terrible practice. It immediately complicates the signature of the method, loudly proclaiming that this function does more than one thing. It does one thing if the flag is true and another if the flag is false!
+
+- Have no side effects
+Side effects are lies. Your function promises to do one thing, but it also does other hidden things.
+Functions should either do something or answer something, but not both.
+
+- Exeptions
+Prefer exceptions to returning error codes
+Extract try/catch block (extract bodies in separate functions)
+Error handling is one thing (functions should do one thing, error handling is one thing. Thus a function that handles errors should do nothing else)
+
+
+----------------------------------------------
+
+Comments
+
+Don't comment bad code - rewrite it!
+
+Nothing can be quite so helpful as a well-placed comment. Nothing can be quite so damaging as an old crufty comment that propagates lies and misinformation.
+The proper use of comments is to compensate for our failure to express ourself in code. Comments are always failures.
+Why am I so down on comments? Because they lie. Not always, and not intentionally, but too often.
+Inaccurate comments are far worse than no comments at all.
+Truth can only be found in one place: THE CODE. Only the code can truly tell you what it does. So focus on clean code, not commenting.
+
+- Comments do not make up for bad code
+One of the more common motivations for writing comments is bad code.
+We see a mess and we say to ourselves, "Ooh, I'd better comment that!" No! You'd better clean it!
+
+- Explain yourself in code
+// Check to see if the employee is eligible for full benefits
+if ((employee.flags & HOURLY_FLAG) && (employee.age > 65))
+Why not something like this?
+if (employee.isEligibleForFullBenefits())
+
+
+1. Good Comments
+Some comments are necessary or beneficial. But keep in mind, that the only truly good comment is the comment you found a way not to write it.
+1. Legal comment (company copyright in the beginning of file)
+2. Informative comment
+3. Explanation of intent
+4. Clarification
+5. Warning of consequences
+6. TODO comments (TODOs are jobs that the programmer thinks should be done, but for some reason can't do at the moment.)
+7. Amplification (A comment may be used to amplify the importance of something that may otherwise seem inconsequential.)
+8. Javadocs/summary in public APIs (But this also can be just as misleading, nonlocal, and dishonest as any other kind of comment.)
+
+
+2. Bad Comments
+Most comments fall into this category. Usually they are crutches or excuses for poor code.
+1. Mumbling (If you decide to write a comment, then spend the time necessary to make sure it is the best comment you can write.)
+2. Redundant comments
+3. Misleading comments
+4. Mandated comments (It is just plain silly to have a rule that says that every function must have a javadoc/summary, or every variable must have a comment.)
+5. Journal comments (Sometime people add a comment to the start of a module every time they edit it. Why??? You have a version control that does it for you.)
+6. Noise comments (these comments are so noisy that we learn to ignore them.)
+7. Don't use a comment when you can use a function or a variable
+8. Position markers
+9. Closing brace comments
+10. Commented-out code (others who see that commented-out code won't have the courage to delete it. They'll think it is there for a reason and is too important to delete.)
+11. Nonlocal information (don't offer systemwide information in the context of a local comment.)
+12. Too much information
+13. Function headers (short functions don't need much description. A well-chosen name for a small function that does one thing is usually better than a comment header.)
+14. Javadocs/summary in nonpublic code
+
+
+----------------------------------------------
+
+Formatting
+You should choose a set of simple rules that govern the format of your code, and then you should consistently apply those rules. If you are working on a team, then the team should agree to a single set of formatting rules and all members should comply. It helps to have an automated tool that can apply those formating rules for you.
+A good software system is composed of a set of documents that read nicely.
+
+- The purpose of formatting
+First of all, let's be clear. Code formatting is important. Code formatting is about communication, and communication is the professional developer's first order of business.
+The functionality that you create today has a good chance of changing in the next release, but the readability of your code will have a profound effect on all the changes that will ever be made.
+
+
+1. Vertical formatting
+Small files - 200 lines long with upper limit of 500? It should be considered very desirable.
+
+- Vertical openness between concepts 
+Blank lines between block of properties, constructors, methods...
+
+- Vertical distance
+Concepts that are closely related should be kept vertically close to each other.
+
+- Variable declarations
+In the function, variables should be declared as close to their usage as possible.
+Local variables should appear at the top of each function.
+Control variables for loops should usually be declared within the loop statement.
+
+- Instance variables
+Should be declared at the top of the class. They are used by many, if not all, of the methods of the class.
+
+- Dependent functions
+If one function calls another, they should be vertically close, and the caller should be above the calee, if at all possible.
+
+- Vertical ordering
+We expect low-level details to come last.
+
+
+2. Horizontal formatting
+How wide a line should be? Max 100-120.
+
+- Horizontal openness and density
+Surround the assignment operators with space to accentuate them.
+Separate arguments within the function call parenthesis to accentuate the comma and show that the arguments are separate.
+
+- Horizontal alignment
+Don't put tabs to align things horizontally (just one whitespace is enough between them).
+
+- Indentation
+A source file is a hierarchy rather like an outline.
+Without indentation, programs would be virtually unreadable by humans.
+
+
+----------------------------------------------
+
+Error handling
+
+Error handling is important, but if it obscures logic, it's wrong.
+
+- Use exceptions rather than return codes
+The calling code is cleaner. Its logic is not obscured by error handling.
+
+- Provide context with exceptions
+You get stack trace from any exception: however, a stack trace can't tell you the intent of the operation that failed.
+Create informative error messages and pass them along with your exceptions.
+
+- Don't return null!
+The first on the list of things we do that invite errors is returning null!
+All it takes is one missing null check to send an application spinning out of control.
+If you are tempted to return null from a method, consider throwing an exception or returning a special case object instead.
+If you are calling a null-returning method from a third-party API, consider wrapping that method with a method that either throws an exception or returns a special case object.
+
+- Don't pass null!
+Returning null from methods is bad, but passing null into methods is worse.
+Unless you are working with an API which expect you to pass null, you should avoid passing null in your code whenever possible.
+The rational approach is to forbid passing null by default.
+
+
+----------------------------------------------
+
+Unit tests
+
+Code without tests is not clean. (no matter how elegant it is, no matter how readable and accessible, if it hath not tests, it be unclean)
+Test code is just as important as production code. It requires thought, design, and care. It must be kept as clean as production code.
+If you don't keep your tests clean, you will lose them. And without them you lose the very thing that keeps your production code flexible.
+Readability is perhaps even more important in unit tests than it is in the production code.
+
+
+----------------------------------------------
+
+Classes
+
+- Class organization
+A class should begin with a list of variables. Public static constants, if any, should come first. Then private static variables, followed by private instance variables.
+Public functions should follow the list of variables. We like to put the private utilities called by a public function right after the public function itself. This follows the stepdown rule and helps the program read like a newspaper article.
+
+- Encapsulation
+We like to keep our variables and utility functions private.
+
+- Classes should be small
+The first rule of classes is that they should be small. The second rule of classes is that they should be smaller than that.
+The name of a class should describe what responsibilities it fulfills. In fact, naming is probably the first way of helping determine class size. If we cannot derive a concise name for a class, then it's likely too large.
+We should also be able to write a brief description of the class in about 25 words, without using the words "if", "and", "or", or "but".
+We want our systems to be composed of many small classes, not a few large ones.
+
+- Cohesion
+A class in which each variable is used by each method is maximally cohesive.
+When cohesion is high, it means that the methods and variables of the class are co-dependent and hang together as a logical whole.
+When classes lose cohesion, split them!
+So breaking a large function into many smaller functions often gives us the opportunity to split several smaller classes out as well. This gives our program a much better organization and a more transparent structure.
+
+- SOLID

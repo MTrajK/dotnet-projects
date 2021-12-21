@@ -1,16 +1,17 @@
-Question:
+1 question:
 Unit test is an automated piece of code that invokes the unit of work and checks assumptions about a single end result
 
 Possible answers:
 True
 False
 
-The right answer:
+The correct answer:
 True
 
 ----------------------------------------------------------
 
-Question:
+
+2 question:
 What is SUT?
 
 Possible answers:
@@ -19,24 +20,26 @@ System Under Torture
 Scenario Under Test
 System Under Test
 
-The right answer:
+The correct answer:
 System Under Test
 
 ----------------------------------------------------------
 
-Question:
+
+3 question:
 What is the most readable unit testing method naming pattern?
 
 Possible answers:
 [UnitOfWorkName]_[TestNumber]
 [UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedBehavior]
 
-The right answer:
+The correct answer:
 [UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedBehavior]
 
 ----------------------------------------------------------
 
-Question:
+
+4 question:
 AAA in unit testing stands for
 
 Possible answers:
@@ -45,36 +48,39 @@ Authentication, Authorization and Accounting
 Arrange, Act, Assert
 Act, Arrange, Assert
 
-The right answer:
+The correct answer:
 Arrange, Act, Assert
 
 ----------------------------------------------------------
 
-Question:
+
+5 question:
 We are using isolation/mocking frameworks to isolate the unit tests from external dependencies
 
 Possible answers:
 True
 False
 
-The right answer:
+The correct answer:
 True
 
 ----------------------------------------------------------
 
-Question:
+
+6 question:
 We should have logic in our tests
 
 Possible answers:
 True
 False
 
-The right answer:
+The correct answer:
 False
 
 ----------------------------------------------------------
 
-Question:
+
+7 question:
 When using TDD, we start with
 
 Possible answers:
@@ -83,12 +89,13 @@ Writing a failing test
 Writing a passing test
 Refactoring code
 
-The right answer:
+The correct answer:
 Writing a failing test
 
 ----------------------------------------------------------
 
-Question:
+
+8 question:
 Integration tests are
 
 Possible answers:
@@ -97,25 +104,27 @@ Slow
 Non-isolated
 Isolated
 
-The right answer:
+The correct answers:
 Slow
 Non-isolated
 
 ----------------------------------------------------------
 
-Question:
+
+9 question:
 Only the code should be readable, tests don't matter
 
 Possible answers:
 True
 False
 
-The right answer:
+The correct answer:
 False
 
 ----------------------------------------------------------
 
-Question:
+
+10 question:
 Should we write unit tests?
 
 Possible answers:
@@ -124,5 +133,5 @@ When possible
 We should write unit tests even in our dreams
 When the manager asks for them
 
-The right answer:
+The correct answer:
 We should write unit tests even in our dreams

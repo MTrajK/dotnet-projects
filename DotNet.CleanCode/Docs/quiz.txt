@@ -1,0 +1,173 @@
+1 question:
+Soon all code will be generated instead of written. The code will be no longer the issue.
+
+Possible answers:
+Of course, GitHub Copilot
+Nonsense
+Maybe
+Idk
+
+The correct answer:
+Nonsense
+
+----------------------------------------------------------
+
+
+2 question:
+Deadlines, managers, intolerant customers, are responsible for having a bad codebase. We're just following their instructions.
+
+Possible answers:
+True
+False
+
+The correct answer:
+False
+
+----------------------------------------------------------
+
+
+3 question:
+We are spending more time reading code than writing code.
+
+Possible answers:
+True
+False
+
+The correct answer:
+True
+
+----------------------------------------------------------
+
+
+4 question:
+A long descriptive name is better than a short enigmatic name.
+
+Possible answers:
+True
+False
+
+The correct answer:
+True
+
+----------------------------------------------------------
+
+
+5 question:
+When naming something, we should:
+
+Possible answers:
+Avoid intention-revealing names
+Avoid pronounceable names
+Avoid noise words
+Avoid searchable names
+
+The correct answer:
+Avoid noise words
+
+----------------------------------------------------------
+
+
+6 question:
+Methods are nouns, and classes are verbs in programming languages.
+
+Possible answers:
+True
+False
+
+The correct answer:
+False
+
+----------------------------------------------------------
+
+
+7 question:
+A function should:
+
+Possible answers:
+Do more things
+Be small
+Have side effects
+Have flag arguments
+
+The correct answer:
+Be small
+
+----------------------------------------------------------
+
+
+8 question:
+A class should begin with (when all of these are present):
+
+Possible answers:
+List of variables
+Constructor
+Private functions
+Public functions
+
+The correct answer:
+List of variables
+
+----------------------------------------------------------
+
+
+9 question:
+Use exceptions rather than return codes.
+
+Possible answers:
+True
+False
+
+The correct answer:
+True
+
+----------------------------------------------------------
+
+
+10 question:
+It's okay to work with nulls (pass to/return from function).
+
+Possible answers:
+True
+False
+
+The correct answer:
+False
+
+----------------------------------------------------------
+
+
+11 question:
+Comment unused code, you'll need it in the future.
+
+Possible answers:
+True
+False
+
+The correct answer:
+False
+
+----------------------------------------------------------
+
+
+12 question:
+Common formatting rules are important for clean code.
+
+Possible answers:
+True
+False
+
+The correct answer:
+True
+
+----------------------------------------------------------
+
+
+13 question:
+Clean code is possible without clean tests.
+
+Possible answers:
+True
+False
+
+The correct answer:
+False
