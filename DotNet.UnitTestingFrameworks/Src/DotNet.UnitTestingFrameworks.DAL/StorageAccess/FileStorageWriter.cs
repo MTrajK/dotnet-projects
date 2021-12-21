@@ -18,7 +18,7 @@ namespace DotNet.UnitTestingFrameworks.DAL.StorageAccess
         public string Write(UserModel user)
         {
             var fileName = StorageUtils.GenerateFileName();
-            var filePath = StorageUtils.ConcatenateFilePath(fileName, _fileStorageOptions.CurrentValue.FileStorageLocation);
+            var filePath = StorageUtils.ConcatenateFilePath(_fileStorageOptions.CurrentValue.FileStorageLocation, fileName);
 
             using (StreamWriter writer = new StreamWriter(filePath))
             {

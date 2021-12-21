@@ -17,7 +17,7 @@ namespace DotNet.UnitTestingFrameworks.DAL.StorageAccess
 
         public UserModel Read(string fileName)
         {
-            var filePath = StorageUtils.ConcatenateFilePath(fileName, _fileStorageOptions.CurrentValue.FileStorageLocation);
+            var filePath = StorageUtils.ConcatenateFilePath(_fileStorageOptions.CurrentValue.FileStorageLocation, fileName);
             UserModel user;
 
             using (StreamReader reader = new StreamReader(filePath))

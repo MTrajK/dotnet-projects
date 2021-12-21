@@ -4,9 +4,9 @@ namespace DotNet.UnitTestingFrameworks.DAL.StorageAccess
 {
     public static class StorageUtils
     {
-        public static string ConcatenateFilePath(string fileName, string fileStorageLocation)
+        public static string ConcatenateFilePath(string fileStorageLocation, string fileName)
         {
-            return string.Format("{0}//{1}", fileName, fileStorageLocation);
+            return string.Format("{0}//{1}", fileStorageLocation, fileName);
         }
 
         public static string GenerateFileName()
