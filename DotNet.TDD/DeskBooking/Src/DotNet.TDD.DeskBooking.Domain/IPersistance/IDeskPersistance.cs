@@ -1,7 +1,12 @@
-﻿namespace DotNet.TDD.DeskBooking.Domain.IPersistance
+﻿using DotNet.TDD.DeskBooking.Domain.Entities;
+
+namespace DotNet.TDD.DeskBooking.Domain.IPersistance
 {
     public interface IDeskPersistance
     {
-        public string CreateDesk(string name);
+        public long Add(DeskEntity newDesk);
+        public DeskEntity Delete(long id);
+        public DeskEntity Get(long id);
+        public IEnumerable<DeskEntity> GetAll();
     }
 }

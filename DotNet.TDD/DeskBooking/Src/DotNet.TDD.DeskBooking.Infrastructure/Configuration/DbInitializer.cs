@@ -6,7 +6,7 @@ namespace DotNet.TDD.DeskBooking.Infrastructure.Configuration
     {
         public static void Initialize(DeskBookingContext context)
         {
-            // Do I need this??? This isn't needed for the migrations
+            // Just in case if the DB isn't created with the existing migrations
             context.Database.EnsureCreated();
         }
     }

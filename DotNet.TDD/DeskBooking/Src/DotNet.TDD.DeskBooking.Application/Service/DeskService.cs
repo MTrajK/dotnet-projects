@@ -1,5 +1,8 @@
 ﻿using DotNet.TDD.DeskBooking.Application.IService;
+using DotNet.TDD.DeskBooking.Domain.DTOs.Requests;
+using DotNet.TDD.DeskBooking.Domain.DTOs.Responses;
 using DotNet.TDD.DeskBooking.Domain.IPersistance;
+using DotNet.TDD.DeskBooking.Domain.Mappings;
 
 namespace DotNet.TDD.DeskBooking.Application.Service
 {
@@ -12,9 +15,24 @@ namespace DotNet.TDD.DeskBooking.Application.Service
             _deskPersistance = deskPersistance;
         }
 
-        public string CreateDesk(string name)
+        public long Add(DeskRequest request)
         {
-            return _deskPersistance.CreateDesk(name);
+            return _deskPersistance.Add(request.ToEntity());
+        }
+
+        public DeskResponse Delete(long id)
+        {
+            return _deskPersistance.Delete(id).ToResponse();
+        }
+
+        public DeskResponse Get(long id)
+        {
+            return _deskPersistance.Get(id).ToResponse();
+        }
+
+        public IEnumerable<DeskResponse> GetAll()
+        {
+            return _deskPersistance.GetAll().ToResponseList();
         }
     }
 }

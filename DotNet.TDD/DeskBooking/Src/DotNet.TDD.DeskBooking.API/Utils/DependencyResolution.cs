@@ -5,26 +5,28 @@ using DotNet.TDD.DeskBooking.Infrastructure.Context;
 using DotNet.TDD.DeskBooking.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 
-namespace DotNet.TDD.DeskBooking.API.Extensions
+namespace DotNet.TDD.DeskBooking.API.Utils
 {
     public static class DependencyResolution
     {
-        public static void AddDatabaseContext(this IServiceCollection services)
+        public static void AddDatabaseContext(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<DeskBookingContext>(options =>
-                options.UseSqlServer("Server=localhost;Database=DeskBooking;User Id=sa;Password=DotNetTDD2022;TrustServerCertificate=True;"));
+                options.UseSqlServer(configuration.GetConnectionString("DeskBookingDB")));
         }
 
         public static void AddInfrastructureDependencies(this IServiceCollection services)
         {
             services.AddTransient<IEmployeePersistance, EmployeePersistance>();
             services.AddTransient<IDeskPersistance, DeskPersistance>();
+            services.AddTransient<IBookingPersistance, BookingPersistance>();
         }
 
         public static void AddApplicationDependencies(this IServiceCollection services)
         {
             services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddTransient<IDeskService, DeskService>();
+            services.AddTransient<IBookingService, BookingService>();
         }
     }
 }

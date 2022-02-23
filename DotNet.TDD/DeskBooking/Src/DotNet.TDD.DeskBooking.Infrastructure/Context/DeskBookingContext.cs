@@ -5,8 +5,9 @@ namespace DotNet.TDD.DeskBooking.Infrastructure.Context
 {
     public class DeskBookingContext : DbContext
     {
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Desk> Desks { get; set; }
+        public DbSet<EmployeeEntity> Employees { get; set; }
+        public DbSet<DeskEntity> Desks { get; set; }
+        public DbSet<BookingEntity> Bookings { get; set; }
 
         public DeskBookingContext(DbContextOptions<DeskBookingContext> options) : base(options)
         {
@@ -14,8 +15,10 @@ namespace DotNet.TDD.DeskBooking.Infrastructure.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employee>().ToTable("Employee");
-            modelBuilder.Entity<Desk>().ToTable("Desk");
+            // No need from Fluent API mapping! 
+            // The tables are already created using the properties from EmployeeEntity, DeskEntity and BookingEntity.
+            // Id is taken as primary key everywhere, in BookingEntity DeskId and EmployeeId are taken as foreign keys.
+            // Only seed some DB data here if you need.
         }
     }
 }

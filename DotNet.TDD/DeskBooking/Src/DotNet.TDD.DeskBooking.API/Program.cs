@@ -1,4 +1,4 @@
-using DotNet.TDD.DeskBooking.API.Extensions;
+using DotNet.TDD.DeskBooking.API.Utils;
 
 namespace DotNet.TDD.DeskBooking.API
 {

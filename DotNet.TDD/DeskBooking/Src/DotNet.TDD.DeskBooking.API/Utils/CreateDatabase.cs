@@ -1,7 +1,7 @@
 ﻿using DotNet.TDD.DeskBooking.Infrastructure.Configuration;
 using DotNet.TDD.DeskBooking.Infrastructure.Context;
 
-namespace DotNet.TDD.DeskBooking.API.Extensions
+namespace DotNet.TDD.DeskBooking.API.Utils
 {
     public static class CreateDatabase
     {
