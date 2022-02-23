@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DotNet.TDD.DeskBooking.Infrastructure.Context
 {
-    public class DeskBookingContext : DbContext
+    public class DeskBookingContext : DbContext, IDeskBookingContext
     {
         public DbSet<EmployeeEntity> Employees { get; set; }
         public DbSet<DeskEntity> Desks { get; set; }
@@ -19,6 +19,11 @@ namespace DotNet.TDD.DeskBooking.Infrastructure.Context
             // The tables are already created using the properties from EmployeeEntity, DeskEntity and BookingEntity.
             // Id is taken as primary key everywhere, in BookingEntity DeskId and EmployeeId are taken as foreign keys.
             // Only seed some DB data here if you need.
+        }
+
+        public int SaveContextChanges()
+        {
+            return SaveChanges();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace DotNet.TDD.DeskBooking.API.Utils
     {
         public static void AddDatabaseContext(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<DeskBookingContext>(options =>
+            services.AddDbContext<IDeskBookingContext, DeskBookingContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DeskBookingDB")));
         }
 

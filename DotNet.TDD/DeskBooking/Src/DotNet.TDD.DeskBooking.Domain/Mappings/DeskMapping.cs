@@ -29,13 +29,7 @@ namespace DotNet.TDD.DeskBooking.Domain.Mappings
 
         public static IEnumerable<DeskResponse> ToResponseList(this IEnumerable<DeskEntity> entities)
         {
-            return entities.Select(entity => new DeskResponse()
-            {
-                Id = entity.Id,
-                Floor = entity.Floor,
-                Number = entity.Number,
-                Capacity = entity.Capacity
-            });
+            return entities.Select(entity => entity.ToResponse());
         }
     }
 }

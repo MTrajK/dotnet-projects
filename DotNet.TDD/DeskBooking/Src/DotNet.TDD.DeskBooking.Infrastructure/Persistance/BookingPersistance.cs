@@ -7,9 +7,9 @@ namespace DotNet.TDD.DeskBooking.Infrastructure.Persistance
 {
     public class BookingPersistance : IBookingPersistance
     {
-        private readonly DeskBookingContext _dbContext;
+        private readonly IDeskBookingContext _dbContext;
 
-        public BookingPersistance(DeskBookingContext dbContext)
+        public BookingPersistance(IDeskBookingContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -17,7 +17,7 @@ namespace DotNet.TDD.DeskBooking.Infrastructure.Persistance
         public long Add(BookingEntity newBooking)
         {
             _dbContext.Bookings.Add(newBooking);
-            _dbContext.SaveChanges();
+            _dbContext.SaveContextChanges();
 
             return newBooking.Id;
         }
@@ -27,7 +27,7 @@ namespace DotNet.TDD.DeskBooking.Infrastructure.Persistance
             var deletedBooking = Get(id);
 
             _dbContext.Bookings.Remove(deletedBooking);
-            _dbContext.SaveChanges();
+            _dbContext.SaveContextChanges();
 
             return deletedBooking;
         }

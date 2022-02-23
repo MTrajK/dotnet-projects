@@ -9,15 +9,15 @@ namespace DotNet.TDD.DeskBooking.Application.Service
 {
     public class BookingService : IBookingService
     {
-        private readonly IBookingPersistance _bookingPersistance;
         private readonly IEmployeePersistance _employeePersistance;
         private readonly IDeskPersistance _deskPersistance;
+        private readonly IBookingPersistance _bookingPersistance;
 
-        public BookingService(IBookingPersistance bookingPersistance, IEmployeePersistance employeePersistance, IDeskPersistance deskPersistance)
+        public BookingService(IEmployeePersistance employeePersistance, IDeskPersistance deskPersistance, IBookingPersistance bookingPersistance)
         {
-            _bookingPersistance = bookingPersistance;
             _employeePersistance = employeePersistance;
             _deskPersistance = deskPersistance;
+            _bookingPersistance = bookingPersistance;
         }
 
         public long Add(BookingRequest request)
