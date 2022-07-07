@@ -21,7 +21,8 @@ Used techs and things:
 - External API: https://catfact.ninja/
 
 ### Requirement for best experience
-Visual Studio 2022 (at least, if there is newer version in future)
+- Visual Studio 2022 (at least, if there is newer version in future)
+- Installed SQL Server (for the Demo3)
 
 ### Start app
 - Set as Startup Project the API project you want to run, for example -> Demo2/Src/DotNet.IntegrationTesting2.API and run the app.
