@@ -14,7 +14,7 @@ Simple API app that allows creating a user (user's info is saved in JSON file lo
 - 3tier Architecture
 
 ### Requirement for best experience
-Visual Studio installed with Azure Development tool.
+Visual Studio 2022 (at least, if there is newer version in future)
 
 ### Configuration
 - Set as Startup Project -> Src/DotNet.UnitTestingFrameworks.API

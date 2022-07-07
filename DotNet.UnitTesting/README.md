@@ -5,5 +5,7 @@
 - [Docs](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.UnitTesting/Docs) - PowerPoint presentation and some notes.
 - DemoX - The demos from the presentation (demo numbers could be found in the power point slide notes).
 
+## Demo Code
+
 ### Requirement for best experience
-Visual Studio.
+Visual Studio 2022 (at least, if there is newer version in future)

@@ -1,0 +1,140 @@
+Integration tests in ASP.NET Core
+https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-6.0
+
+
+Entity Framework
+
+Testing EF Core Applications
+https://docs.microsoft.com/en-us/ef/core/testing/
+
+Choosing a testing strategy
+https://docs.microsoft.com/en-us/ef/core/testing/choosing-a-testing-strategy
+
+Testing against your production database system
+https://docs.microsoft.com/en-us/ef/core/testing/testing-with-the-database
+Code: https://github.com/dotnet/EntityFramework.Docs/blob/main/samples/core/Testing/TestingWithTheDatabase/TransactionalBloggingControllerTest.cs
+
+Testing without your production database system
+https://docs.microsoft.com/en-us/ef/core/testing/testing-without-the-database
+Code: https://github.com/dotnet/EntityFramework.Docs/blob/main/samples/core/Testing/TestingWithoutTheDatabase/SqliteInMemoryBloggingControllerTest.cs
+
+
+=================================
+
+
+Integration tests
+
+Integration tests ensure that an app's components function correctly at a level that includes the app's supporting infrastructure, such as the database, file system, and network.
+
+Integration testing is done to validate the interaction between different modules
+
+These tests ensure that component interactions work as expected against external artifacts like databases. Assertions can test component API, UI, or the side effects of actions like database I/O, logging, etc.
+EXTERNAL ARTIFACTS like DB...
+
+
++++++++++++++++++
+
+Introduction to integration tests
+
+Integration tests evaluate an app's components on a broader level than unit tests. Unit tests are used to test isolated software components, such as individual class methods. Integration tests confirm that two or more app components work together to produce an expected result, possibly including every component required to fully process a request.
+
+These broader tests are used to test the app's infrastructure and whole framework, often including the following components:
+- Database
+- File system
+- Network appliances
+- Request-response pipeline
+
+Unit tests use fabricated components, known as fakes or mock objects, in place of infrastructure components.
+
+
+In contrast to unit tests, integration tests:
+- Use the actual components that the app uses in production.
+- Require more code and data processing.
+- Take longer to run.
+
+Therefore, limit the use of integration tests to the most important infrastructure scenarios. If a behavior can be tested using either a unit test or an integration test, choose the unit test.
+
+In discussions of integration tests, the tested project is frequently called the System Under Test, or "SUT" for short. "SUT" is used throughout this topic to refer to the tested ASP.NET Core app.
+
++++++++++++++++++
+
+Integration tests in ASP.NET Core require the following:
+- A test project is used to contain and execute the tests. The test project has a reference to the SUT.
+- The test project creates a test web host for the SUT and uses a test server client to handle requests and responses with the SUT.
+- A test runner is used to execute the tests and report the test results.
+
+Integration tests follow a sequence of events that include the usual Arrange, Act, and Assert test steps:
+1. The SUT's web host is configured.
+2. A test server client is created to submit requests to the app.
+3. The Arrange test step is executed: The test app prepares a request.
+4. The Act test step is executed: The client submits the request and receives the response.
+5. The Assert test step is executed: The actual response is validated as a pass or fail based on an expected response.
+6. The process continues until all of the tests are executed.
+7. The test results are reported.
+
+Usually, the test web host is configured differently than the app's normal web host for the test runs. For example, a different database or different app settings might be used for the tests.
+
+-----------------------------------
+
+With an integration test, there's just one case when an interface needs to be mocked. When it communicates with the "real world". For example, an email that is sent or a 3rd party service that needs to be invoked.
+--- (But because integration tests are testing the integration, I think all the non-code things can be mocked!!!) --- My opinion
+
+What all we need to replace for integration testing?
+- db
+- file system
+- third party services (APIs, email services, etc...)
+- etc..
+
+-----------------------------------
+
+How the real Database could be replaced?
+- Worst: Different types of test doubles (see bellow link) or Using some random class implementation (which doesn't stores anything, just returns results, or stores things in files... repository pattern must be implemented)
+- Better: an InMemory DB (but this isn't complete copy from your DB, some features can't be tested or will behave differently)
+- Best?: using a real DB SQL/NoSQL (on the local machine, or Container-based technologies such as Docker) - creating the whole DB before running the tests
+- etc..
+
+Choosing a testing strategy
+https://docs.microsoft.com/en-us/ef/core/testing/choosing-a-testing-strategy
+
+EF testing
+When writing tests for your EF Core application, one basic decision you need to make is whether your tests will involve your production database system - just as your application does - or whether your tests will run against a test double, which replaces your production database system. Two prominent examples of test doubles in the EF Core context are SQLite in-memory mode, and the in-memory provider.
+
+-----------------------------------
+
+Repository layer for replacing the DB 
+
+https://docs.microsoft.com/en-us/ef/core/testing/choosing-a-testing-strategy#repository-pattern
+
+-----------------------------------
+
+Manual tests vs integration tests
+
+The bad scenario is that the API is tested by triggering the request via the actual application. This can be time-consuming in multiple ways:
+- It's required that the whole environment (or most of it) is up
+- It's sometimes not easy to trigger the request, for example, stepping through a process, or to fill out a form
+
+With an integration test, a test needs to be written once and only needs to be manually checked once. It has the added benefit that:
+- It's available for the whole team
+- Can be tested (and written) separately, apart from the application
+- It's fast to run
+- No extra tooling needs to be used
+
+-----------------------------------
+
+Unit vs Integration tests setup
+
+Writing unit tests usually means mocking or stubbing an interface in the application. For more complex scenarios, this setup can be long and will become unreadable over time.
+
+While in the integration tests, we're doing the setup once per all tests (setting up the infrastructure, back door).
+
+
+But the integration test needs to wait for the whole workflow to be implemented.
+While the unit test can be done for each small part independently.
+
+
+-----------------------------------
+
+Integration vs E2E (End to End) tests
+
+E2E tests everything (not just the code integration like integration tests), it uses sandbox database, third party services (APIs, emails) which are always up (they aren't created only when the test runs).
+E2E test requires the test to setup the system components as they are in production. Real database, services, queues, etc. The reason for this is to see that your system is wired correctly (database connections, configuration and such).
