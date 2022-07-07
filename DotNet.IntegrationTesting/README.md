@@ -34,8 +34,8 @@ Visual Studio 2022 (at least, if there is newer version in future)
 Integration tests in ASP.NET Core\
 https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-6.0
 
-Needs to install these NuGet packages in the test projects:
-- Microsoft.AspNetCore.Mvc.Testing (to manipulate the app startap)
+Nuget Packages that should be installed (the latest versions):
+- Microsoft.AspNetCore.Mvc.Testing (to manipulate the app startap using WebApplicationFactory)
 - Microsoft.EntityFrameworkCore.InMemory (to use in-memory DB instead of real one)
 
 ## Entity framework configuration
@@ -50,7 +50,7 @@ https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-6
 
 **Setup the projcets and code**
 
-Nuget Packages that should be installed (the latest versions):\
+Nuget Packages that should be installed (the latest versions):
 - Microsoft.EntityFrameworkCore and Microsoft.EntityFrameworkCore.SqlServe (in the DB project, in this case Infrastructure project)
 - Microsoft.EntityFrameworkCore.Design (in the startup project, in this case API project)
 
