@@ -49,15 +49,16 @@ Code that should be implemented:
 1. Create entities
 2. Create the database context (inherits from DbContext)
 3. Register the new context (startup -> ConfigureServices)
-	services.AddDbContext<SchoolContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+```cs
+services.AddDbContext<SchoolContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+```
 4. Create DbInitializer (use that in the startup from CreateDbIfNotExists - see the link from above)
 
 ---------------------------------------------
 
 **Setup the command line interface and change/update the DB using CLI**
 
-*Note: This isn't mandatory, this is just in case if you want to use the CLI to start/drop DB, or to create a migration. Otherwise the database will be created from the code.*
+*Note: This isn't mandatory, this is just in case you want to use the CLI to start/drop DB, or to create a migration. Otherwise, the database will be created from the code.*
 
 Install dotnet ef globally (the latest version)
 ```powershell
@@ -72,7 +73,7 @@ dotnet tool update --global dotnet-ef
 
 Go in the DB project (in this case Infrastructure project)
 ```powershell
-cd \<project location path\>\DotNet.IntegrationTesting\Demo3\Src\DotNet.IntegrationTesting.Demo3.Infrastructure
+cd <PROJECT PATH>\DotNet.IntegrationTesting\Demo3\Src\DotNet.IntegrationTesting.Demo3.Infrastructure
 ```
 
 
@@ -94,7 +95,7 @@ dotnet ef database update MigrationName
 ```
 Update a migration in a database (and create a database if doesn't exist) - from non-startup project
 ```powershell
-dotnet ef database update --startup-project "../DotNet.IntegrationTesting.Demo3.API"\
+dotnet ef database update --startup-project "../DotNet.IntegrationTesting.Demo3.API"
 dotnet ef database update "Initial Migration" --startup-project  "../DotNet.IntegrationTesting.Demo3.API"
 ```
 
