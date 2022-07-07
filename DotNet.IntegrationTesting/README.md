@@ -29,6 +29,15 @@ Visual Studio 2022 (at least, if there is newer version in future)
 ### Run tests
 - Use the test explorer UI, or go into the test class and right click to some method -> run test.
 
+## Integration testing configuration
+
+Integration tests in ASP.NET Core\
+https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-6.0
+
+Needs to install these NuGet packages in the test projects:
+- Microsoft.AspNetCore.Mvc.Testing (to manipulate the app startap)
+- Microsoft.EntityFrameworkCore.InMemory (to use in-memory DB instead of real one)
+
 ## Entity framework configuration
 
 Installing Entity Framework Core\
