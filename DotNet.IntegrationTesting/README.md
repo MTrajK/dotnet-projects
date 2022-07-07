@@ -49,7 +49,7 @@ https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-6
 
 ---------------------------------------------
 
-**Setup the projcets and code**
+**Setup the projects and code**
 
 Nuget Packages that should be installed (the latest versions):
 - Microsoft.EntityFrameworkCore and Microsoft.EntityFrameworkCore.SqlServe (in the DB project, in this case Infrastructure project)
