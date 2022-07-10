@@ -41,7 +41,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet.IntegrationTesting.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet.IntegrationTesting.Demo3.Infrastructure", "Demo3\Src\DotNet.IntegrationTesting.Demo3.Infrastructure\DotNet.IntegrationTesting.Demo3.Infrastructure.csproj", "{11C287AD-13B1-44E6-BECE-6CCE64E59291}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.IntegrationTesting.Demo3.IntegrationTests", "Demo3\Tests\DotNet.IntegrationTesting.Demo3.IntegrationTests1\DotNet.IntegrationTesting.Demo3.IntegrationTests.csproj", "{E168B9F1-6314-462B-8BE1-8FEE22019371}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.IntegrationTesting.Demo3.IntegrationTests", "Demo3\Tests\DotNet.IntegrationTesting.Demo3.IntegrationTests\DotNet.IntegrationTesting.Demo3.IntegrationTests.csproj", "{E168B9F1-6314-462B-8BE1-8FEE22019371}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
