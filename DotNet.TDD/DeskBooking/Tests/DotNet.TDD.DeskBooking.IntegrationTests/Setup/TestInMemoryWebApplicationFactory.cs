@@ -3,6 +3,7 @@
     using System.Linq;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc.Testing;
+    using Microsoft.AspNetCore.TestHost;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
 
@@ -13,7 +14,13 @@
     {
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
-            builder.ConfigureServices(services =>
+            /*
+             * Note: ConfigureTestServices instead of ConfigureServices.
+             * For SUTs that still use the Web Host, the test app's builder.ConfigureServices callback
+             * is executed before the SUT's Startup.ConfigureServices code.
+             * The test app's builder.ConfigureTestServices callback is executed after.
+             */
+            builder.ConfigureTestServices(services =>
             {
                 // Step 1: Remove the existing DeskBookingContext which is using a real DB
                 var descriptor = services.SingleOrDefault(

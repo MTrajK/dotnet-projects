@@ -70,7 +70,7 @@ services.AddDbContext<SchoolContext>(options => options.UseSqlServer(Configurati
 
 **Setup the command line interface and update the DB using CLI**
 
-***Note: This isn't mandatory, this is just in case you want to use the EF CLI to update/drop a DB, or to create/remove a migration. Otherwise, in this case, the database will be created from the code (CreateDatabase.CreateDbIfNotExists in Demo3).***
+***Note: This isn't mandatory, this is just in case you want to use the EF CLI to update/drop a DB, or to create/remove a migration to an existing database (for example if you have some data in the db - local or remote server - and you want to update the db with a newer db scheme). Otherwise, in this case, the database will be created from the code (CreateDatabase.CreateDbIfNotExists in Demo3).***
 
 Install dotnet ef globally (the latest version)
 ```powershell
