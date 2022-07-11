@@ -46,6 +46,8 @@ namespace DotNet.TDD.DeskBooking.API
             {
                 endpoints.MapControllers();
             });
+
+            app.CreateDbIfNotExists();
         }
     }
 }

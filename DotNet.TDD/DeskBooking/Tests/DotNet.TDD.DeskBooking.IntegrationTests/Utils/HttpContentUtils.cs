@@ -1,17 +1,17 @@
-﻿namespace DotNet.TDD.DeskBooking.IntegrationTests.Utils
-{
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Threading.Tasks;
-    using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
+namespace DotNet.TDD.DeskBooking.IntegrationTests.Utils
+{
     public static class HttpContentUtils
     {
-        public static async Task<int?> ReadAsInt(this HttpContent content)
+        public static async Task<long?> ReadAsLong(this HttpContent content)
         {
             var stringValue = await content.ReadAsStringAsync();
 
-            return int.Parse(stringValue);
+            return long.Parse(stringValue);
         }
 
         public static async Task<T> ReadAsDTO<T>(this HttpContent content)

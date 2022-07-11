@@ -1,14 +1,13 @@
-﻿namespace DotNet.TDD.DeskBooking.IntegrationTests.Setup
+﻿using DotNet.TDD.DeskBooking.Infrastructure.Context;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System.Linq;
+
+namespace DotNet.TDD.DeskBooking.IntegrationTests.Setup
 {
-    using System.Linq;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Mvc.Testing;
-    using Microsoft.AspNetCore.TestHost;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.DependencyInjection;
-
-    using DotNet.TDD.DeskBooking.Infrastructure.Context;
-
     public class TestInMemoryWebApplicationFactory<TStartup>
         : WebApplicationFactory<TStartup> where TStartup : class
     {

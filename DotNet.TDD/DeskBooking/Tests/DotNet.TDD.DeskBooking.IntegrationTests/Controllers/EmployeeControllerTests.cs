@@ -1,16 +1,15 @@
-﻿namespace DotNet.TDD.DeskBooking.IntegrationTests.Controllers
+﻿using DotNet.TDD.DeskBooking.API;
+using DotNet.TDD.DeskBooking.Domain.DTOs.Requests;
+using DotNet.TDD.DeskBooking.IntegrationTests.Setup;
+using DotNet.TDD.DeskBooking.IntegrationTests.Utils;
+using FluentAssertions;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Xunit;
+
+namespace DotNet.TDD.DeskBooking.IntegrationTests.Controllers
 {
-    using System.Net;
-    using System.Net.Http;
-    using System.Threading.Tasks;
-    using FluentAssertions;
-    using Xunit;
-
-    using DotNet.TDD.DeskBooking.IntegrationTests.Setup;
-    using DotNet.TDD.DeskBooking.API;
-    using DotNet.TDD.DeskBooking.IntegrationTests.Utils;
-    using DotNet.TDD.DeskBooking.Domain.DTOs.Requests;
-
     public class EmployeeControllerTests : IClassFixture<TestInMemoryWebApplicationFactory<Startup>>
     {
         private static HttpClient _sut;
@@ -55,7 +54,7 @@
             var httpContentWithEmployee = HttpContentUtils.IncludeDataToHttpContent(employee);
 
             var addedEmployeeResponse = await _sut.PostAsync(_addEmployeeUri, httpContentWithEmployee);
-            var addedEmployeeId = await addedEmployeeResponse.Content.ReadAsInt();
+            var addedEmployeeId = await addedEmployeeResponse.Content.ReadAsLong();
 
             var getEmployeeUri = string.Format(_getEmployeeUri, addedEmployeeId);
 

@@ -2,6 +2,7 @@
 {
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc.Testing;
+    using Microsoft.AspNetCore.TestHost;
     using Microsoft.Extensions.DependencyInjection;
 
     using DotNet.IntegrationTesting.Demo2.Application.IService;
@@ -12,7 +13,7 @@
     {
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
-            builder.ConfigureServices(services =>
+            builder.ConfigureTestServices(services =>
             {
                 // Step 1: Remove the real CatFactsService dependency
                 var serviceDescriptor = services.FirstOrDefault(descriptor => descriptor.ServiceType == typeof(ICatFactsService));

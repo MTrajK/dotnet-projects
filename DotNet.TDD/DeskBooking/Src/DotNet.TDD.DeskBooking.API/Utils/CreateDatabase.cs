@@ -5,9 +5,9 @@ namespace DotNet.TDD.DeskBooking.API.Utils
 {
     public static class CreateDatabase
     {
-        public static void CreateDbIfNotExists(this IHost host)
+        public static void CreateDbIfNotExists(this IApplicationBuilder appBuilder)
         {
-            using (var scope = host.Services.CreateScope())
+            using (var scope = appBuilder.ApplicationServices.CreateScope())
             {
                 var services = scope.ServiceProvider;
                 try

@@ -1,44 +1,30 @@
-﻿namespace DotNet.TDD.DeskBooking.IntegrationTests.Setup
+﻿using DotNet.TDD.DeskBooking.Infrastructure.Context;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Xunit;
+
+namespace DotNet.TDD.DeskBooking.IntegrationTests.Setup
 {
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Mvc.Testing;
-    using Microsoft.AspNetCore.TestHost;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.DependencyInjection;
-    using DotNet.Testcontainers.Builders;
-    using DotNet.Testcontainers.Containers;
-    using DotNet.Testcontainers.Configurations;
-    using Xunit;
-
-    using DotNet.TDD.DeskBooking.Infrastructure.Context;
-
     public class TestDockerWebApplicationFactory<TStartup>
-        : WebApplicationFactory<TStartup> 
+        : WebApplicationFactory<TStartup>, IAsyncLifetime
         where TStartup : class
     {
-        private const string _hostName = "dotnet.tdd.deskbooking.testdb";
-        private const string _dbName = "TestDeskBooking";
-        private const string _dbUsername = "sa";
-        private const string _dbPassword = "TestDotNetTDD2022";
-        private const string _dockerImage = "mcr.microsoft.com/mssql/server:2019-latest";
+        private readonly MsSqlTestContainer _testContainer;
 
-        private readonly TestcontainerDatabase _container;
-     
         public TestDockerWebApplicationFactory()
         {
-            _container = new TestcontainersBuilder<MsSqlTestcontainer>()
-                .WithDatabase(new MsSqlTestcontainerConfiguration
-                {
-                    Password = _dbPassword,
-                })
-                .WithImage(_dockerImage)
-                .WithName(_dbName)
-                .WithHostname(_hostName)
-                .Build();
-            _container.StartAsync();
+            _testContainer = new MsSqlTestContainer();
+        }
+
+        public async Task InitializeAsync()
+        {
+            await _testContainer.InitializeAsync();
         }
 
         protected override void ConfigureWebHost(IWebHostBuilder builder)
@@ -59,13 +45,27 @@
                 services.Remove(descriptor);
 
                 // Step 2: Add new DeskBookingContext with Docker database connection string
-                services.AddDbContext<IDeskBookingContext, DeskBookingContext>(options => options.UseSqlServer(GetConnectionString())); ;
+                services.AddDbContext<IDeskBookingContext, DeskBookingContext>(
+                    options => options.UseSqlServer(
+                        _testContainer.GetConnectionString(),
+                        /*
+                         * When trying to create the DB in the app workflow, everything is okay (it's created from first try).
+                         * But from here, something is wrong. Maybe the Docker isn't done with setup? 
+                         * (getting Error: 18456, Severity: 14, State: 38. from MsSql Server).
+                         */
+                        sqlOptions => sqlOptions.EnableRetryOnFailure(
+                            maxRetryCount: 10,
+                            maxRetryDelay: TimeSpan.FromSeconds(30),
+                            errorNumbersToAdd: null
+                        )
+                    )
+                );
             });
         }
 
-        private string GetConnectionString()
+        public async Task DisposeAsync()
         {
-            return $"Server={_hostName};Database={_dbName};User Id={_dbUsername};Password={_dbPassword};TrustServerCertificate=True;";
+            await _testContainer.DisposeAsync();
         }
     }
 }

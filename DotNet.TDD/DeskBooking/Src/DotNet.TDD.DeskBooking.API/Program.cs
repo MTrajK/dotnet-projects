@@ -1,5 +1,3 @@
-using DotNet.TDD.DeskBooking.API.Utils;
-
 namespace DotNet.TDD.DeskBooking.API
 {
     public class Program
@@ -7,9 +5,6 @@ namespace DotNet.TDD.DeskBooking.API
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-
-            host.CreateDbIfNotExists();
-
             host.Run();
         }
 
