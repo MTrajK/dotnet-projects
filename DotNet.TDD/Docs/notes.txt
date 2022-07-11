@@ -271,3 +271,13 @@ Why TDD 2:
 	* amplifies the pain caused by bad code
 	* enables changing the code without breaking it (refactoring without tests is the craziest thing)
 - you know only the scenario, and still don't know the implementation - so you're not designing the test having in mind the implementation (like someone else to test your implementation without seeing it)
+
+===================================================
+
+Advantages of Test Driven Development:
+- Think about the APIs
+- Think about what the code should do
+- Get fast feedback
+- Create modular code
+- Write maintainable code
+- Tests are documentation

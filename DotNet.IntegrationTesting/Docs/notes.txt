@@ -138,3 +138,8 @@ Integration vs E2E (End to End) tests
 
 E2E tests everything (not just the code integration like integration tests), it uses sandbox database, third party services (APIs, emails) which are always up (they aren't created only when the test runs).
 E2E test requires the test to setup the system components as they are in production. Real database, services, queues, etc. The reason for this is to see that your system is wired correctly (database connections, configuration and such).
+
+-----------------------------------
+
+Martin Fowler: IntegrationTest
+https://martinfowler.com/bliki/IntegrationTest.html
