@@ -1,0 +1,17 @@
+- Move up (constructor with X, Y) - fails
+- Move up (constructor with X, Y) - pass
+- Move left (constructor with X, Y) - fails
+- Move left (constructor with X, Y) - pass
+- Introduce Vector2D constructor - fails
+
+- Vector2D tests - fails
+- Vector2D tests - pass
+
+- Introduce Vector2D constructor - pass
+- Vector2d sum - fails
+- Vector2d sum - pass
+
+
+- Introducing square?
+- Inheritence?
+- Resize?

@@ -23,7 +23,7 @@ Used techs and things:
 ### Requirements
 - MS SQL Server (needs to be installed for the Demo3, a database is used in Demo3)
   * or Docker instance with running MS SQL Server (if you already has Docker installed just run this command ```docker run -e "ACCEPT_EULA=Y" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest``` which will start a Docker instance and install SQL Server 2019 there)
-  * or the third option is to use some remote database (you'll need to change the DeskBookingDB connection string located in [appsettings.json]([asd](https://github.com/MTrajK/dotnet-projects/blob/main/DotNet.IntegrationTesting/Demo3/Src/DotNet.IntegrationTesting.Demo3.API/appsettings.json)))
+  * or the third option is to use some remote database (you'll need to change the NotesDB connection string located in [appsettings.json](https://github.com/MTrajK/dotnet-projects/blob/main/DotNet.IntegrationTesting/Demo3/Src/DotNet.IntegrationTesting.Demo3.API/appsettings.json))
 - Visual Studio (2022 at least for best experience)
 
 ### Start app
@@ -38,7 +38,7 @@ Integration tests in ASP.NET Core\
 https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-6.0
 
 Nuget Packages that should be installed (the latest versions):
-- Microsoft.AspNetCore.Mvc.Testing (to manipulate the app startap using WebApplicationFactory)
+- Microsoft.AspNetCore.Mvc.Testing (to reconfigure the app startap using WebApplicationFactory)
 - Microsoft.EntityFrameworkCore.InMemory (to use in-memory DB instead of real one)
 
 ## Entity framework configuration
@@ -54,7 +54,7 @@ https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-6
 **Setup the projects and code**
 
 Nuget Packages that should be installed (the latest versions):
-- Microsoft.EntityFrameworkCore and Microsoft.EntityFrameworkCore.SqlServe (in the DB project, in this case Infrastructure project)
+- Microsoft.EntityFrameworkCore and Microsoft.EntityFrameworkCore.SqlServer (in the DB project, in this case Infrastructure project)
 - Microsoft.EntityFrameworkCore.Design (in the startup project, in this case API project)
 
 Code that should be implemented:
