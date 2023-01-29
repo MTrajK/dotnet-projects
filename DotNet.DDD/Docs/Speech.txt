@@ -1,0 +1,184 @@
+Slide 3
+
+Почнуваме најпрво со вовед
+
+Slide 4
+
+Кажи нешто за книгата, дека Eric го има coined DDD во 2004.
+покажи некои од книгите и конференциите.
+
+Slide 5
+
+Што е DDD - DDD е пристап во software develoment кој се базира на развивање на domain model што има богато познавање на процесите и правилата во доменот.
+
+We developers live to code. When starting on a new project, we are eager to jump in and start coding so that we can build some software. But you can't build software unless you truly understand the client's needs.
+
+Бидејќи Кога пишуваме ПРОФЕСИОНАЛЕН код/програма, не е битно колку е добар туку колку корисникот може да го искористи.
+You need to realize that nobody really wants your program. THEY WANT WHAT IT CAN GIVE TO THEM!
+
+
+Slide 6
+
+1. Encurage better interacion with domain experts. These are the people who live and breed the business or pocess or whatever you are targeting with the software you're planning to write. We are talking with them, but using our language, in the language of tables in databases, code classes rather than domain concepts.
+
+2. Focus on a single subdomain at a time (in complex software there are many subdomains, even complex subdomains). With DDD you DIVIDE AND CONQUER, by separating problems into separate subdomains each problem can be tackled indenpendently, making the problems much easier to solve.
+
+3. For example: The principle of separation of concerns not only plays a critical role in identifying the subdomains but within each subdomain, we use it as well.
+
+
+Slide 7
+
+DDD не е за секаде!!! Не е за секој проект, секоја апликација.
+
+DDD is a really complex topic, this is just an introduction. 
+DDD is for solving COMPLEX problems.
+DDD is for solving COMPLEX programs.
+
+Large systems often lead to complex data models.
+
+DDD is for handling complexity in business problems, not just technical complexity without business domain complexity.
+
+Slide 8
+
+Покажи ја mind map-ата и објасни што како ќе поминвуаш следно.
+И дека ова е од оригиналната книга
+
+Slide 9
+
+Two practices are Prerequisites for applying the approach in this book:
+1. Development is iterative 
+- the agile development methods are good fit.
+2. Developers and domain experts have a close relationship. 
+- DDD crunches a huge amount of knowledge into a model that reflects deep insight into the domain and a focus on the key concepts. This is a collaboration between those who know the domain and those who know how to build software. Because development is iterative, this collaboration must continue throughout the project's life.
+
+Slide 10
+
+Domain driven design != Database driven design
+Creating the model in DDD is not same as designing database (those are different things).
+
+Што побрзо сфатиме дека овие 2 поими се различни тоа побрзо ќе може да ја разбереме DDD (ја имав проблеми додека ја читав книгата, цело време си замислував како database релации)
+
+
+Slide 11
+
+Кажи прво што е domain expert, experienced луѓе во тој домен, не некои со по 1 година искуство или такво нешто (експерт значи).
+These are the people who live and breed the business or process or whatever you are targeting with the software you're planning to write.
+
+Многу е важна комуникацијата, секојдневна/честа комуникација. Инвестирај во тој relationship.
+
+
+Slide 12
+
+A bounded context is simply the boundary within a domain where a particular domain model applies.
+
+Bounded context doesn't mean separate application.
+
+Subdomain vs bounded context е различно
+
+Divide the system into multiple bounded contexts, each with its own model and language. Divide and conquer.
+
+Покажи ја сликата
+
+Има best practices како да ги делиме контекстите, но ова е само вовед.
+
+Најубаво е секој тим да си поседува свој bounded context.
+
+Explicitly define the context within which a model applies. Explicitly set boundaries in terms of team organization, usage within specific parts of application, and physical manifestations such as code bases and database schemas. 
+- Пример кај нас на проект нема никакви boundaries, секој чепка секаде (повеќе од 8 тима) и се гледа колку е тешко
+
+
+
+Slide 13
+
+Visualy emonstrates how bounded contexts connect to one another while supporting communication between teams.
+Part of creating a context map involves explicitly identifying its boundaries.
+
+Покажи ја сликата
+
+
+Slide 14
+
+Често овие контексти имаат многу заеднички работи, па така од contet map-ата може да ги заклучиме тие заеднички работи од МОДЕЛОТ (не од базата) и да креираме Shared kernel.
+
+Покажи ја сликата
+
+
+Slide 15
+
+Ова е еден од најважните термини во DDD, во книгата е прв па во секоја секција се повторува за секој нов термин.
+Го учев зборчето за да го кажам, не ми се смејте. Но размислував како најубаво може да се објасни поимов со македонски термин, но некако ништо не ми одговараше, ЗАЕДНИЧКА ТЕРМИНОЛОГИЈА? 
+Ама не е баш заедничка, многу повеќе влече кон domain expert-от
+Скроз треба да избегнуваме технички поими, за да не го буниме domain expert-от со слични зборови а различни значења.
+
+
+The language we use is key to the shared understanding we want to have with our domain experts in order to be successful.
+
+We don't need a Rosetta stone (everyone shoud be on the same page)
+
+A project faces serious problems when its language is fractured.
+
+1. Try to explain back to the customer what you think they explained to you
+2. Avoid "What I meant was..."
+
+
+
+Slide 17
+
+Domain layer е срцето
+Domain layer треба да е изолиран
+Го изолираме со Layered architecture (многу layered architectures постојат - clean arch, onions, hexagonal, etc)
+
+Покажи во кодот
+
+
+Slide 18
+
+Почнуваме да се фокусираме на овој дел од mind map
+
+
+Slide 19
+
+An entity is something we need to be able to track, locate, retrieve, and store, and we do that with an identity key.
+
+Значи entity има ID.
+
+Entity is a mutable class with an identity.
+
+Покажи во кодот
+
+
+Slide 20
+
+Објасни дека DDD термините се различни од термините во технологијата.
+
+
+
+Slide 22
+
+Value object examples:
+
+String is a value object (it's immutable).
+All string methods return new string instance (Replace, ToUpper, ToLower).
+
+Money is a great value object
+Has currency, value. 
+Fr example 50 doesn't have meaning, also $ doesn't have meaning (also you have us, canadian, australian dolar - but $US 50 have meaning. Also 50$ doesn't need to be trackable, no identity.
+
+Dates are a classic value object and there's all kind of logic with them. (example DateTime in c#)
+
+Colors are an example of value object.
+
+
+Slide 23
+
+Domain service
+Provide a place in the model to hold behavior that doesn't belong elsewhere in that domain.
+
+A service is often appropriate for operation that doesn't belong in entity or value object.
+Frequenty domain services serve as orchestrators for operations that REQUIRE SEVERAL DIFFERENT COLLABORATING ENTITIES OR VALUE OBJECTS.
+
+Service
+- Not a natural part of an entity or value object
+- Has an interface defined in terms of other domain model elements
+- Stateless, but may have side effects
+- Live in the core of the application

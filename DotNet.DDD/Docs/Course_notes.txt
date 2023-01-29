@@ -1,0 +1,417 @@
+Course transcripts
+https://app.pluralsight.com/library/courses/fundamentals-domain-driven-design/transcript
+
+=================================================
+
+Course code
+https://github.com/ardalis/pluralsight-ddd-fundamentals
+
+
+
+=================================================
+Introducing DDD
+=================================================
+
+Explanation about DDD book in the introduction??? (also in the end as resources)
+DDD is coined by Evan Evans in the same book published in 2003.
+From 2003 many other books followed the subject (see photo).
+
+=================================================
+
+Domain-Driven Design is an approach to software development that centers the development on programming a domain model that has rich understanding of the processes and rules of a domain.
+
+Domain-Driven Design focuses on the problems of the business domain that you're attempting to solve. Its critical shift from decades of focusing on how to store your data and then letting that drive how the software is designed.
+
+We developers live to code. When starting on a new project, we are eager to jump in and start coding so that we can build some software. But you can't build software unless you truly understand the client's needs.
+DDD places as much emphasis on not only comprehending what your client wants, but working with them as full partners through a project!
+The ultimate goal isn't to write code, not even to build software, but to solve problems.
+You need to realize that nobody really wants your program. THEY WANT WHAT IT CAN GIVE TO THEM!
+
+DDD is a really complex topic, this is just an introduction. 
+DDD is for solving COMPLEX problems.
+DDD is for solving COMPLEX programs.
+
+Large systems often lead to complex data models.
+
+DDD is for handling complexity in business problems, not just technical complexity without business domain complexity.
+
+=================================================
+
+DDD core themes (high level perspective)
+1. Interaction with domain experts
+Encurage better interacion with domain experts. These are the people who live and breed the business or pocess or whatever you are targeting with the software you're planning to write. We are talking with them, but using our language, in the language of tables in databases, code classes rather than domain concepts.
+2. Model a single subdomain at a time
+Focus on a single subdomain at a time (in complex software there are many subdomains, even complex subdomains). With DDD you Divide and Conquer, by separating problems into separate subdomains each problem can be tackled indenpendently, making the problems much easier to solve.
+3. Implementation of subdomains
+For example: The principle of separation of concerns not only plays a critical role in identifying the subdomains but within each subdomain, we use it as well.
+
+Or another list
+- Solving problems, not just coding
+- Collaborate with domain experts
+- Break domain into smaller parts
+- Efficient and effective path to success
+- Teamwork!
+
+=================================================
+
+While DDD provides many technical benefits, such as maintainability, it should be applied ONLY TO COMPLEX DOMAINS where the model and the linguistic processes provide clear benefits in the communication of complex information, and in the formulation of a common understanding of the domain.
+
+So, DDD isn't suitable for problems when there is little business domain complexity (when your domain is simple, even if you have many technical challenges to overcome DDD is not the right choice). Using DDD is MOST BENEFICIAL when the complexity of the domain makes it challenging for the domain experts to communicate their needs to the software developers.
+
+=================================================
+
+DDD comes with it's costs
+- You'll spend A LOT of time talking about the domain and the problems that need to be solved (Discuss and model the problem with domain experts).
+- You'll spend plenty of time sorting out what is truly DOMAIN LOGIC and what is just INFRASTRUCTURE (isolate domain logic from other pats of application).
+
+=================================================
+
+Show the DDD mind map, and say in this presentation we'll focus only on a small subset of these things (can't everything be covered in 1 hour).
+
+
+
+=================================================
+Modiling Problems in Software
+=================================================
+
+Conversation with domain expert (several meetings) - Knowledge crunching??
+
+Learn and communicate in the langauge of domain, not the language of technology (the domain experts can be confused, avoid using programmer terms, especially when there are programming terms that might have a different meaning in the customer's domain).
+
+Important to get on the "same page" with the domain expert.
+
+At this stage, the focus is on how the domain works, not how the software will work. We'll get building the software soon enough, but first we want make sure what problem it's going to be solving.
+
+As software developers, we fail in two ways:
+- We build the thing wrong, or
+- We build the wrong thing.
+Working close with the domain expres, we can dramatically reduce the likehood of the second kind of failure (which is much harder to fix).
+
+Invest in Your Relationship with Domain Expert.
+
+=================================================
+
+Bounded context
+
+A bounded context is simply the boundary within a domain where a particular domain model applies.
+
+Subdomain vs bounded context
+Subdomain is a view on the problem space, how you've chosen to break down the business or domain activity.
+Bounded context represents the solution space, how the software and the development of that software has been organized.
+
+Bounded context doesn't mean separate application.
+
+In code, namespaces are helpful to quickly identify which bounded context you're working in.
+
+Divide the system into multiple bounded contexts, each with its own model and language.
+
+=================================================
+
+Context map
+
+Demonstrates how bounded contexts connect to one another while supporting communication between teams.
+Part of creating a context map involves explicitly identifying its boundaries.
+
+Define the relationships between the different bounded contexts.
+
+=================================================
+
+Shared kernel
+
+When we are drawing boundaries around some bounded context, often they will have several resources that belongs to each bounded context (Intersection).
+Bounded contexts have shared concepts or resources - this is called shared kernel.
+
+=================================================
+
+Ubiquitous language
+
+The language we use is key to the shared understanding we want to have with our domain experts in order to be successful.
+
+Having a SINGLE, SHARED, UBIQUITOUS language helps avoid unnecessary confusion and translation within the team building the software (the whole team, not just the programmers) and is one the fundamental practices of DDD.
+
+We don't need a Rosetta stone (everyone shoud be on the same page)
+
+A project faces serious problems when its language is fractured.
+
+1. Try to explain back to the customer what you think they explained to you
+2. Avoid "What I meant was..."
+
+A ubiquitous language applies to a SINGLE bounded context and is use throughout converstaions and code for that context.
+
+Recognize that a change in the ubiquitous language is a change in the model.
+
+The ubiquitous language of a bounded context is uniquitous throughout everything you do in that context - discuss, model, code, etc.
+
+
+Ubiquitous language
+A simple definition of a ubiquitous language is to come up with terms that'll be commonly used when discussing a particular subdomain. And they will most likely be terms that come from the PROBLEM SPACE, NOT THE SOFTWARE WORLD! But they have to be AGREED upon so that as discussions move forward, there is no confusion or misunderstanding created by the terminology used by various members of the team.
+
+=================================================
+
+Domain driven design != Database driven design
+Creating the model in DDD is not same as designing database (those are different things).
+
+
+
+=================================================
+Elements of a Domain Model
+=================================================
+
+The Domain Layer is responsible for representing concepts of the business, information about the business situation, and business rules. State that reflects the business situation is controlled and used here, even though the technical details of stoing it are delegated to the infrastructure. This layer is the heart of business software.
+
+The domain is the hart of business software (This is the whole point behind DDD. Focus on the domain, not the technical details of how the software will work?)
+
+=================================================
+
+We're isolating the domain using layered architecture. The domain layer is where the model lives.
+
+=================================================
+
+Some of the issues are that the DDD terms overlap with technology terms.
+Example Entity framework (Microsoft ORM). Entity framework contains Entity and Context terms and also DDD contains them, those terms are REALLY DIFFERENT.
+
+=================================================
+
+Two types of objects in DDD:
+- Defined by an identity (Entity)
+- Defined by its values (Value object)
+
+=================================================
+
+Entity:
+Many objects are not fundamentally defined by their attributes, but rather by a thread of continuity and identity.
+
+An entity is something we need to be able to track, locate, retrieve, and store, and we do that with an identity key. (Entities have identity and are mutable - you're able to change the values because you're using the identity for tracking)
+
+A mutable class with an identity (not tied to its property values) used for tracking and persistence. (alowing us to build graphs and eventually persist and retrive that data)
+
+=================================================
+
+User interface should be designed to hide the existence of bounded contexts from end users.
+
+=================================================
+
+Anemic Domain Model
+Model with classes focused on state managment. Good for CRUD.
+
+Rich Domain Model
+Model with logic focused on behavior, not just state. Preferred for DDD.
+
+
+
+=================================================
+Understanding Value Objects & Services in the Model
+=================================================
+
+Value object
+- Measures, quantifies, or describes a thing in the domain
+- Identity is based on compsition of values
+- Immutable (you shouldn't be able to change any of the properties once you've created one of these objects - instead you need to create a new instance with new values)
+- Compared using all values
+- No side effect (they may have methods, but they shouldn't change the state of the value object! - immutable, remember)
+
+Value objects can take time to grasp (all of these terms/elements can take time to grasp).
+
+=================================================
+
+Value object examples:
+
+String is a value object (it's immutable).
+All string methods return new string instance (Replace, ToUpper, ToLower).
+
+Money is a great value object
+Has currency, value. 
+Fr example 50 doesn't have meaning, also $ doesn't have meaning (also you have us, canadian, australian dolar - but $US 50 have meaning. Also 50$ doesn't need to be trackable, no identity.
+
+Dates are a classic value object and there's all kind of logic with them. (example DateTime in c#)
+
+Colors are an example of value object.
+
+=================================================
+
+Value objects are a really good place to put methods and logic... because we can do our reasoning without SIDE EFFECTS and identity, all those things that make LOGIC TRICKY. We can put functions on those value objects and do the pure reasoning there.
+
+The state of a value object should not be changed once it has been created.
+
+Value objects are used to measure, quantify, or describe.
+They are used as a property of an ENTITY.
+
+=================================================
+
+Domain service
+Provide a place in the model to hold behavior that doesn't belong elsewhere in that domain.
+
+A service is often appropriate for operation that doesn't belong in entity or value object.
+Frequenty domain services serve as orchestrators for operations that REQUIRE SEVERAL DIFFERENT COLLABORATING ENTITIES OR VALUE OBJECTS.
+
+Service
+- Not a natural part of an entity or value object
+- Has an interface defined in terms of other domain model elements
+- Stateless, but may have side effects
+- Live in the core of the application
+
+=================================================
+
+Side effects
+Changes in the state of the application or interaction with the outside world (e.g. infrastructure).
+
+
+
+=================================================
+Talking Complexity with Aggregates
+=================================================
+
+Aggregates consist of one or more entities and value objects that change togheter.
+
+An aggregate is a cluster of associated objects that we treat as a unit for the purpose of data changes.
+
+Aggregate is a group of related objects that work together in a transaction (A transactional graph of objects).
+
+=================================================
+
+Break the model up into aggregates.
+
+Aggregates encapsulate business rules and invariants.
+
+=================================================
+
+DDD guides you to default to one way associations (bidirectional relationships involve extra complexity). A bidirectional association means that both objects can be understood only togheter.
+Object relationships are not the SAME as relationships between persisted data.
+
+Associations - the modeled relationship between enities.
+
+=================================================
+
+Aggregates have aggregate root.
+Aggregate root - the entry point of an aggregate which ensures the integrity of the entire graph.
+External objects should interact with only the aggregate root. (the other objects can't be accessed directly, they must go through the root)
+When you delete an aggregate's root, the other objects in the aggregate should get deleted.
+
+Aggregate root is responsible for maintainging the rules of the aggregate.
+
+=================================================
+
+Example relation:
+Customer -> Address relation (one to many)  (aggregate with Customer root)
+1. We won't be referencing an Address by some identity outside of this aggregate.
+2. But that's not a case with the Customer, because Customer is the aggregate root, it can be referenced from other aggregates.
+
+=================================================
+
+Example deliting:
+Manager -> Employee relation (one to many)
+If you delete the manager, should you delete the Employee? No. So this doesn't make sense to be an aggregate.
+
+Or Appoitment -> Doctor relation
+
+=================================================
+
+Aggregates exist to reduce complexity.
+
+- Aggregates are not always the answer. (don't add complexity just for the sake of using an aggregate) - YAGNI (create them only when needed)
+- Aggregates can connect only by the root. (entities with an aggregate can only reference the root entity of another aggregate)
+
+
+
+=================================================
+Working with Repositories
+=================================================
+
+Repository pattern is one of the most used patterns in the DDD which is used also used a lot outside of DDD.
+
+Repository
+An abstraction your domain model uses to define what persistence needs it has.
+
+Repository is a class that encapsulates the data persistence for an aggregate root.
+
+A repository represents all objects of a certain type as a conceptual set... Like a collection with more elaborate querying capability.
+
+Repository
+- Provides common abstraction for persistence
+- Promotes separation of concerns
+- Communicates design decisions
+- Enabled testability
+- Improved maintainability
+
+General repository tips
+1. Use repositories for aggregate roots only
+2. Keep the clients focused on model, while delegating all of the object storage and access concerns to the repositories.
+
+Problems caused by repository logic
+- fetching more data than required
+
+A domain model should be persistence ignorant as well as ignorant of implementation details.
+
+DDD prevents coupling domain problems with persistence problems.
+
+=================================================
+
+Specification pattern (isn't listed in the map, but it's mentioned in the book)
+
+The easiest repository to build has card-coded queries with specific parameters.
+But there are more flexible approaches.
+One particulary apt approach to generalizing repositories through a framework is to use specification-based queries. (A specification allows a client to describe/specify what it wants without concern for how it will be obtained)
+
+Specification is a method of encapsulating a business rule so that it can be passed to other methods which are responsible for applying it.
+
+Specifications mesh smoothly with repositories, which are the building-block mechanism for providing query access to domain objects and encapsulationg the interface to the database.
+
+Repository+specification=powerfull mechanism
+
+
+
+=================================================
+Adding in Domain Events and Anti-corruption Layers
+=================================================
+
+Domain events alert that some activity occurred or some state changed in the context and their domains can subscribe to the "news".
+
+Domain event is a class that captures the occurrence (within the domain) of an event in a domain object. It's a good way to keep your system decoupled.
+
+Domain events features:
+- Can communicate outside of the domain
+- Encapsulated as objects (they are diffrent from the coding events - in UI they are some delegates <example .net>, but here they're first class members of the domain model - but concept familiar in the event-driven applications)
+- Each event is full-fledged class
+
+Use a domain event to capture an occurrence of something that happened in the domain. 
+
+Create events as needed, not just in case (YAGNI)
+
+No behavior or side effects.
+
+=================================================
+
+Identifying domain events in application
+
+When this happens, then something else should happen.
+"If that happens...", "Notify the user when...", "Inform the user if..."
+
+Domain events represent the past.
+
+Examples:
+- User authenticated
+- Payment received
+
+
+=================================================
+
+Anti-corruption layers (as the name implies, helps to prevent corruption in the domain model)
+Prevent corruption when communicating with other systems (especially with legacy app).
+So this layer translates the communication between layers, with this we're stoping corruption in our models (translates from/to different models). Stoping poluting our model with other models. It's a shield of our model from other systems.
+
+Anti-corruption layer is a functionality that insulates a bounded context and handles interaction with foreign system or contexts.
+
+Even when the other system is well designed, it's not based on the same model as the client.
+And often the other system is not well designed.
+
+Protects 2 distinct models from one another.
+
+Simplifies communication between systems.
+
+Example:
+The bounded context need to communicate with Legacy app. 
+Customer object exists in both parts (even they refer to same term, but there are several different properties), but this customer object is different, we need a translator so the system's models will be used.
+
+Anti-corruption layer is not a design pattern, however it's usually composet of several design patterns:
+- facade
+- adapter

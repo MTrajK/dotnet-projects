@@ -10,3 +10,4 @@ You can find a README with detailed description about the projects inside them.
 - [DotNet.CleanCode](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.CleanCode) - .NET Core demos (with a presentation) that show the difference between bad and clean code.
 - [DotNet.ProgrammingPrinciples](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.ProgrammingPrinciples) - .NET Core demos (with a presentation) that explain several programming principles (KISS, YAGNI, DRY, SOLID).
 - [AspDotNet.Security](https://github.com/MTrajK/dotnet-projects/tree/main/AspDotNet.Security) - A small presentation that explains several security concerns in ASP.NET.
+- [DotNet.DDD](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.DDD) - A presentation that explains the DDD (Domain-Driven Design) fundamentals.

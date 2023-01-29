@@ -1,0 +1,194 @@
+Book notes
+
+
+Many things can put a project off course: bureaucracy, unclear objectives, and lack of resources, to name a few.
+
+---------
+
+Two practices are prerequisites for applying the approach in this book:
+1. Development is iterative 
+- the agile development methods are good fit.
+2. Developers and domain experts have a close relationship. 
+- DDD crunches a huge amount of knowledge into a model that reflects deep insight into the domain and a focus on the key concepts. This is a collaboration between those who know the domain and those who know how to build software. Because development is iterative, this collaboration must continue throughout the project's life.
+
+---------
+
+The heart of software is its ability to solve domain-related problems for its user.
+
+Most talented developers do not have much interest in learning about the specific domain in which they are working, much less making a major commitment to expand their domain-modeling skills.
+
+---------
+
+The goal of DDD is to create better software by focusing on a model of the domain rather than the technology.
+
+---------
+
+Ingredients of effective modeling:
+1. Binding the model and the implementation
+2. Cultivating a language based on the model
+3. Developing a knowledge rich model
+4. Distiling the model
+5. Brainstorming and experimenting
+
+---------
+
+Continuous learning
+When we set out to write software, we never know enough.
+
+---------
+
+A domain model can be the core of a common language for a software projec. The model is a set of concepts built up in the heads of people on the project, with terms and relationships that reflect domain insight. These terms and interrelationships provide the semmantics of a language that is tailored to the domain while being precise enough for technical development.
+
+Use the model as the backbone of a language. Commit the team to exercising that language relentlessly in all communication within the team and in the code. Use the same language in diagrams, writing, and especially speech.
+Change in a ubiquitous language is a change in the model.
+
+---------
+
+In an agile process, requirements evolve as a project goes along because hardly ever does the knowledge exist up front to specify an application adequately.
+
+---------
+
+Once a document takes on a persistent form, it often loses its connection with the flow of the project. It is left behind by the evolution of the code, or by the evoluion of the language of the project.
+
+By keeping documents minimal and focusing them on complementing code and conversation, documents can stay connected to the project.
+
+Still, while the code can mislead, it is closer to the ground than other documents.
+
+---------
+
+The code becomes an expression of the model, so a change to the code may be a change to the model.
+
+---------
+
+Object-oriented programming is powerful because it is based on a modeling paradigm, and it provides implementations of the model construcs.
+
+---------
+
+Software development is all design.
+
+If the people who write the code do not feel responsible for the mode, or don't understand how to make the model work for an application, then the model has nothing to do with the software.
+
+Programmers are modelers, whether anyone likes it or not.
+
+A technical person contributing to the model must spend some time touching the code, whatever primary role he plays on the project (architect who doesn't program, joke). Every developer must be involved in some level of discussion about the model and have contact with domain experts.
+
+The sharp separation of modeling and programming doesn't work.
+
+---------
+
+Concentrate all the code related to the domain model in one layer and isolate it from the user interface, application, and infrastructure code.
+
+Note that the domain layer is responsible for fundamental business rules (not the application layer).
+
+The domain layer is where the model lives.
+
+Isolationg the domain implementation is a prerequisite for domain-driven design.
+
+We're isolating the domain with layered architecture (this architecture is used in most systems today, under various layering schemes)
+
+A layered architecture separates domain concepts from the technical logic that makes a computer system run, but in a large system, even the isolated domaiin may be unmanageably complex.
+
+---------
+
+An object defined primarly by its identity is called an entity.
+
+An entity is anything that has continuity through a life cycle and distinctions independent of attribues that are important to the application's user.
+
+Entities are a fundamental distinction in a domain model.
+
+---------
+
+Value objects
+
+Many objects have no conceptual identity. These objects describe some characterestic of a thing.
+
+An object that represents a descriptive aspect of the domain with no conveptual identity is called a VALUE OBJECT. Value objects are instantiated to represent elements of the design that we care about only for what they are, not who or which they are.
+
+When you care only about the attributes of an element of the model, classify it as a value object.
+
+---------
+
+Some concepts from the domain aren't natural to model as objects. Forcing the required domain functionality to be the responsibility of an entity or value either disorts the definition of a model-based object or adds meaningless artifical objects.
+
+A service is an operation offered as an INTERFACE that stands alone in the model, without encapsulationg state, as entities and value object do.
+
+A service tends to be named for an activity, rather than an entity - a verb rather than a noun.
+
+A good service has three characteristics:
+1. The operation relates to a domain concecpt that is not a natural part of an entity or value object.
+2. The interface is defined in terms of other elements of the domain model.
+3. The operation is stateless.
+
+---------
+
+An aggregate is a cluster of associated objects that we treat as a unit for the purpose of data changes.
+Each aggregate has a root and a boundary.
+The boundary defines what is inside the aggregate. The root is a single, specific ENTITY contained in the aggregate.
+
+Choose one entity to be the root of each aggregate, and control all access to the objects inside the boundary through the root.
+
+Any object internal to an aggregate is prohibited from access except by traversal from the root.
+
+---------
+
+Provide repositories only for aggregate roots that actualy need direct access.
+
+Repository adventages:
+- They present clients with a simple model for obtaining persistent objects and managing their life cycle.
+- They decouple application and domain design from persistance technology, multiple database strategies, or even multiple data sources.
+- They communicate design decisions about object access.
+- They allow easy substitution of a dummy implementation, for use in testing (typically using an in-memory collection).
+
+The easiest repository to build has card-coded queries with specific parameters.
+But there are more flexible approaches.
+One particulary apt approach to generalizing repositories through a framework is to use specification-based queries. (A specification allows a client to describe/specify what it wants without concern for how it will be obtained)
+
+Specification provides a concise way of expressing certain kinds of rules, extricating them from conditional logic and making them explicit in the model.
+
+The ideal is to hide all the inner workings from the client, so that client code will be the same whether the data is stored in an object database, stored in a relation database, or simply held in memory.
+
+Repositories are prohibited from interior of aggregate.
+
+---------
+
+Refactoring is the redesign of software in ways that do not change its functionality.
+A suite of automated unit tests allows relatively safe experimentation with the code.
+
+If you wait unitl you can make a complete justification for a change, you've waited too long.
+
+Continuous refactoring has come to be considered a "best practice", but most project eams are still too cautious about it.
+
+---------
+
+The ultimate purpose of software is to serve users. But first, that some software has to serve developers. This is especially true in a process that emphasizes refactoring. As a program evolves, developers will rearrange and rewrite every part.
+
+A system that is hard to understand is hard to change.
+
+---------
+
+Deep models and supple designs don't come easily. Progress comes from lots of learning about the domain, lots of talking, and lots of trial and error.
+
+---------
+
+A design pattern should be applied only when needed.
+
+---------
+
+Bounded contexxt
+Explicitly define the context within which a model applies. Explicitly set boundaries in terms of team organization, usage within specific parts of application, and physical manifestations such as code bases and database schemas. Keep the model strictly consistent whitin these bounds, but don't be distracted or confused by issues outside.
+
+---------
+
+Context map
+Identify each model in play on the project and define its bounded context. Name each bounded context, and make the names part of the ubiquitous language.
+Describe the points of contact between the models, outlining explicit translation for any communication and highlighting any sharing.
+
+---------
+
+Shared kernel is often the core domain, some set of generic subdomains, or both, but it can be any part of the model that is needed by both teams.
+The goal is to reduce duplication.
+
+---------
+
+Anticorruption layer
+Create an isolation layer to procide clients with functionality in terms of their own domain model. The layet talks to the other system through its existing interface, requiring little or no modification to the other system. Internally, the layer translates in both directions as neccessary between the two models.
