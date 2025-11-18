@@ -1,0 +1,6 @@
+@DotNet.MeaningfulUnitTests.Payments.Traditional_HostAddress = http://localhost:5218
+
+GET {{DotNet.MeaningfulUnitTests.Payments.Traditional_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

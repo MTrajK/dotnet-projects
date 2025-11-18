@@ -79,3 +79,24 @@ FluentAssertions
 
 	a. Use it for the TDD (injection if else logic)
 	b. Also use this implementation for the traditional (create a list of test cases)
+
+
+
+DotNet.MeaningfulUnitTests
+
+Src
+	Date
+		DotNet.MeaningfulUnitTests.Date.TDD 				(ConsoleApp)
+		DotNet.MeaningfulUnitTests.Date.Traditional 		(ConsoleApp)
+	Payments
+		DotNet.MeaningfulUnitTests.Payments.TDD 			(WebApi)
+		DotNet.MeaningfulUnitTests.Payments.Traditional 	(WebApi)
+
+
+Tests
+	Date
+		DotNet.MeaningfulUnitTests.Date.TDD 				(MSTest)
+		DotNet.MeaningfulUnitTests.Date.Traditional 		(MSTest)
+	Payments
+		DotNet.MeaningfulUnitTests.Payments.TDD 			(MSTest)
+		DotNet.MeaningfulUnitTests.Payments.Traditional 	(MSTest)
