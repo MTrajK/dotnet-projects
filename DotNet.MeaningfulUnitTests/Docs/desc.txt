@@ -1,0 +1,81 @@
+Презентација 3:
+
+TDD vs Ortodox/Traditional
+
+1. TDD: implement the method/class using 7-8 unit tests scenarios.
+2. Ortodox approach: write 7-8 unit tests scenarios from the implementation.
+
+Unit Testing Frameworks
+MSTest
+MoQ
+FluentAssertions
+
+
+1. Simple logic
+	App:
+	Console App
+	Solution:
+	LeapYear
+	https://github.com/MTrajK/dotnet-projects/blob/main/DotNet.TDD/SimpleDemos/DotNet.TDD.SimpleDemos.UnitTests/Date/YearTests.cs
+	https://github.com/MTrajK/dotnet-projects/blob/main/DotNet.TDD/SimpleDemos/DotNet.TDD.SimpleDemos/Date/Year.cs
+
+	a. Use it for the TDD (complex if else logic)
+	b. Also use this implementation for the traditional (create a list of test cases)
+
+2. Injections
+	App:
+	API
+	Solution:
+		Some service, with Payment method that expect Request that contains: 
+			- AccountId,
+			- Amount,
+			- TransactionId,
+			- GatewayTransactionId, 
+			- GlobalTransactionId
+		Inject: 
+			- IRequestValidator (that validates these 5 fields)
+			- IResponseBuilder
+			- ITransactionRepository (GetTransactionIdUsingGatewayTransactionId, GetTransactionIdUsingGlobalTransactionId, SplitTransactionUsingTransactionId)
+		Logic: 
+			SplitTransaction(request) {
+				var validationResult = requestValidator(request);
+
+				if (!validationResult.isValidStatus) {
+					return responseBuilder.FailedRequest(requestResponse.Status);
+				}
+
+				long? transactionId = null;
+				status? foundTransaction = null;
+
+				if (request.TransactionId != null) {
+					transactionId = request.TransactionId;
+					foundTransaction = success;
+				}
+				else if (request.TransactionId != GatewayTransactionId) {
+					var transactionResult = transactionRepository.GetTransactionIdUsingGatewayTransactionId();
+
+					if (!transactionResult.isValidStatus) {
+						foundTransaction = transactionResult.Status;
+					}
+					else {
+						transactionId = transactionResult.TransactionId;
+						foundTransaction = success;
+					}
+				}
+				else if (request.TransactionId != GlobalTransactionId) {
+					var transactionResult = transactionRepository.GetTransactionIdUsingGlobalTransactionId();
+
+					if (!transactionResult.isValidStatus) {
+						foundTransaction = transactionResult.Status;
+					}
+					else {
+						transactionId = transactionResult.TransactionId;
+						foundTransaction = success;
+					}
+				}
+
+			}
+
+
+	a. Use it for the TDD (injection if else logic)
+	b. Also use this implementation for the traditional (create a list of test cases)
