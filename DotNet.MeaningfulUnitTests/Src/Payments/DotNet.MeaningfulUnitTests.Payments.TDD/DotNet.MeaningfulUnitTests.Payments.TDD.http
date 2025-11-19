@@ -1,6 +1,6 @@
 @DotNet.MeaningfulUnitTests.Payments.TDD_HostAddress = http://localhost:5215
 
-GET {{DotNet.MeaningfulUnitTests.Payments.TDD_HostAddress}}/weatherforecast/
+POST {{DotNet.MeaningfulUnitTests.Payments.TDD_HostAddress}}/payment/
 Accept: application/json
 
 ###

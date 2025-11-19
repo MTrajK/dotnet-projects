@@ -1,3 +1,7 @@
+using DotNet.MeaningfulUnitTests.Payments.Traditional.Repositories;
+using DotNet.MeaningfulUnitTests.Payments.Traditional.Services;
+using DotNet.MeaningfulUnitTests.Payments.Traditional.Utils;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddTransient<IRequestValidator, RequestValidator>();
+builder.Services.AddTransient<ITransactionRepository, TransactionRepository>();
+builder.Services.AddTransient<IResponseBuilder, ResponseBuilder>();
+builder.Services.AddTransient<IPaymentService, PaymentService>();
 
 var app = builder.Build();
 
