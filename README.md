@@ -11,3 +11,4 @@ You can find a README with detailed description about the projects inside them.
 - [DotNet.ProgrammingPrinciples](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.ProgrammingPrinciples) - .NET Core demos (with a presentation) that explain several programming principles (KISS, YAGNI, DRY, SOLID).
 - [AspDotNet.Security](https://github.com/MTrajK/dotnet-projects/tree/main/AspDotNet.Security) - A small presentation that explains several security concerns in ASP.NET.
 - [DotNet.DDD](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.DDD) - A presentation that explains the DDD (Domain-Driven Design) fundamentals.
+- [DotNet.ManingfulUnitTests](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.ManingfulUnitTests) - .NET demos (with a presentation) that explain 2 ways of writing unit tests in details: TDD and traditional.

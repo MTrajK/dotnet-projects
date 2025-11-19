@@ -1,6 +1,7 @@
 # .NET Meaningful Unit Tests
-NET demos (with a presentation) that explain 2 ways of writing unit tests in details: TDD and traditional.\
-TDD stands for test-driven development.
+.NET demos (with a presentation) that explain 2 ways of writing unit tests in details: TDD and traditional.\
+TDD stands for test-driven development.\
+See [DotNet.TDD](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.TDD) presentation as a reference for TDD.
 
 ## Project structure
 - [Docs](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MeaningfulUnitTests/Docs) - PowerPoint presentation and some notes.
@@ -15,7 +16,7 @@ TDD stands for test-driven development.
 - FluentAssertions
 
 ## Requirements
-- Visual Studio (2022 at least for best experience)
+- Visual Studio (2026 for best experience)
 
 ## Run tests
 - Use the test explorer UI, or go into the test class and right click to some method -> run test.
