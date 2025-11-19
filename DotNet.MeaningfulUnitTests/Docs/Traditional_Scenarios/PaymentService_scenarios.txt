@@ -1,0 +1,10 @@
+PaymentService
+
+Scenario - expected result
+
+1. Invalid request, missing accountId - returns BadRequest code.
+2. Invalid request, missing both transactionIds - returns BadRequest code.
+3. TransactionId not found using GatewayTransactionId - returns NotFound code.
+4. Split payment transaction failed using request.TransactionId - returns NotAcceptable code.
+5. Split payment transaction success using request.TransactionId - returns Success code and splitPaymentTransactionId.
+6. Split payment transaction success using request.GatewayTransactionId - returns Success code and splitPaymentTransactionId.
