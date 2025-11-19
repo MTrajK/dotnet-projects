@@ -1,4 +1,7 @@
 ﻿namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
 {
-    // TODO: TDD way
+    public class Year
+    {
+        // TODO: TDD way
+    }
 }

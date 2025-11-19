@@ -1,7 +1,7 @@
-﻿namespace DotNet.MeaningfulUnitTests.Payments.TDD.UnitTests.Services
+﻿namespace DotNet.MeaningfulUnitTests.Date.TDD.UnitTests.Date
 {
     [TestClass]
-    public class PaymentServiceTests
+    public class YearTests
     {
         [TestMethod]
         public void TestMethod()
@@ -9,7 +9,7 @@
             // Arrange
 
             // Act
-           
+
             // Assert
         }
     }
