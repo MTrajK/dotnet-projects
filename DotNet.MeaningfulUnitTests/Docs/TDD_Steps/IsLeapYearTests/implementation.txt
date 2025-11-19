@@ -1,13 +1,13 @@
 // Step 11 - Correct refactor, green tests, boolean logic
-namespace DotNet.TDD.SimpleDemos.Date
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
 {
     public class Year
     {
-        private int _year;
+        private int year;
 
         public Year(int year)
         {
-            _year = year;
+            this.year = year;
         }
 
         public bool IsLeapYear()
@@ -18,7 +18,7 @@ namespace DotNet.TDD.SimpleDemos.Date
 
         private bool IsYearDivisibleBy(int divisor)
         {
-            var remainder = _year % divisor;
+            var remainder = this.year % divisor;
             return remainder == 0;
         }
     }
@@ -26,15 +26,15 @@ namespace DotNet.TDD.SimpleDemos.Date
 
 /*
 // Step 10 - Wrong refactor, two tests fails
-namespace DotNet.TDD.SimpleDemos.Date
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
 {
     public class Year
     {
-        private int _year;
+        private int year;
 
         public Year(int year)
         {
-            _year = year;
+            this.year = year;
         }
 
         public bool IsLeapYear()
@@ -45,7 +45,7 @@ namespace DotNet.TDD.SimpleDemos.Date
 
         private bool IsYearDivisibleBy(int divisor)
         {
-            var remainder = _year % divisor;
+            var remainder = this.year % divisor;
             return remainder == 0;
         }
     }
@@ -54,15 +54,15 @@ namespace DotNet.TDD.SimpleDemos.Date
 
 /*
 // Step 9 - Refactor, new function
-namespace DotNet.TDD.SimpleDemos.Date
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
 {
     public class Year
     {
-        private int _year;
+        private int year;
 
         public Year(int year)
         {
-            _year = year;
+            this.year = year;
         }
 
         public bool IsLeapYear()
@@ -86,7 +86,7 @@ namespace DotNet.TDD.SimpleDemos.Date
 
         private bool IsYearDivisibleBy(int divisor)
         {
-            var remainder = _year % divisor;
+            var remainder = this.year % divisor;
             return remainder == 0;
         }
     }
@@ -95,24 +95,24 @@ namespace DotNet.TDD.SimpleDemos.Date
 
 /*
 // Step 8 - Fixes the fourth test
-namespace DotNet.TDD.SimpleDemos.Date
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
 {
     public class Year
     {
-        private int _year;
+        private int year;
 
         public Year(int year)
         {
-            _year = year;
+            this.year = year;
         }
 
         public bool IsLeapYear()
         {
-            if (_year % 4 == 0)
+            if (this.year % 4 == 0)
             {
-                if (_year % 100 == 0)
+                if (this.year % 100 == 0)
                 {
-                    return _year % 400 == 0;
+                    return this.year % 400 == 0;
                 }
                 else
                 {
@@ -130,22 +130,22 @@ namespace DotNet.TDD.SimpleDemos.Date
 
 /*
 // Step 6 - Fixes the third test
-namespace DotNet.TDD.SimpleDemos.Date
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
 {
     public class Year
     {
-        private int _year;
+        private int year;
 
         public Year(int year)
         {
-            _year = year;
+            this.year = year;
         }
 
         public bool IsLeapYear()
         {
-            if (_year % 4 == 0)
+            if (this.year % 4 == 0)
             {
-                return _year % 100 != 0;
+                return this.year % 100 != 0;
             }
             else
             {
@@ -158,20 +158,20 @@ namespace DotNet.TDD.SimpleDemos.Date
 
 /*
 // Step 4 - Passes first 2 tests
-namespace DotNet.TDD.SimpleDemos.Date
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
 {
     public class Year
     {
-        private int _year;
+        private int year;
 
         public Year(int year)
         {
-            _year = year;
+            this.year = year;
         }
 
         public bool IsLeapYear()
         {
-            return _year % 4 == 0;
+            return this.year % 4 == 0;
         }
    }
 }
@@ -179,7 +179,7 @@ namespace DotNet.TDD.SimpleDemos.Date
 
 /*
 // Step 2 - Passes test IsLeapYear_LeapYear_ReturnsTrue
-namespace DotNet.TDD.SimpleDemos.Date
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
 {
     public class Year
     {

@@ -1,15 +1,16 @@
-using DotNet.TDD.SimpleDemos.Date;
-using NUnit.Framework;
-
-namespace DotNet.TDD.SimpleDemos.UnitTests.Date
+namespace DotNet.MeaningfulUnitTests.Date.TDD.UnitTests.Date
 {
+    using DotNet.MeaningfulUnitTests.Date.Traditional.Date;
+
+    using FluentAssertions;
+
     /// <summary>
     /// To be a leap year, the year number must be divisible by four – except for end-of-century years, which must be divisible by 400.
     /// </summary>
     public class YearTests
     {
         // Step 1 - Don't compile
-        [Test]
+        [TestMethod]
         public void IsLeapYear_LeapYear_ReturnsTrue()
         {
             // Arrange
@@ -20,11 +21,11 @@ namespace DotNet.TDD.SimpleDemos.UnitTests.Date
             var result = sut.IsLeapYear();
 
             // Assert
-            Assert.IsTrue(result);
+            result.Should().BeTrue();
         }
 
         // Step 3 - Fails
-        [Test]
+        [TestMethod]
         public void IsLeapYear_NotLeapYear_ReturnsFalse()
         {
             // Arrange
@@ -35,11 +36,11 @@ namespace DotNet.TDD.SimpleDemos.UnitTests.Date
             var result = sut.IsLeapYear();
 
             // Assert
-            Assert.IsFalse(result);
+            result.Should().BeFalse();
         }
 
         // Step 5 - Fails
-        [Test]
+        [TestMethod]
         public void IsLeapYear_DivisibleBy100_ReturnsFalse()
         {
             // Arrange
@@ -50,11 +51,11 @@ namespace DotNet.TDD.SimpleDemos.UnitTests.Date
             var result = sut.IsLeapYear();
 
             // Assert
-            Assert.IsFalse(result);
+            result.Should().BeFalse();
         }
 
         // Step 7 - Fails
-        [Test]
+        [TestMethod]
         public void IsLeapYear_DivisibleBy400_ReturnsTrue()
         {
             // Arrange
@@ -65,7 +66,7 @@ namespace DotNet.TDD.SimpleDemos.UnitTests.Date
             var result = sut.IsLeapYear();
 
             // Assert
-            Assert.IsTrue(result);
+            result.Should().BeTrue();
         }
     }
 }
