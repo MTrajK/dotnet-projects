@@ -1,0 +1,11 @@
+- Empty implementation, even number - fails
+- Empty implementation, even number (returns true) - pass
+- Empty implementation, odd number - fails
+- Divide by 4, odd number - true
+- DivisibleBy100, 1900 - fails
+- DivisibleBy100, 1900 - pass
+- DivisibleBy400, 2000 - fails
+- DivisibleBy400, 2000 - pass
+- Refactor 1 - pass
+- Refactor 2 - fails
+- Refactor 2 - pass

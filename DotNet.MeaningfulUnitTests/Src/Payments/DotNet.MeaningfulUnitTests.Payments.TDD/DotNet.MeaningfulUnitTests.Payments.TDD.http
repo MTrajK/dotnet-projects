@@ -1,0 +1,6 @@
+@DotNet.MeaningfulUnitTests.Payments.TDD_HostAddress = http://localhost:5215
+
+POST {{DotNet.MeaningfulUnitTests.Payments.TDD_HostAddress}}/payment/
+Accept: application/json
+
+###

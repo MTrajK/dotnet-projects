@@ -1,0 +1,283 @@
+Clean code
+
+Many forces drive us away from clean code, and even from code that works.
+
+Clean code that works - is the goal of TDD.
+
+Actually can we say that the code is clean without tests (clean tests)?
+
+First we'll solve the "that works" part of the problem. Then we'll solve the "clean code" part.
+This is opposite of architecture-driven development, where you solve "clean code" first, then scramble around trying to integrate into the design the things you learn as you solve the "that works" problem.
+
+If you don't drive development with tests, what do you drive it with? Speculation? Specifications?
+
+
+- It is a predictable way to develop. You know when you are finished, without having to worry about a long bug trail.
+- It gives you a chance to learn all of the lessons that the code has to teach you. If you only slap together the first thing you thing of, then you never have time to think of a second better thing.
+- It improves the lives of the users of your software.
+- It lets your teammates count on you, and you on them.
+- It feels good to write it.
+
+================================
+
+Why TDD
+
+- TDD creates tests that serve as documentation. That documentation shortens developer onboarding or hand-offs of codebases. It also increases resiliency to losing knowledgeable people.
+- TDD increases developer retention because it makes their jobs easier and more satisfying.
+- TDD increases developer ownership and concern for quality.
+- TDD helps developers focus on solving the right problems which can make them more efficient, and help ship software that better satisfies a customer's need.
+- TDD process allows tests to guide your implementation, resulting in more maintainable and higher-quality code.
+
+Slow process?
+- The only way to go fast, is to go well. Robert C. Martin
+
+================================
+
+Red/green/refactor - the TDD mantra
+
+1. Red - Write a little test that doesn't work, and perhaps doesn't even compile at first.
+2. Green - Make the test work quickly, committing whatever sins necessary in the process.
+3. Refactor - Eliminate all of the duplication created in merely getting the test to work.
+
+"Write tests until fear is transformed into boredom."
+
+Rhythm of TDD
+
+1. Quickly add a test.
+2. Run all tests and see the new one fail.
+3. Make a little change.
+4. Run all tests and see them all succeed.
+5. Refactor to remove duplications.
+
+*The first three phases need to go by quickly, so we get to a known state with the new functionality.
+
+
+================================
+
+What if I do a paper design for a week, then test drive the code? Is that TDD? Sure, it's TDD. 
+We're not able to design in details, usualy we're designing the big picture. Here the TDD helps with designing the details.
+
+================================
+
+To-do list (test list)
+
+What should you test?
+Before you begin, write a list of all the tests you know you will have to write.
+
+To remind us what we need to do, to keep us focused, and to tell us when we are finished.
+
+As you make the tests run, the implementation will imply new tests. This means that the list will change.
+
+
+To stay focused on the current test and phase, it's helpful to maintain a test list (on paper, a text file or as TODO comments in tests).
+
+Whenever you come up with an idea for a new test (e.g. a new feature or an edge case that needs to be covered), add it to your test list. Likewise for things that need refactoring. Then when you are done with the current feature, you can go through the list and handle them.
+
+================================
+
+Writing test
+
+When we write a test, we imagine the perfect interface for our operation. We are telling ourselves a story about how the operation will look from the outside.
+Think about how you would like the operation in your mind to appear in your code. You're writing a story. Invent the interface you wish you had.
+
+-------------------------------
+
+Make it run (green bar patterns)
+
+Fake it ('Til you make it)
+Return a constant. Once you have the test running, gradually transform the constant into an expression using variable (replace constants with variables until you have the real code).
+
+Triangulate
+Only generalize code when we have two examples or more. (Abstract the implementation when have two or more tests)
+
+Obvious implementation
+Type in the real implementation.
+
+
+If you know what to type -> Obvious implementation.
+If you don't know what to type -> Fake it.
+If the right design still isn't clear -> Triangulate.
+
+-------------------------------
+
+Make it right (Refactoring)
+
+- Two loop structures are similar. By making them identical, you can merge them.
+- Two branches of a conditional are similar. By making them identical, you can eliminate the conditional.
+- Two methods are similar. By making them identical, you can eliminate one.
+- Two classes are similar. By making them identical, you can eliminate one.
+
+================================
+
+Testing the test
+
+The test we just typed in doesn't even compile.
+The test we just typed is failing.
+- Good, there is a FAILURE in progress. (now we know that the test previously was failing)
+
+================================
+
+Teeny-tiny steps
+
+TDD is not about taking teeny-tiny steps, it's about BEING able to take teeny-tiny steps.
+
+Would I code day-to-day with steps this small? NO!
+But when things get the least bit weird, I'm glad I can!
+If you can make steps too small, you can certainly make steps the right size.
+
+================================
+
+Assert first
+
+Where should you start building a system? With stories you want to be able to tell about the finished system.
+Where should you start writing a bit of functionality? With the tests you want to pass with the finished code.
+Where should you start writing a test? With the asserts what will pass when it is done.
+
+================================
+
+Clean tests
+
+You are writing tests to the audience.
+You are writing tests for a reader, not just the computer.
+
+================================
+
+Test duplication
+
+Test duplication is also good. Tests written with the setup code right there with the assertions are READABLE from top to bottom. If we factored the setup code into a separate method, then we would have to remember that the method was called, and remember what the objects looked like, before we could write the rest of the test.
+
+================================
+
+You should test:
+
+- conditionals
+- loops
+- operations
+- polymorphism
+
+================================
+
+Applications level tests (ATDD) /integration tests
+
+There is a technical problem - fixturing. How can you write and run a test for a feature that doesn't exist yet?
+Another aspect of ATDD is the length of the cycle between test and feedback.
+
+
+===================================================
+
+Five steps of test-driven development
+
+1. Read, understand, and process the feature or bug request.
+2. Translate the requirement by writing a unit test. If you have hot reloading set up, the unit test will run and fail as no code is implemented yet.
+3. Write and implement the code that fulfills the requirement. Run all tests and they should pass, if not repeat this step.
+4. Clean up your code by refactoring.
+5. Rinse, lather and repeat.
+
+===================================================
+
+The Three Laws of TDD. - Uncle Bob
+
+1. You are not allowed to write any production code unless it is to make a failing unit test pass.
+2. You are not allowed to write any more of a unit test than is sufficient to fail; and compilation failures are failures.
+3. You are not allowed to write any more production code than is sufficient to pass the one failing unit test.
+
+https://www.youtube.com/watch?v=qkblc5WRn-U
+https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html
+
+
+===================================================
+
+Pros
+
+1. Testing the tests
+	- First, the test fails. After completing the implementation they pass.
+2. Bigger test coverage
+	- Fewer bugs
+	- Less debugging
+3. Better design
+	- avoids over-engineering
+	- improves the quality of the code
+4. Gaining more confidence
+	- enables changing the code without breaking it (refactoring without tests is the craziest thing)
+5. Not writing the tests having in mind the implementation (not handling only the cases that are already seen in the code)
+
+===================================================
+
+TDD History:
+
+1960: Nasa - Project Mercury -> but not the purest TDD as we know today (test focus approach, more like test-first)
+1989-1994: Smalltalk community discussions and Kent Beck smalltalk testing book
+1999: Kent Beck - eXtreme Programming
+2002: Kent Beck - TDD by example
+Uncle Bob, Martin Fowler, etc...
+
+https://app.pluralsight.com/course-player?clipId=307cad54-16c1-4a3c-a611-37eb5792efcb
+
+===================================================
+
+TDD Researches:
+
+https://app.pluralsight.com/guides/test-driven-development-research
+Microsoft study - https://www.microsoft.com/en-us/research/wp-content/uploads/2009/10/Realizing-Quality-Improvement-Through-Test-Driven-Development-Results-and-Experiences-of-Four-Industrial-Teams-nagappan_tdd.pdf
+https://arxiv.org/ftp/arxiv/papers/1711/1711.05082.pdf
+
+Resources:
+https://tdd.mooc.fi/
+https://github.com/dwyl/learn-tdd
+
+===================================================
+
+Test first != TDD
+
+In test first we write several tests first and then writing bunch of code (and refactoring).
+In TDD we write 1 test and then a minimum implementation.
+
+vs Test last
+Writing the implementation, refactoring. In the end writing bunch of test.
+
+===================================================
+
+General
+
+TDD is a process that works with all types of test categories? (like unit tests, integration, e2e, etc? but mostly with unit tests)
+
+
+TDD -> drives the code
+
+
+In TDD, you write your unit test first, watch it fail, and then implement code changes until the test passes. Sounds backwards, right? But the code you produce when you use this testing methodology is cleaner and less prone to breaking in the long run.
+
+
+Test-driven development is a process formed by repetition of a short development cycle, which is often referred to as the red, green, refactor cycle.
+
+1. You start by writing one test that describes the behavior the code should have, but does not yet have, so it fails - we call it a red test.
+2. Then you write minimal code to quickly make that test pass, committing whatever sins necessary in the process - now your test will pass and we call it a green test.
+3. Then you refactor the code as necessary to eliminate duplication or unwanted code created in merely getting the test to work - this is the refactor step. 
+
+After refactoring, re-run the tests to verify nothing has been broken.
+
+===================================================
+
+Why TDD 2:
+
+- testing the tests!!!
+- bigger test coverage (we're lazy to write tests after the implementation - "okay, I tried the application, it works, no need from tests") - Guarantees code coverage
+	* fewer bugs
+	* less debugging
+- design first (Better design)
+	* avoids over-engineering
+	* improves the quality of the code
+- gains more confidence
+	* amplifies the pain caused by bad code
+	* enables changing the code without breaking it (refactoring without tests is the craziest thing)
+- you know only the scenario, and still don't know the implementation - so you're not designing the test having in mind the implementation (like someone else to test your implementation without seeing it)
+
+===================================================
+
+Advantages of Test Driven Development:
+- Think about the APIs
+- Think about what the code should do
+- Get fast feedback
+- Create modular code
+- Write maintainable code
+- Tests are documentation

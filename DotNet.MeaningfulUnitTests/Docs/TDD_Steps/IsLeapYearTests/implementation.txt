@@ -1,0 +1,197 @@
+// Step 11 - Correct refactor, green tests, boolean logic
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
+{
+    public class Year
+    {
+        private int year;
+
+        public Year(int year)
+        {
+            this.year = year;
+        }
+
+        public bool IsLeapYear()
+        {
+            return IsYearDivisibleBy(4) &&
+                (!IsYearDivisibleBy(100) || IsYearDivisibleBy(400));
+        }
+
+        private bool IsYearDivisibleBy(int divisor)
+        {
+            var remainder = this.year % divisor;
+            return remainder == 0;
+        }
+    }
+}
+
+/*
+// Step 10 - Wrong refactor, two tests fails
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
+{
+    public class Year
+    {
+        private int year;
+
+        public Year(int year)
+        {
+            this.year = year;
+        }
+
+        public bool IsLeapYear()
+        {
+            return IsYearDivisibleBy(4) &&
+                (IsYearDivisibleBy(100) || IsYearDivisibleBy(400));
+        }
+
+        private bool IsYearDivisibleBy(int divisor)
+        {
+            var remainder = this.year % divisor;
+            return remainder == 0;
+        }
+    }
+}
+*/
+
+/*
+// Step 9 - Refactor, new function
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
+{
+    public class Year
+    {
+        private int year;
+
+        public Year(int year)
+        {
+            this.year = year;
+        }
+
+        public bool IsLeapYear()
+        {
+            if (IsYearDivisibleBy(4))
+            {
+                if (IsYearDivisibleBy(100))
+                {
+                    return IsYearDivisibleBy(400);
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool IsYearDivisibleBy(int divisor)
+        {
+            var remainder = this.year % divisor;
+            return remainder == 0;
+        }
+    }
+}
+*/
+
+/*
+// Step 8 - Fixes the fourth test
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
+{
+    public class Year
+    {
+        private int year;
+
+        public Year(int year)
+        {
+            this.year = year;
+        }
+
+        public bool IsLeapYear()
+        {
+            if (this.year % 4 == 0)
+            {
+                if (this.year % 100 == 0)
+                {
+                    return this.year % 400 == 0;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
+*/
+
+/*
+// Step 6 - Fixes the third test
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
+{
+    public class Year
+    {
+        private int year;
+
+        public Year(int year)
+        {
+            this.year = year;
+        }
+
+        public bool IsLeapYear()
+        {
+            if (this.year % 4 == 0)
+            {
+                return this.year % 100 != 0;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
+*/
+
+/*
+// Step 4 - Passes first 2 tests
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
+{
+    public class Year
+    {
+        private int year;
+
+        public Year(int year)
+        {
+            this.year = year;
+        }
+
+        public bool IsLeapYear()
+        {
+            return this.year % 4 == 0;
+        }
+   }
+}
+*/
+
+/*
+// Step 2 - Passes test IsLeapYear_LeapYear_ReturnsTrue
+namespace DotNet.MeaningfulUnitTests.Date.TDD.Date
+{
+    public class Year
+    {
+        public Year(int year)
+        {
+
+        }
+
+        public bool IsLeapYear()
+        {
+            return true;
+        }
+    }
+}
+*/

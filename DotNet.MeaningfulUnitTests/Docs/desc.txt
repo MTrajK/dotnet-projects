@@ -1,0 +1,92 @@
+TDD vs Ortodox/Traditional
+
+1. TDD: implement the method/class using several unit tests scenarios.
+2. Ortodox approach: write several tests scenarios from the implementation.
+
+
+__________________________________
+
+Unit Testing Frameworks/Libraries
+
+MSTest
+MoQ
+FluentAssertions
+
+
+__________________________________
+
+1. Simple logic
+	App:
+	Console App
+	Solution:
+	Is leap year
+
+	a. Use it for the TDD (complex if else logic)
+	b. Also use this implementation for the traditional (create a list of test cases)
+
+2. Injections
+	App:
+	API
+	Solution:
+		Some payment service, with Payment method that expect Request that contains: 
+			- AccountId,
+			- Amount,
+			- TransactionId,
+			- GatewayTransactionId
+		Inject: 
+			- IRequestValidator (that validates these 4 fields)
+			- IResponseBuilder
+			- ITransactionRepository (GetTransactionIdUsingGatewayTransactionId, InsertSplitPaymentTransaction)
+
+	a. Use it for the TDD (injection if else logic)
+	b. Also use this implementation for the traditional (create a list of test cases)
+
+
+______________________________________________
+
+Code structure
+
+DotNet.MeaningfulUnitTests
+
+Src
+	Date
+		DotNet.MeaningfulUnitTests.Date.TDD 				(ConsoleApp)
+		DotNet.MeaningfulUnitTests.Date.Traditional 		(ConsoleApp)
+	Payments
+		DotNet.MeaningfulUnitTests.Payments.TDD 			(WebApi)
+		DotNet.MeaningfulUnitTests.Payments.Traditional 	(WebApi)
+
+
+Tests
+	Date
+		DotNet.MeaningfulUnitTests.Date.TDD.UnitTests 				(MSTest)
+		DotNet.MeaningfulUnitTests.Date.Traditional.UnitTests 		(MSTest)
+	Payments
+		DotNet.MeaningfulUnitTests.Payments.TDD.UnitTests 			(MSTest)
+		DotNet.MeaningfulUnitTests.Payments.Traditional.UnitTests 	(MSTest)
+
+
+________________________________
+
+Scenarios
+
+
+PaymentService
+
+Scenario - expected result
+
+1. Invalid request, missing accountId - returns BadRequest code.
+2. Invalid request, missing both transactionIds - returns BadRequest code.
+3. TransactionId not found using GatewayTransactionId - returns NotFound code.
+4. Split payment transaction failed using request.TransactionId - returns NotAcceptable code.
+5. Split payment transaction success using request.TransactionId - returns Success code and splitPaymentTransactionId.
+6. Split payment transaction success using request.GatewayTransactionId - returns Success code and splitPaymentTransactionId.
+
+Year
+
+Scenario - expected result
+
+1. Odd year, not divisible by 4 - returns false.
+2. Divisible by 4, but not by 100 or 400 - returns true.
+3. Divisible by 100, but not by 400 - returns false.
+4. Divisible by 100, and divisible by 400 - returns true.

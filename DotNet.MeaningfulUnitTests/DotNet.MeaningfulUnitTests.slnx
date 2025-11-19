@@ -1,0 +1,20 @@
+<Solution>
+  <Folder Name="/Src/" />
+  <Folder Name="/Src/Date/">
+    <Project Path="Src/Date/DotNet.MeaningfulUnitTests.Date.TDD/DotNet.MeaningfulUnitTests.Date.TDD.csproj" />
+    <Project Path="Src/Date/DotNet.MeaningfulUnitTests.Date.Traditional/DotNet.MeaningfulUnitTests.Date.Traditional.csproj" />
+  </Folder>
+  <Folder Name="/Src/Payments/">
+    <Project Path="Src/Payments/DotNet.MeaningfulUnitTests.Payments.TDD/DotNet.MeaningfulUnitTests.Payments.TDD.csproj" />
+    <Project Path="Src/Payments/DotNet.MeaningfulUnitTests.Payments.Traditional/DotNet.MeaningfulUnitTests.Payments.Traditional.csproj" />
+  </Folder>
+  <Folder Name="/Tests/" />
+  <Folder Name="/Tests/Date/">
+    <Project Path="Tests/Date/DotNet.MeaningfulUnitTests.Date.TDD.UnitTests/DotNet.MeaningfulUnitTests.Date.TDD.UnitTests.csproj" />
+    <Project Path="Tests/Date/DotNet.MeaningfulUnitTests.Date.Traditional.UnitTests/DotNet.MeaningfulUnitTests.Date.Traditional.UnitTests.csproj" />
+  </Folder>
+  <Folder Name="/Tests/Payments/">
+    <Project Path="Tests/Payments/DotNet.MeaningfulUnitTests.Payments.TDD.UnitTests/DotNet.MeaningfulUnitTests.Payments.TDD.UnitTests.csproj" />
+    <Project Path="Tests/Payments/DotNet.MeaningfulUnitTests.Payments.Traditional.UnitTests/DotNet.MeaningfulUnitTests.Payments.Traditional.UnitTests.csproj" />
+  </Folder>
+</Solution>
