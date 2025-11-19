@@ -5,8 +5,8 @@ See [DotNet.TDD](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.TDD)
 
 ## Project structure
 - [Docs](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MeaningfulUnitTests/Docs) - PowerPoint presentation and some notes.
-- [SimpleDemos](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MeaningfulUnitTests/Src) - All implementation projects.
-- [DeskBooking](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MeaningfulUnitTests/Tests) - All unit testing prjoects.
+- [Src](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MeaningfulUnitTests/Src) - All implementation projects.
+- [Tests](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MeaningfulUnitTests/Tests) - All unit testing prjoects.
 
 ## Used techs and things:
 - .NET
