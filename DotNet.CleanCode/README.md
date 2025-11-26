@@ -1,4 +1,4 @@
-# .NET Unit Testing
+# .NET Clean Code
 .NET Core demos (with a presentation) that show the difference between bad and clean code.
 
 ## Project structure
