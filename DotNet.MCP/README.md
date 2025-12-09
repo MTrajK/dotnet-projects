@@ -1,5 +1,5 @@
 # .NET MCP
-.NET demos (with a presentation) that explain using MCP servers from MCP clients (Claude Desktop) and how to create a MCP server using .NET.\
+.NET demos (with a presentation) that explain using MCP servers from MCP clients (Claude Desktop) and how to create a MCP server using .NET.
 
 ## Project structure
 - [Docs](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MCP/Docs) - PowerPoint presentation and some notes.
