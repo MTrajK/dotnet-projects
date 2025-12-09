@@ -1,6 +1,0 @@
-@DotNet.MCP.Notes.WebAPI_HostAddress = http://localhost:5104
-
-GET {{DotNet.MCP.Notes.WebAPI_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
