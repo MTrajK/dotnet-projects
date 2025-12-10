@@ -1,13 +1,12 @@
-AirBnb MCP Server demo
+Local Time MCP Server demo
 
-1. Show Claude Desktop     				- Video
-2. Search for accomodation 				- Video
-	- "The cheapest 5 available accommodations in Skopje, from 15th of December till 20th of December 2025"
-3. Show "Add connectors"   				- Video
-4. Show VS code README.md  				- Live
-5. Show AirBnb github     				- Live
-6. Inject AirBnb server    				- Video
-7. Show the config json file 			- Live
-	- explain why it needs node.js, python, dotnet
-8. Close and restart Claude Desktop 	- Video
-9. Search for the same accomodation 	- Video
+1. Ask what time is it 					- Video
+	- "What time is it currently in my time zone?"
+2. Show "Search and tools", no MCP		- Video
+3. Inject Local Time server 			- Video
+4. Show the config json file 			- Live
+	- explain it's different than the previos
+5. Show code							- Live
+6. Close and restart Claude Desktop 	- Video
+7. Ask now again about the time and zone 	- Video
+	- "What time is it currently in my time zone?"
