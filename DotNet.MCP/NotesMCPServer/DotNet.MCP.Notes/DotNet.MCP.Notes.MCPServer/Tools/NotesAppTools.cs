@@ -72,7 +72,7 @@ namespace DotNet.MCP.Notes.MCPServer.Tools
             var response = await httpClient.PutAsJsonAsync(UpdateNoteApiUrl, updateNoteRequest);
             if (response.IsSuccessStatusCode)
             {
-                return "Success: The note is update.";
+                return "Success: The note is updated.";
             }
 
             return "Error: The note was not updated.";
