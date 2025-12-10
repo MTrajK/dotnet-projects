@@ -1,0 +1,13 @@
+AirBnb MCP Server demo
+
+1. Show Claude Desktop     				- Video
+2. Search for accomodation 				- Video
+	- "The cheapest 5 available accommodations in Skopje, from 15th of December till 20th of December 2025"
+3. Show "Add connectors"   				- Video
+4. Show VS code README.md  				- Live
+5. Show AirBnb github     				- Live
+6. Inject AirBnb server    				- Video
+7. Show the config json file 			- Live
+	- explain why it needs node.js, python, dotnet
+8. Close and restart Claude Desktop 	- Video
+9. Search for the same accomodation 	- Video
