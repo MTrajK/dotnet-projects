@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Notes API and APP launch",
+    "Projects": [
+      {
+        "Path": "DotNet.MCP.Notes.WebAPI\\DotNet.MCP.Notes.WebAPI.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "DotNet.MCP.Notes.WebAPP\\DotNet.MCP.Notes.WebAPP.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      }
+    ]
+  }
+]

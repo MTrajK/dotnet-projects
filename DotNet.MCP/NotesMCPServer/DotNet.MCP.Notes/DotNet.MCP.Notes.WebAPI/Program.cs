@@ -39,10 +39,6 @@ app.UseCors("BlazorClient");
 
 app.MapControllers();
 
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<NotesDbContext>();
-    db.Database.EnsureCreated(); // Just for a DEMO (bad idea for a PROD app)
-}
+app.Services.EnsureDatabaseCreated();
 
 app.Run();

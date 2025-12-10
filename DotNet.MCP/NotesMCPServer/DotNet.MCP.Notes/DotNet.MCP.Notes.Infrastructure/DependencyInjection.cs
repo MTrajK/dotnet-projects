@@ -23,5 +23,16 @@
 
             return services;
         }
+
+        public static IServiceProvider EnsureDatabaseCreated(this IServiceProvider services)
+        {
+            using (var scope = services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<NotesDbContext>();
+                db.Database.EnsureCreated(); // Just for a DEMO (bad idea for a PROD app)
+            }
+
+            return services;
+        }
     }
 }
