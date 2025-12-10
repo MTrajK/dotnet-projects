@@ -12,4 +12,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.0" PrivateAssets="all" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet.MCP.Notes.Shared\DotNet.MCP.Notes.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

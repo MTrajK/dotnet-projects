@@ -1,0 +1,87 @@
+﻿@page "/notes/create"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<PageTitle>Forget me? Regret me! - Create Note</PageTitle>
+
+<h3>Create Note</h3>
+
+@if (isCreating)
+{
+    <p>Creating...</p>
+}
+else if (isError)
+{
+    <p>Error!</p>
+}
+else
+{
+    <EditForm Model="model" OnValidSubmit="CreateAsync">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div>
+            <label>Title</label><br />
+            <InputText @bind-Value="model.Title" />
+        </div>
+        <div>
+            <label>Description</label><br />
+            <InputTextArea @bind-Value="model.Description" />
+        </div>
+        <button type="submit">Save</button>
+        <button type="button" @onclick="GoBack">Cancel</button>
+    </EditForm>
+}
+
+@code {
+    private readonly string allNotesPageUrl = "/notes";
+
+    private readonly string createNoteApiUrl = "api/notes";
+
+    private CreateNoteRequest model = new CreateNoteRequest()
+    {
+        Title = "",
+        Description = ""
+    };
+    private bool isCreating = false;
+    private bool isError = false;
+
+    private async Task CreateAsync()
+    {
+        isCreating = true;
+
+        if (string.IsNullOrWhiteSpace(model.Title))
+        {
+            // Handle error
+            isCreating = false;
+            isError = true;
+            return;
+        }
+
+        try
+        {
+            var response = await Http.PostAsJsonAsync(createNoteApiUrl, model);
+            if (response.IsSuccessStatusCode)
+            {
+                Navigation.NavigateTo(allNotesPageUrl);
+            }
+            else
+            {
+                // Handle error
+                isError = true;
+            }
+        }
+        catch
+        {
+            // Handle error
+            isError = true;
+        }
+
+        isCreating = false;
+    }
+
+    private void GoBack()
+    {
+        Navigation.NavigateTo(allNotesPageUrl);
+    }
+}

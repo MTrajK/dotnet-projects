@@ -1,8 +1,8 @@
 ﻿namespace DotNet.MCP.Notes.Application.Services
 {
-    using DotNet.MCP.Notes.Application.DTOs;
     using DotNet.MCP.Notes.Application.Utils;
     using DotNet.MCP.Notes.Domain.Repositories;
+    using DotNet.MCP.Notes.Shared.DTOs;
 
     public class NoteService : INoteService
     {

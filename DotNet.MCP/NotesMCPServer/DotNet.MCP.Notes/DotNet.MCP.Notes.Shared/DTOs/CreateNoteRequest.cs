@@ -1,4 +1,4 @@
-﻿namespace DotNet.MCP.Notes.Application.DTOs
+﻿namespace DotNet.MCP.Notes.Shared.DTOs
 {
     public class CreateNoteRequest
     {

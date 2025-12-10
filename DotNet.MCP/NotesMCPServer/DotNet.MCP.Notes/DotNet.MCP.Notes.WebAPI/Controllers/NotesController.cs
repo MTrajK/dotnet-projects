@@ -1,7 +1,7 @@
 ﻿namespace DotNet.MCP.Notes.WebAPI.Controllers
 {
-    using DotNet.MCP.Notes.Application.DTOs;
     using DotNet.MCP.Notes.Application.Services;
+    using DotNet.MCP.Notes.Shared.DTOs;
 
     using Microsoft.AspNetCore.Mvc;
 

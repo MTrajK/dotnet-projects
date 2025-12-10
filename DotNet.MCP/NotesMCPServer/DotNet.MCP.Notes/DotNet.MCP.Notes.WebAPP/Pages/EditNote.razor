@@ -1,0 +1,151 @@
+﻿@page "/notes/edit/{Id:int}"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<PageTitle>Forget me? Regret me! - Edit Note</PageTitle>
+
+<h3>Edit Note</h3>
+
+@if (isLoading)
+{
+    <p>Loading...</p>
+}
+else if (isError)
+{
+    <p>Error!</p>
+}
+else if (model is null)
+{
+    <p>Note not found.</p>
+}
+else
+{
+    <EditForm Model="model" OnValidSubmit="UpdateAsync">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div>
+            <label>Title</label><br />
+            <InputText @bind-Value="model.Title" />
+        </div>
+        <div>
+            <label>Description</label><br />
+            <InputTextArea @bind-Value="model.Description" />
+        </div>
+
+        <button type="submit">Save</button>
+        <button type="button" @onclick="DeleteAsync">Delete</button>
+        <button type="button" @onclick="GoBack">Cancel</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+
+    private readonly string allNotesPageUrl = "/notes";
+
+    private readonly string getNoteApiUrl = "api/notes/{0}";
+    private readonly string updateNoteApiUrl = "api/notes";
+    private readonly string deleteNoteApiUrl = "api/notes/{0}";
+
+    private UpdateNoteRequest? model;
+    private bool isLoading = true;
+    private bool isError = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        isLoading = true;
+
+        try
+        {
+            var url = String.Format(getNoteApiUrl, Id);
+            var note = await Http.GetFromJsonAsync<NoteResponse>(url);
+            if (note is not null)
+            {
+                model = new UpdateNoteRequest
+                {
+                    Id = note.Id,
+                    Title = note.Title,
+                    Description = note.Description
+                };
+            }
+            else
+            {
+                // Handle error
+                isError = true;
+            }
+        }
+        catch
+        {
+            // Handle error
+            isError = true;
+        }
+
+        isLoading = false;
+    }
+
+    private async Task UpdateAsync()
+    {
+        isLoading = true;
+
+        if (string.IsNullOrWhiteSpace(model?.Title))
+        {
+            // Handle error
+            isLoading = false;
+            isError = true;
+            return;
+        }
+
+        try
+        {
+            var response = await Http.PutAsJsonAsync(updateNoteApiUrl, model);
+            if (response.IsSuccessStatusCode)
+            {
+                Navigation.NavigateTo(allNotesPageUrl);
+            }
+            else
+            {
+                // Handle error
+                isError = true;
+            }
+        }
+        catch
+        {
+            // Handle error
+            isError = true;
+        }
+
+        isLoading = false;
+    }
+
+    private async Task DeleteAsync()
+    {
+        isLoading = true;
+
+        try
+        {
+            var url = String.Format(deleteNoteApiUrl, Id);
+            var response = await Http.DeleteAsync(url);
+            if (response.IsSuccessStatusCode)
+            {
+                Navigation.NavigateTo(allNotesPageUrl);
+            }
+            else
+            {
+                // handle errors
+            }
+        }
+        catch
+        {
+            // Handle error
+            isError = true;
+        }
+
+        isLoading = false;
+    }
+
+    private void GoBack()
+    {
+        Navigation.NavigateTo(allNotesPageUrl);
+    }
+}

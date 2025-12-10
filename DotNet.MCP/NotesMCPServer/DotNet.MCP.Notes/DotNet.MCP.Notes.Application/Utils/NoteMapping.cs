@@ -1,7 +1,7 @@
 ﻿namespace DotNet.MCP.Notes.Application.Utils
 {
-    using DotNet.MCP.Notes.Application.DTOs;
     using DotNet.MCP.Notes.Domain.Entities;
+    using DotNet.MCP.Notes.Shared.DTOs;
 
     public static class NoteMapping
     {

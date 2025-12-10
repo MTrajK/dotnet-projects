@@ -1,6 +1,6 @@
 ﻿namespace DotNet.MCP.Notes.Application.Services
 {
-    using DotNet.MCP.Notes.Application.DTOs;
+    using DotNet.MCP.Notes.Shared.DTOs;
 
     public interface INoteService
     {

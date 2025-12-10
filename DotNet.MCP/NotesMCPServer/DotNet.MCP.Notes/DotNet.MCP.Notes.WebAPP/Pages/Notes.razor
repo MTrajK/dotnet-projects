@@ -1,0 +1,98 @@
+﻿@page "/notes"
+@inject HttpClient Http
+
+<PageTitle>Forget me? Regret me! - Notes</PageTitle>
+
+<h3>Notes</h3>
+
+<input @bind="searchQuery" @bind:event="oninput" placeholder="Search..." />
+<button @onclick="SearchAsync">Search</button>
+<button @onclick="LoadNotesAsync">Reset</button>
+<a href="@(createNotePageUrl)">Create new note</a>
+
+@if (isLoading)
+{
+    <p>Loading...</p>
+}
+else if (isError)
+{
+    <p>Error!</p>
+}
+else if (notes is null || notes.Count == 0)
+{
+    <p>No notes found.</p>
+}
+else
+{
+    <ul>
+        @foreach (var note in notes)
+        {
+            <li>
+                <strong>@note.Title</strong>
+                <br />
+                @note.Description
+                <br />
+                <a href="@(String.Format(editNotePageUrl, note.Id))">Edit</a>
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private readonly string createNotePageUrl = "/notes/create";
+    private readonly string editNotePageUrl = "/notes/edit/{0}";
+
+    private readonly string getAllNotesApiUrl = "api/notes";
+    private readonly string searchNotesApiUrl = "api/notes/search?query={0}";
+
+    private List<NoteResponse>? notes;
+    private string searchQuery = string.Empty;
+    private bool isLoading = true;
+    private bool isError = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadNotesAsync();
+    }
+
+    private async Task LoadNotesAsync()
+    {
+        isLoading = true;
+
+        try
+        {
+            notes = await Http.GetFromJsonAsync<List<NoteResponse>>(getAllNotesApiUrl);
+        }
+        catch
+        {
+            // Handle error
+            isError = true;
+        }
+
+        isLoading = false;
+    }
+
+    private async Task SearchAsync()
+    {
+        isLoading = true;
+
+        if (string.IsNullOrWhiteSpace(searchQuery))
+        {
+            await LoadNotesAsync();
+            return;
+        }
+
+        try
+        {
+            var url = String.Format(searchNotesApiUrl, Uri.EscapeDataString(searchQuery));
+            notes = await Http.GetFromJsonAsync<List<NoteResponse>>(url);
+        }
+        catch
+        {
+            // Handle error
+            isError = true;
+        }
+
+        isLoading = false;
+    }
+}

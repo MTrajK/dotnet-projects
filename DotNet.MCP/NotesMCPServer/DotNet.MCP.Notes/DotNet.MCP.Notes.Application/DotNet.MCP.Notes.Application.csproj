@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotNet.MCP.Notes.Domain\DotNet.MCP.Notes.Domain.csproj" />
+    <ProjectReference Include="..\DotNet.MCP.Notes.Shared\DotNet.MCP.Notes.Shared.csproj" />
   </ItemGroup>
 
 </Project>
