@@ -46,10 +46,17 @@
             return note;
         }
 
-        public async Task UpdateAsync(Note note, CancellationToken cancellationToken = default)
+        public async Task UpdateAsync(Note updatedNote, CancellationToken cancellationToken = default)
         {
-            _context.Notes.Update(note);
-            await _context.SaveChangesAsync(cancellationToken);
+            var existingNote = await _context.Notes.FirstOrDefaultAsync(note => note.Id == updatedNote.Id);
+
+            if (existingNote != null)
+            {
+                existingNote.Title = updatedNote.Title;
+                existingNote.Description = updatedNote.Description;
+
+                await _context.SaveChangesAsync(cancellationToken);
+            }
         }
 
         public async Task DeleteAsync(int id, CancellationToken cancellationToken = default)
