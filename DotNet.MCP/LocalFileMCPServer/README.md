@@ -16,12 +16,12 @@
    ```json
    {
       "mcpServers": {
-         "local-time-server": {
+         "local-file-server": {
             "command": "dotnet",
             "args": [
             "run",
             "--project",
-            "E:\\\\Programming\\\\GitHub\\\\dotnet-projects\\\\DotNet.MCP\\\\LocalFileMCPServer\\\\DotNet.MCP.LocalFile\\\\DotNet.MCP.LocalFile\\\\DotNet.MCP.LocalFile.csproj",
+            "E:\\\\Programming\\\\GitHub\\\\dotnet-projects\\\\DotNet.MCP\\\\LocalFileMCPServer\\\\DotNet.MCP.LocalFile\\\\DotNet.MCP.LocalFile\\\\DotNet.MCP.LocalFile.csproj", // Change the path using your local machine path.
             "--no-build"
             ]
          }
@@ -31,7 +31,7 @@
 
 3. Save the Configuration File and Restart Claude Desktop
    * Save the ***claude_desktop_config.json*** file.
-   * Completely quit and restart the Claude Desktop application for the changes to take effect.
+   * Completely quit and restart the Claude Desktop application for the changes to take effect (not just by clicking X on the app, right click and Quit on the Claude Desktop icon from the Notification area).
 
 4. Verify the Server Connection
    * After restarting, look for a **search and tools** in the bottom-left part of the conversation input box.
