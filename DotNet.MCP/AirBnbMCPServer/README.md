@@ -1,6 +1,8 @@
-# Local Time MCP Server
+# AirBnb MCP Server
 
-## Step by step adding Local Time MCP Server into Claude Desktop
+## Step by step adding AirBnb MCP Server into Claude Desktop
+
+See [Official AirBnb MCP server instructions](https://github.com/openbnb-org/mcp-server-airbnb).
 
 1. Open the Claude Desktop Configuration File
    * Open **Claude Desktop**.
@@ -16,13 +18,11 @@
    ```json
    {
       "mcpServers": {
-         "local-time-mcp-server": {
-            "command": "dotnet",
+         "airbnb": {
+            "command": "npx",
             "args": [
-            "run",
-            "--project",
-            "E:\\\\Programming\\\\GitHub\\\\dotnet-projects\\\\DotNet.MCP\\\\LocalTimeMCPServer\\\\DotNet.MCP.LocalTime\\\\DotNet.MCP.LocalTime\\\\DotNet.MCP.LocalTime.csproj", // Change the path using your local machine path.
-            "--no-build"
+               "-y",
+               "@openbnb/mcp-server-airbnb"
             ]
          }
       }
@@ -33,7 +33,10 @@
    * Save the ***claude_desktop_config.json*** file.
    * Completely quit and restart the Claude Desktop application for the changes to take effect (not just by clicking X on the app, right click and Quit on the Claude Desktop icon from the Notification area).
 
-4. Verify the Server Connection
+4. Install node.js before using the MCP server
+   * make sure [Node.js](https://nodejs.org/en) is installed on your desktop for npx to work.
+
+5. Verify the Server Connection
    * After restarting, look for a **search and tools** in the bottom-left part of the conversation input box.
    * Click the icon to view the list of available MCP tools. Your .NET server's tools should be listed there (wait several seconds if it' not here, Claude Desktop needs time to build & run the MCP server using the provided command).
    * You can now ask Claude to use the tools provided by your server. You may need to grant permissions the first time you use a new tool.

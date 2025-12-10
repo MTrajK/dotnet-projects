@@ -51,5 +51,5 @@
 
 4. Verify the Server Connection
    * After restarting, look for a **search and tools** in the bottom-left part of the conversation input box.
-   * Click the icon to view the list of available MCP tools. Your .NET server's tools should be listed there.
+   * Click the icon to view the list of available MCP tools. Your .NET server's tools should be listed there (wait several seconds if it' not here, Claude Desktop needs time to build & run the MCP server using the provided command).
    * You can now ask Claude to use the tools provided by your server. You may need to grant permissions the first time you use a new tool.
