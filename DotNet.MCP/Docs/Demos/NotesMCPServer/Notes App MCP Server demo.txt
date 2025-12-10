@@ -1,13 +1,24 @@
-AirBnb MCP Server demo
+Local File MCP Server demo
 
-1. Show Claude Desktop     				- Video
-2. Search for accomodation 				- Video
-	- "The cheapest 5 available accommodations in Skopje, from 15th of December till 20th of December 2025"
-3. Show "Add connectors"   				- Video
-4. Show VS code README.md  				- Live
-5. Show AirBnb github     				- Live
-6. Inject AirBnb server    				- Video
-7. Show the config json file 			- Live
-	- explain why it needs node.js, python, dotnet
-8. Close and restart Claude Desktop 	- Video
-9. Search for the same accomodation 	- Video
+1. Show application			            - Video
+	- The home page (and the logo)
+	- All notes page
+	- The edit note
+	- Create note
+	- Delete note
+2. Show the application code			- Live
+2. Ask about the notes 					- Video
+	- "List all my notes"
+3. Show "Search and tools", no MCP		- Video
+4. Inject Notes App server 		    	- Video
+5. Show the config json file 			- Live
+6. Show MCP server code					- Live
+7. Close and restart Claude Desktop 	- Video
+8. Ask now again					 	- Video
+	- "Search for dental appointment"
+	- "Oh I've missed the date, it's 17th, wednesday at 2PM"
+9. Add AirBnb server					- Video
+	- "Search for the cheapest accommodation in Belgrade, 1-5 January 2026 and add it in the notes"
+	- "Get all the notes"
+	- Show SSMS
+	- Show Postman

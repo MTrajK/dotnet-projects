@@ -1,7 +1,7 @@
 Local File MCP Server demo
 
 1. Show all the files locally           - Video
-2. Ask what time is it 					- Video
+2. Ask about the files 					- Video
 	- "List all the local json files"
 3. Show "Search and tools", no MCP		- Video
 4. Inject Local File server 			- Video
