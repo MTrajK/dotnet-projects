@@ -102,11 +102,11 @@
 @code {
     [Parameter] public int Id { get; set; }
 
-    private readonly string allNotesPageUrl = "/notes";
+    private const string allNotesPageUrl = "/notes";
 
-    private readonly string getNoteApiUrl = "api/notes/{0}";
-    private readonly string updateNoteApiUrl = "api/notes";
-    private readonly string deleteNoteApiUrl = "api/notes/{0}";
+    private const string getNoteApiUrl = "api/notes/{0}";
+    private const string updateNoteApiUrl = "api/notes";
+    private const string deleteNoteApiUrl = "api/notes/{0}";
 
     private UpdateNoteRequest? model;
     private bool isLoading = true;
@@ -118,7 +118,7 @@
 
         try
         {
-            var url = String.Format(getNoteApiUrl, Id);
+            var url = string.Format(getNoteApiUrl, Id);
             var note = await Http.GetFromJsonAsync<NoteResponse>(url);
             if (note is not null)
             {
@@ -184,7 +184,7 @@
 
         try
         {
-            var url = String.Format(deleteNoteApiUrl, Id);
+            var url = string.Format(deleteNoteApiUrl, Id);
             var response = await Http.DeleteAsync(url);
             if (response.IsSuccessStatusCode)
             {

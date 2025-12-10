@@ -77,7 +77,7 @@
 
                             <div class="mt-3 d-flex justify-content-end">
                                 <a class="btn btn-sm btn-outline-primary"
-                                   href="@(String.Format(editNotePageUrl, note.Id))">
+                                   href="@(string.Format(editNotePageUrl, note.Id))">
                                     Edit
                                 </a>
                             </div>
@@ -90,11 +90,11 @@
 </div>
 
 @code {
-    private readonly string createNotePageUrl = "/notes/create";
-    private readonly string editNotePageUrl = "/notes/edit/{0}";
+    private const string createNotePageUrl = "/notes/create";
+    private const string editNotePageUrl = "/notes/edit/{0}";
 
-    private readonly string getAllNotesApiUrl = "api/notes";
-    private readonly string searchNotesApiUrl = "api/notes/search?query={0}";
+    private const string getAllNotesApiUrl = "api/notes";
+    private const string searchNotesApiUrl = "api/notes/search?query={0}";
 
     private List<NoteResponse>? notes;
     private string searchQuery = string.Empty;
@@ -141,7 +141,7 @@
 
         try
         {
-            var url = String.Format(searchNotesApiUrl, Uri.EscapeDataString(searchQuery));
+            var url = string.Format(searchNotesApiUrl, Uri.EscapeDataString(searchQuery));
             notes = await Http.GetFromJsonAsync<List<NoteResponse>>(url);
         }
         catch

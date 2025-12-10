@@ -80,9 +80,9 @@
 <div class="modal-backdrop show"></div>
 
 @code {
-    private readonly string allNotesPageUrl = "/notes";
+    private const string allNotesPageUrl = "/notes";
 
-    private readonly string createNoteApiUrl = "api/notes";
+    private const string createNoteApiUrl = "api/notes";
 
     private CreateNoteRequest model = new CreateNoteRequest()
     {

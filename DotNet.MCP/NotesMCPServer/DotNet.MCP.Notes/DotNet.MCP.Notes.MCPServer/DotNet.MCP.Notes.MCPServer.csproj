@@ -37,4 +37,8 @@
     <PackageReference Include="ModelContextProtocol" Version="0.4.0-preview.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet.MCP.Notes.Shared\DotNet.MCP.Notes.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

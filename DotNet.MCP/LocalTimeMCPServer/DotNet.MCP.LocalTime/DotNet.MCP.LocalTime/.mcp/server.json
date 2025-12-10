@@ -1,12 +1,12 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
-  "description": "User's local machine time server",
+  "description": "User's local machine time MCP server",
   "name": "io.github.MTrajK/dotnet-projects",
   "version": "0.1.0-beta",
   "packages": [
     {
       "registryType": "nuget",
-      "identifier": "LocalTimeServer",
+      "identifier": "LocalTimeMCPServer",
       "version": "0.1.0-beta",
       "transport": {
         "type": "stdio"

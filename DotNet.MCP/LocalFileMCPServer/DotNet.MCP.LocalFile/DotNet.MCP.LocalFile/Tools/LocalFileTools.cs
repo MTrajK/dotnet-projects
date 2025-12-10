@@ -66,7 +66,7 @@ namespace DotNet.MCP.LocalFile.Tools
             }
             catch
             {
-                return "Error: The file was not created";
+                return "Error: The file was not created.";
             }
 
             return "Success: The file is created.";
