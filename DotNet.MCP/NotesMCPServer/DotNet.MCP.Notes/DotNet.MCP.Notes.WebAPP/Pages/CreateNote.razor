@@ -4,34 +4,80 @@
 
 <PageTitle>Forget me? Regret me! - Create Note</PageTitle>
 
-<h3>Create Note</h3>
+<div class="modal show d-block" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create Note</h5>
+                <button type="button"
+                class="btn-close"
+                aria-label="Close"
+                @onclick="GoBack">
+                </button>
+            </div>
 
-@if (isCreating)
-{
-    <p>Creating...</p>
-}
-else if (isError)
-{
-    <p>Error!</p>
-}
-else
-{
-    <EditForm Model="model" OnValidSubmit="CreateAsync">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+            @if (isCreating)
+            {
+                <div class="modal-body text-center text-muted">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Creating...</span>
+                    </div>
+                    <p class="mt-2 mb-0">Creating note...</p>
+                </div>
+            }
+            else if (isError)
+            {
+                <div class="modal-body">
+                    <div class="alert alert-danger mb-0">
+                        Error!
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"
+                            class="btn btn-outline-secondary"
+                            @onclick="GoBack">
+                        Close
+                    </button>
+                </div>
+            }
+            else
+            {
+                <EditForm Model="model" OnValidSubmit="CreateAsync">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
 
-        <div>
-            <label>Title</label><br />
-            <InputText @bind-Value="model.Title" />
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Title</label>
+                            <InputText @bind-Value="model.Title"
+                            class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <InputTextArea @bind-Value="model.Description"
+                            class="form-control"
+                            rows="5" />
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button"
+                        class="btn btn-outline-secondary"
+                        @onclick="GoBack">
+                            Cancel
+                        </button>
+                        <button type="submit"
+                        class="btn btn-primary">
+                            Save
+                        </button>
+                    </div>
+                </EditForm>
+            }
         </div>
-        <div>
-            <label>Description</label><br />
-            <InputTextArea @bind-Value="model.Description" />
-        </div>
-        <button type="submit">Save</button>
-        <button type="button" @onclick="GoBack">Cancel</button>
-    </EditForm>
-}
+    </div>
+</div>
+
+<div class="modal-backdrop show"></div>
 
 @code {
     private readonly string allNotesPageUrl = "/notes";
