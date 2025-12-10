@@ -65,7 +65,7 @@ namespace DotNet.MCP.Notes.MCPServer.Tools
         {
             var updateNoteRequest = new UpdateNoteRequest()
             {
-                Id = 1,
+                Id = id,
                 Title = title,
                 Description = description
             };

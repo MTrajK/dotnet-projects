@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+      "notes-app-mcp-server": {
+        "command": "dotnet",
+        "args": [
+        "run",
+        "--project",
+        "E:\\\\Programming\\\\GitHub\\\\dotnet-projects\\\\DotNet.MCP\\\\NotesMCPServer\\\\DotNet.MCP.Notes\\\\DotNet.MCP.Notes.MCPServer\\\\DotNet.MCP.Notes.MCPServer.csproj",
+        "--no-build"
+        ]
+      }
+  }
+}

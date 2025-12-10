@@ -16,7 +16,7 @@
    ```json
    {
       "mcpServers": {
-         "local-file-server": {
+         "local-file-mcp-server": {
             "command": "dotnet",
             "args": [
             "run",

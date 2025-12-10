@@ -16,7 +16,7 @@
    ```json
    {
       "mcpServers": {
-         "local-time-server": {
+         "local-time-mcp-server": {
             "command": "dotnet",
             "args": [
             "run",
