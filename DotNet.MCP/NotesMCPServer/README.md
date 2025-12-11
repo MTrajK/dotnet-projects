@@ -1,18 +1,28 @@
-# TODO:
+# Notes App
 
-1. Explain .slnLaunch - that 2 project are needed to be run (the API and the Web APP that is using the API)
-2. Explain the EnsureDatabaseCreated (just for demo)
-3. Explain the Shared project (shared models between different applications and layers like: API, Blazor, MCP)
-4. Explain the URLS - API: https://localhost:7001 and Blazor: https://localhost:7100
-5. Explain the postman collection.
-6. Endpoints
+## Architecture
+Clean architecture: Web APP, Web API, Application, Domain, Infrastructure.
+Also there is a Shared project, these are shared model between different apps, like Notes MCP server and Notes App (API, Blazor, MCP).
+
+## Launch
+Use the .slnLaunch file in VS - 2 project are needed to be run (the API and the Web APP that is using the API)
+
+## Database
+EnsureDatabaseCreated is just for demo. This is not a good practice for PROD.
+With this function the database is created if it's missing for the demo purpose.
+
+## URLs
+API: https://localhost:7001\
+Blazor: https://localhost:7100
+
+## Endpoints
+Postman collection: Notes.postman_collection.json
    * Get All Notes: GET /api/notes
    * Get Single Note: GET /api/notes/{id}
    * Search Notes: GET /api/notes/search?querry={querry}
    * Create Note: POST /api/notes
    * Update Note: PUT /api/notes
    * Delete Note: DELETE /api/notes/{id}
-
 
 # Notes App MCP Server
 

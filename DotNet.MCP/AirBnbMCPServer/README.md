@@ -2,7 +2,7 @@
 
 ## Step by step adding AirBnb MCP Server into Claude Desktop
 
-See [Official AirBnb MCP server instructions](https://github.com/openbnb-org/mcp-server-airbnb).
+See [AirBnb MCP server instructions](https://github.com/openbnb-org/mcp-server-airbnb).
 
 1. Open the Claude Desktop Configuration File
    * Open **Claude Desktop**.

@@ -1,7 +1,5 @@
-﻿using Microsoft.VisualBasic;
-using ModelContextProtocol.Server;
+﻿using ModelContextProtocol.Server;
 using System.ComponentModel;
-using System.IO;
 
 /// <summary>
 /// Sample MCP tools for demonstration purposes.

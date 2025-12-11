@@ -16,7 +16,7 @@ See [DotNet.TDD](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.TDD)
 - FluentAssertions
 
 ## Requirements
-- Visual Studio (2026 for best experience)
+- Visual Studio (2026 versions for best experience)
 
 ## Run tests
 - Use the test explorer UI, or go into the test class and right click to some method -> run test.

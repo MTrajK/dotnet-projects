@@ -3,19 +3,20 @@
 
 ## Project structure
 - [Docs](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MCP/Docs) - PowerPoint presentation and some notes.
+- [AirBnbMCPServer](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MCP/AirBnbMCPServer) - Usage of existing node.js AirBnb MCP server in Claude Desktop.
 - [LocalTimeMCPServer](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MCP/LocalTimeMCPServer) - Simple MCP server written in .NET that reads the local machine time.
 - [LocalFileMCPServer](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MCP/LocalFileMCPServer) - Simple MCP server written in .NET that reads some local file and edit the same.
 - [NotesMCPServer](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MCP/NotesMCPServer) - Simple MCP server written in .NET that uses API from the Notes Web APP and controls the application.
 
 ## Used techs and things:
 - .NET
+- Microsoft.Extensions.AI.Templates
 - Web API
 - Blazor
 - Entity Framework
-- Microsoft.Extensions.AI.Templates
 
 ## Requirements
-- Visual Studio (2026 for best experience)
+- Visual Studio (2026 versions for best experience)
 
 ## Create a .NET MCP server
 

@@ -2,8 +2,6 @@
 using ModelContextProtocol.Server;
 using System.ComponentModel;
 using System.Net.Http.Json;
-using System.Reflection;
-using static System.Net.WebRequestMethods;
 
 /// <summary>
 /// Sample MCP tools for demonstration purposes.
