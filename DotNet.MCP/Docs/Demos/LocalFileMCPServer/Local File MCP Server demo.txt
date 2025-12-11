@@ -1,0 +1,15 @@
+Local File MCP Server demo
+
+1. Show all the files locally           - Video
+2. Ask about the files 					- Video
+	- "List all the local json files"
+3. Show "Search and tools", no MCP		- Video
+4. Inject Local File server 			- Video
+5. Show the config json file 			- Live
+6. Show code							- Live
+7. Close and restart Claude Desktop 	- Video
+8. Ask now again					 	- Video
+	- "List all the local json files"
+	- "Show the content of example-json.json"
+	- "Create a new file "A2A presentation" and explain the agent to agent protocol in several sentences"
+9. Read the newly created file and show the newly created file using folder explorer. - Video

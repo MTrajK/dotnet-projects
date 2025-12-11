@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="DotNet.MCP.Notes.Application/DotNet.MCP.Notes.Application.csproj" />
+  <Project Path="DotNet.MCP.Notes.Domain/DotNet.MCP.Notes.Domain.csproj" />
+  <Project Path="DotNet.MCP.Notes.Infrastructure/DotNet.MCP.Notes.Infrastructure.csproj" />
+  <Project Path="DotNet.MCP.Notes.MCPServer/DotNet.MCP.Notes.MCPServer.csproj" />
+  <Project Path="DotNet.MCP.Notes.Shared/DotNet.MCP.Notes.Shared.csproj" Id="588e5cf3-41e0-40c3-8910-47bc67cde7d1" />
+  <Project Path="DotNet.MCP.Notes.WebAPI/DotNet.MCP.Notes.WebAPI.csproj" />
+  <Project Path="DotNet.MCP.Notes.WebAPP/DotNet.MCP.Notes.WebAPP.csproj" />
+</Solution>

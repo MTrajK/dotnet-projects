@@ -1,0 +1,155 @@
+﻿@page "/notes"
+@inject HttpClient Http
+
+<PageTitle>Forget me? Regret me! - Notes</PageTitle>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">Notes</h3>
+        <a class="btn btn-primary" href="@(createNotePageUrl)">
+            <span class="bi bi-plus-lg"></span> Create New Note
+        </a>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row g-2 align-items-center">
+                <div class="col-md-6">
+                    <input class="form-control"
+                           placeholder="Search notes..."
+                           @bind="searchQuery"
+                           @bind:event="oninput" />
+                </div>
+                <div class="col-md-6 d-flex justify-content-md-end gap-2 mt-2 mt-md-0">
+                    <button class="btn btn-primary" @onclick="SearchAsync">
+                        Search
+                    </button>
+                    <button class="btn btn-outline-secondary" @onclick="ResetAsync">
+                        Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (isLoading)
+    {
+        <div class="text-center text-muted">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2 mb-0">Loading notes...</p>
+        </div>
+    }
+    else if (isError)
+    {
+        <div class="alert alert-danger">
+            Error!
+        </div>
+    }
+    else if (notes is null || notes.Count == 0)
+    {
+        <div class="alert alert-info">
+            No notes found. Try creating a new one.
+        </div>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+            @foreach (var note in notes)
+            {
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">@note.Title</h5>
+                            @if (!string.IsNullOrWhiteSpace(note.Description))
+                            {
+                                <p class="card-text flex-grow-1">
+                                    @note.Description
+                                </p>
+                            }
+                            else
+                            {
+                                <p class="card-text text-muted flex-grow-1">
+                                    No description provided.
+                                </p>
+                            }
+
+                            <div class="mt-3 d-flex justify-content-end">
+                                <a class="btn btn-sm btn-outline-primary"
+                                   href="@(string.Format(editNotePageUrl, note.Id))">
+                                    Edit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private const string createNotePageUrl = "/notes/create";
+    private const string editNotePageUrl = "/notes/edit/{0}";
+
+    private const string getAllNotesApiUrl = "api/notes";
+    private const string searchNotesApiUrl = "api/notes/search?query={0}";
+
+    private List<NoteResponse>? notes;
+    private string searchQuery = string.Empty;
+    private bool isLoading = true;
+    private bool isError = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadNotesAsync();
+    }
+
+    private async Task ResetAsync()
+    {
+        searchQuery = string.Empty;
+        await LoadNotesAsync();
+    }
+
+    private async Task LoadNotesAsync()
+    {
+        isLoading = true;
+
+        try
+        {
+            notes = await Http.GetFromJsonAsync<List<NoteResponse>>(getAllNotesApiUrl);
+        }
+        catch
+        {
+            // Handle error
+            isError = true;
+        }
+
+        isLoading = false;
+    }
+
+    private async Task SearchAsync()
+    {
+        isLoading = true;
+
+        if (string.IsNullOrWhiteSpace(searchQuery))
+        {
+            await LoadNotesAsync();
+            return;
+        }
+
+        try
+        {
+            var url = string.Format(searchNotesApiUrl, Uri.EscapeDataString(searchQuery));
+            notes = await Http.GetFromJsonAsync<List<NoteResponse>>(url);
+        }
+        catch
+        {
+            // Handle error
+            isError = true;
+        }
+
+        isLoading = false;
+    }
+}

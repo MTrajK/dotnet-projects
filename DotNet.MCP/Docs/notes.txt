@@ -1,0 +1,16 @@
+DotNet.MCP
+
+-LocalTimeMCPServer   (just reads the local machine time)
+---DotNet.MCP.LocalTime
+
+-LocalFileMCPServer   (just reads and writes in some local file)
+---DotNet.MCP.LocalFile
+
+-NotesMCPServer       (web app with db - notes, shows notes, edit notes)
+---DotNet.MCP.Notes
+------DotNet.MCP.Notes.MCPServer
+------DotNet.MCP.Notes.WebAPP
+------DotNet.MCP.Notes.WebAPI
+------DotNet.MCP.Notes.Application
+------DotNet.MCP.Notes.Infrastructure
+------DotNet.MCP.Notes.Domain

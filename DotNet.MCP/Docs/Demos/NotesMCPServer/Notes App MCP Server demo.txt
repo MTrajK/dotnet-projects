@@ -1,0 +1,24 @@
+Local File MCP Server demo
+
+1. Show application			            - Video
+	- The home page (and the logo)
+	- All notes page
+	- The edit note
+	- Create note
+	- Delete note
+2. Show the application code			- Live
+2. Ask about the notes 					- Video
+	- "List all my notes"
+3. Show "Search and tools", no MCP		- Video
+4. Inject Notes App server 		    	- Video
+5. Show the config json file 			- Live
+6. Show MCP server code					- Live
+7. Close and restart Claude Desktop 	- Video
+8. Ask now again					 	- Video
+	- "Search for dental appointment"
+	- "Oh I've missed the date, it's 17th, wednesday at 2PM"
+9. Add AirBnb server					- Video
+	- "Search for the cheapest accommodation in Belgrade, 1-5 January 2026 and add it in the notes"
+	- "Get all the notes"
+	- Show SSMS
+	- Show Postman

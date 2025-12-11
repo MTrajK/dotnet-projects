@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+      "local-file-mcp-server": {
+        "command": "dotnet",
+        "args": [
+        "run",
+        "--project",
+        "E:\\\\Programming\\\\GitHub\\\\dotnet-projects\\\\DotNet.MCP\\\\LocalFileMCPServer\\\\DotNet.MCP.LocalFile\\\\DotNet.MCP.LocalFile\\\\DotNet.MCP.LocalFile.csproj",
+        "--no-build"
+        ]
+      }
+  }
+}

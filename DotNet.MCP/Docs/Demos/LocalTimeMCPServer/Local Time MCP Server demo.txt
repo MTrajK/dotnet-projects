@@ -1,0 +1,12 @@
+Local Time MCP Server demo
+
+1. Ask what time is it 					- Video
+	- "What time is it currently in my time zone?"
+2. Show "Search and tools", no MCP		- Video
+3. Inject Local Time server 			- Video
+4. Show the config json file 			- Live
+	- explain it's different than the previos
+5. Show code							- Live
+6. Close and restart Claude Desktop 	- Video
+7. Ask now again about the time and zone 	- Video
+	- "What time is it currently in my time zone?"
