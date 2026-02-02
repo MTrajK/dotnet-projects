@@ -13,7 +13,7 @@ Don't ask questions.
 The joke must be short (no more than 30 words)."
 };
 
-SimpleAIAgent aiAgent = new(modelConfig, aiAgentInfo);
+SimpleAIAgent simpleAIAgent = new(modelConfig, aiAgentInfo);
 
 
 Console.WriteLine("The Simple AI Agent is up. Try it.");
@@ -21,7 +21,7 @@ Console.WriteLine("___________________________");
 string message = "";
 while ((message = Console.ReadLine()) != "exit")
 {
-    Console.WriteLine(await aiAgent.Run(message));
+    Console.WriteLine(await simpleAIAgent.Run(message));
     Console.WriteLine();
 }
 
@@ -30,7 +30,7 @@ Console.WriteLine("Try the Simple AI Agent with streaming response.");
 Console.WriteLine("_________________________________________");
 while ((message = Console.ReadLine()) != "exit")
 {
-    await foreach (var update in aiAgent.RunStreaming(message))
+    await foreach (var update in simpleAIAgent.RunStreaming(message))
     {
         Console.WriteLine(update);
     }

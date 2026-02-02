@@ -4,4 +4,5 @@
   <Project Path="DotNet.AIAgents.Samples.SessionAIAgent/DotNet.AIAgents.Samples.SessionAIAgent.csproj" Id="330f76bc-9b11-409d-9631-b89a0a25a7e5" />
   <Project Path="DotNet.AIAgents.Samples.SimpleAIAgent/DotNet.AIAgents.Samples.SimpleAIAgent.csproj" />
   <Project Path="DotNet.AIAgents.Samples.StructuredOutputAIAgent/DotNet.AIAgents.Samples.StructuredOutputAIAgent.csproj" Id="df3c258d-bbfb-442b-8219-e745871c143b" />
+  <Project Path="DotNet.AIAgents.Samples.ToolsAIAgent/DotNet.AIAgents.Samples.ToolsAIAgent.csproj" Id="e687d650-aef1-44e3-9c77-f5b93753c8c2" />
 </Solution>

@@ -12,14 +12,16 @@ What are AI Agents? AI Agents history and .NET demos (with a presentation) that 
 - Microsoft.Agents.AI
 - Azure.AI.OpenAI
 
-## Project setup
-AI NuGet packages installation (per project):
+## NuGets needed
+AI NuGet packages installation (in the DotNet.AIAgents.Samples.Common - all the AI Agents logic is there):
 ```powershell
 dotnet add package Microsoft.Agents.AI --prerelease
 dotnet add package Azure.AI.OpenAI --prerelease
 dotnet add package Microsoft.Agents.AI.OpenAI --prerelease
+dotnet add package ModelContextProtocol --prerelease
 ```
 
+## Env variables setup
 Save API keys (per machine):
 ```powershell
 setx AZURE_OPENAI_APIENDPOINT "value"
@@ -32,4 +34,27 @@ Read the API key:
 $Env:AZURE_OPENAI_APIKEY
 #or
 Get-ChildItem Env:AZURE_OPENAI_APIKEY
+```
+
+## MCP uvx run
+In one of the demos we have a MCP server call.\
+That MCP will be run using UVX command. So we need to have UVX installed:
+```powershell
+winget install astral-sh.uv
+```
+***Note**: Before using the uvx or uv commands -> restart powershell/terminal, Visual Studio. So they will be able to detect the newly installed commands.*
+
+MCP: https://mcp.so/server/time/modelcontextprotocol
+```json
+{
+  "mcpServers": {
+    "time": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-time",
+        "--local-timezone=America/New_York"
+      ]
+    }
+  }
+}
 ```
