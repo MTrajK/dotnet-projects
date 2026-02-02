@@ -17,7 +17,7 @@ SimpleAIAgent simpleAIAgent = new(modelConfig, aiAgentInfo);
 
 
 Console.WriteLine("The Simple AI Agent is up. Try it.");
-Console.WriteLine("___________________________");
+Console.WriteLine("__________________________________");
 string message = "";
 while ((message = Console.ReadLine()) != "exit")
 {
@@ -27,7 +27,7 @@ while ((message = Console.ReadLine()) != "exit")
 
 
 Console.WriteLine("Try the Simple AI Agent with streaming response.");
-Console.WriteLine("_________________________________________");
+Console.WriteLine("________________________________________________");
 while ((message = Console.ReadLine()) != "exit")
 {
     await foreach (var update in simpleAIAgent.RunStreaming(message))

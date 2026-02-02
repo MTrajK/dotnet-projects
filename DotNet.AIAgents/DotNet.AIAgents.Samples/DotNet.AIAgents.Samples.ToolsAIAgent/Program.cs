@@ -12,7 +12,7 @@ ToolsAIAgent toolsAIAgent = new(modelConfig, aiAgentInfo);
 
 
 Console.WriteLine("The Tools AI Agent is up. Try it.");
-Console.WriteLine("___________________________");
+Console.WriteLine("_________________________________");
 string message = "";
 while ((message = Console.ReadLine()) != "exit")
 {

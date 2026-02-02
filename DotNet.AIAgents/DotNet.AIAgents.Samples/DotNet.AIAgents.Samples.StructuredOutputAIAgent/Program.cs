@@ -20,7 +20,7 @@ StructuredOutputAIAgent<CompanyInfo> structuredOutputAIAgent = new(modelConfig, 
 
 
 Console.WriteLine("The Structured Output AI Agent is up. Try it.");
-Console.WriteLine("___________________________");
+Console.WriteLine("_____________________________________________");
 string message = "";
 while ((message = Console.ReadLine()) != "exit")
 {

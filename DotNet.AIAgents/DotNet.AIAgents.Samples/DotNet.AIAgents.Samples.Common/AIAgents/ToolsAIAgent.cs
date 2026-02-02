@@ -54,7 +54,6 @@
 
         private async Task<IList<AITool>> GetMCPTools()
         {
-            // Get MCP Tools
             await using var mcpClient = await McpClient.CreateAsync(new StdioClientTransport(new()
             {
                 Name = "MCPServer",

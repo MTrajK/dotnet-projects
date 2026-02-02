@@ -12,7 +12,7 @@ SimpleAIAgent simpleAIAgent = new(modelConfig, agentInfo);
 
 
 Console.WriteLine("The Simple AI Agent is up. Try it.");
-Console.WriteLine("___________________________");
+Console.WriteLine("__________________________________");
 string message = "";
 while ((message = Console.ReadLine()) != "exit")
 {
@@ -27,7 +27,7 @@ var session = await sessionAIAgent.GetNewSession();
 
 
 Console.WriteLine("The Session AI Agent is up. Try it.");
-Console.WriteLine("___________________________");
+Console.WriteLine("___________________________________");
 message = "";
 while ((message = Console.ReadLine()) != "exit")
 {

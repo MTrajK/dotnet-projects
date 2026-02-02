@@ -12,7 +12,7 @@ RagAIAgent ragAIAgent = new(modelConfig, agentInfo);
 
 
 Console.WriteLine("The RAG AI Agent is up. Try it.");
-Console.WriteLine("___________________________");
+Console.WriteLine("_______________________________");
 string message = "";
 while ((message = Console.ReadLine()) != "exit")
 {
