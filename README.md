@@ -12,4 +12,5 @@ You can find a README with detailed description about the projects inside them.
 - [AspDotNet.Security](https://github.com/MTrajK/dotnet-projects/tree/main/AspDotNet.Security) - A small presentation that explains several security concerns in ASP.NET.
 - [DotNet.DDD](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.DDD) - A presentation that explains the DDD (Domain-Driven Design) fundamentals.
 - [DotNet.ManingfulUnitTests](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.ManingfulUnitTests) - .NET demos (with a presentation) that explain 2 ways of writing unit tests in details: TDD and traditional.
-- [DotNet.MCP](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MCP) - .NET demos (with a presentation) that explain MCP model and MCP server implementation using .NET sdk.
+- [DotNet.MCP](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MCP) - What is MCP and why is it needed? .NET demos (with a presentation) that explain MCP model and MCP server implementation using .NET sdk.
+- [DotNet.AIAgents](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.AIAgents) - What are AI Agents? AI Agents history and .NET demos (with a presentation) that explain AI Agents and AI Workflow using Microsoft Agent Framework (.NET MAF).

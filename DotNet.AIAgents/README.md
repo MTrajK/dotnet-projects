@@ -1,0 +1,35 @@
+# .NET AI Agents
+What are AI Agents? AI Agents history and .NET demos (with a presentation) that explain AI Agents and AI Workflow using Microsoft Agent Framework (.NET MAF).
+
+## Project structure
+- [Docs](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.AIAgents/Docs) - PowerPoint presentation and some notes.
+- [DotNet.AIAgents.Samples](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.AIAgents/DotNet.AIAgents.Samples) - All the demos.
+
+## Used techs and things
+- [.NET 8.0 SDK or later](https://dotnet.microsoft.com/download) (.NET 10 preferred)
+- dotnet cli
+- Visual Studio (Visual Studio 2026 for best experience)
+- Microsoft.Agents.AI
+- Azure.AI.OpenAI
+
+## Project setup
+AI packages instalation:
+```powershell
+dotnet add package Microsoft.Agents.AI --prerelease
+dotnet add package Azure.AI.OpenAI --prerelease
+dotnet add package Microsoft.Agents.AI.OpenAI --prerelease
+```
+
+Save API keys:
+```powershell
+setx AZURE_OPENAI_APIENDPOINT "value"
+setx AZURE_OPENAI_APIKEY "value"
+```
+***Note**: Before using the env variables -> restart powershell/terminal, Visual Studio. So they will be able to read the values form the registry.*
+
+Read the API key:
+```powershell
+$Env:AZURE_OPENAI_APIKEY
+#or
+Get-ChildItem Env:AZURE_OPENAI_APIKEY
+```

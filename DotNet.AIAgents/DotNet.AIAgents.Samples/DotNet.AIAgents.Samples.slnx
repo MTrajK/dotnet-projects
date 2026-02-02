@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="DotNet.AIAgents.Samples.Common/DotNet.AIAgents.Samples.Common.csproj" Id="0ef7ec91-5538-44b6-86a7-d26e6b09fa66" />
+  <Project Path="DotNet.AIAgents.Samples.SimpleAIAgent/DotNet.AIAgents.Samples.SimpleAIAgent.csproj" />
+</Solution>
