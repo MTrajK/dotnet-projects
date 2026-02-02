@@ -13,14 +13,14 @@ What are AI Agents? AI Agents history and .NET demos (with a presentation) that 
 - Azure.AI.OpenAI
 
 ## Project setup
-AI packages instalation:
+AI NuGet packages installation (per project):
 ```powershell
 dotnet add package Microsoft.Agents.AI --prerelease
 dotnet add package Azure.AI.OpenAI --prerelease
 dotnet add package Microsoft.Agents.AI.OpenAI --prerelease
 ```
 
-Save API keys:
+Save API keys (per machine):
 ```powershell
 setx AZURE_OPENAI_APIENDPOINT "value"
 setx AZURE_OPENAI_APIKEY "value"

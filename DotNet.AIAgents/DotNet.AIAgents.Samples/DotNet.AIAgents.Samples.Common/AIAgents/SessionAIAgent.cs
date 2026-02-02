@@ -1,7 +1,6 @@
-﻿namespace DotNet.AIAgents.Samples.SimpleAIAgent.AIAgents
+﻿namespace DotNet.AIAgents.Samples.Common.AIAgents
 {
     using System;
-    using System.Collections.Generic;
 
     using Azure;
     using Azure.AI.OpenAI;
@@ -12,16 +11,16 @@
 
     using OpenAI.Chat;
 
-    public class SimpleAIAgent
+    public class SessionAIAgent
     {
-        private AIAgent aiAgent;
+        private readonly AIAgent aiAgent;
 
-        public SimpleAIAgent(ModelConfig modelConfig, AIAgentInfo aiAgentInfo)
+        public SessionAIAgent(ModelConfig modelConfig, AIAgentInfo aiAgentInfo)
         {
-            this.aiAgent = this.CreateAiAgent(modelConfig, aiAgentInfo);
+            this.aiAgent = CreateAIAgent(modelConfig, aiAgentInfo);
         }
 
-        private AIAgent CreateAiAgent(ModelConfig modelConfig, AIAgentInfo aiAgentInfo)
+        private static AIAgent CreateAIAgent(ModelConfig modelConfig, AIAgentInfo aiAgentInfo)
         {
             // Connect to the remote model (Azure deployed LLM)
             AzureOpenAIClient azureClient = new AzureOpenAIClient(
@@ -39,14 +38,14 @@
             return aiAgent;
         }
 
-        public Task<AgentResponse> Run(string message)
+        public ValueTask<AgentSession> GetNewSession()
         {
-            return aiAgent.RunAsync(message);
+            return this.aiAgent.GetNewSessionAsync();
         }
 
-        public IAsyncEnumerable<AgentResponseUpdate> RunStreaming(string message)
+        public Task<AgentResponse> Run(string message, AgentSession session)
         {
-            return aiAgent.RunStreamingAsync(message);
+            return this.aiAgent.RunAsync(message, session);
         }
     }
 }

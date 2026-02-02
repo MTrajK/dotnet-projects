@@ -1,8 +1,8 @@
-﻿using DotNet.AIAgents.Samples.SimpleAIAgent.AIAgents;
+﻿using DotNet.AIAgents.Samples.Common.AIAgents;
 using DotNet.AIAgents.Samples.Common.Utils;
 
 ModelConfig modelConfig = GetModelConfig.Get();
-AIAgentInfo agentInfo = new()
+AIAgentInfo aiAgentInfo = new()
 {
     Name = "Joker",
     Instructions =
@@ -13,10 +13,10 @@ Don't ask questions.
 The joke must be short (no more than 30 words)."
 };
 
-SimpleAIAgent aiAgent = new(modelConfig, agentInfo);
+SimpleAIAgent aiAgent = new(modelConfig, aiAgentInfo);
 
 
-Console.WriteLine("The AI Agent is up. Try it.");
+Console.WriteLine("The Simple AI Agent is up. Try it.");
 Console.WriteLine("___________________________");
 string message = "";
 while ((message = Console.ReadLine()) != "exit")
@@ -26,7 +26,7 @@ while ((message = Console.ReadLine()) != "exit")
 }
 
 
-Console.WriteLine("Try the AI Agent with streaming response.");
+Console.WriteLine("Try the Simple AI Agent with streaming response.");
 Console.WriteLine("_________________________________________");
 while ((message = Console.ReadLine()) != "exit")
 {
