@@ -1,6 +1,8 @@
 # .NET MCP
 What is MCP and why is it needed? .NET demos (with a presentation) that explain MCP model and MCP server implementation using .NET sdk.
 
+[Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro)
+
 ## Project structure
 - [Docs](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MCP/Docs) - PowerPoint presentation and some notes.
 - [AirBnbMCPServer](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MCP/AirBnbMCPServer) - Usage of existing node.js AirBnb MCP server in Claude Desktop.
@@ -8,15 +10,13 @@ What is MCP and why is it needed? .NET demos (with a presentation) that explain 
 - [LocalFileMCPServer](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MCP/LocalFileMCPServer) - Simple MCP server written in .NET that reads some local file and edit the same.
 - [NotesMCPServer](https://github.com/MTrajK/dotnet-projects/tree/main/DotNet.MCP/NotesMCPServer) - Simple MCP server written in .NET that uses API from the Notes Web APP and controls the application.
 
-## Used techs and things:
+## Used techs and things
 - .NET
+- Visual Studio (2026 versions for best experience)
 - Microsoft.Extensions.AI.Templates
 - Web API
 - Blazor
 - Entity Framework
-
-## Requirements
-- Visual Studio (2026 versions for best experience)
 
 ## Create a .NET MCP server
 
@@ -50,3 +50,13 @@ Example: "MCPTest1"
   }
 }
 ```
+
+## Available .NET MCP Servers & Clients
+
+### Servers
+- [GitHub ModelContextProtocol Servers](https://github.com/modelcontextprotocol/servers)
+- [MCP.so Servers](https://mcp.so/servers)
+
+### Clients
+- [ModelContextProtocol Clients](https://modelcontextprotocol.io/clients)
+- [MCP.so Clients](https://mcp.so/clients)

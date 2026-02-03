@@ -1,0 +1,150 @@
+Title:
+Building AI Agents: Turning LLMs into Decision Makers
+
+Description:
+Explains how LLMs evolve from prompt responders into systems capable of decision-making, tool execution, and coordination. Illustrated through practical implementations in .NET using Microsoft Agent Framework.
+
+_______________________
+SLIDES
+_______________________
+
+1. The History that Led to Agentic Systems
+	- Early LLM Capabilities
+		* Limited to the training knowledge
+	- Fine-Tuning
+		* Adding specific knowledge in the neural network
+	- RAG
+		* Making the LLMs "smart", a way to retrieve data from document, vector db, etc
+	- Tool Use / Function Calling
+		* Interact with the real world (SDK, APIs, custom logic, etc...)
+	- MCP
+		* Common protocol for tools/functions
+	- AI Agents
+		* ReAct
+	- Multi-agentic systems
+	- A2A
+		* Communication between differently build Agents, differently deployed, etc
+	- Workflows
+		* Deterministic, testable, not everything needs LLM
+
+2. Technologies for Building Agentic Systems
+	- No-code Agentic System Builders
+		* n8n
+		* zapier
+		* openai agent builder
+	- It's a Python's World
+		* Langchain & Langraph 
+		* PydanticAi
+		* CrewAi
+		* Google Agent Development Kit (adk-python)
+		* OpenAI Agents (openai-agents-python)
+		* Anthropic Claude Agents (claude-agent-sdk-python)
+	- Microsoft AI Frameworks
+		* Semantic Kernel
+		* AutoGen
+	- Microsoft Agent Framework
+		* prerelease (first release 3 months ago)
+
+3. Demo
+	- Deploy LLM in Azure AI (Microsoft Foundry)
+		* My Visual Studio Benefits: https://my.visualstudio.com/Benefits
+		* Azure AI (Microsoft Foundry): https://ai.azure.com/
+		* AI Azure catalog: https://ai.azure.com/catalog
+		* Models: https://ai.azure.com/catalog/models
+		* Providers: https://ai.azure.com/catalog/publishers
+	- Simple AI Agent
+		* Execute AI Agent
+		* Session
+		* Structured output
+	- AI Agent using RAG
+	- AI Agent using tools
+	- Workflows
+		* Sequential
+		* Branching
+	- AI Agent Workflow
+
+4. End
+	- Final notes
+		* Don't build Agents for everything!!!
+		* Keep it simple
+		* Think like your agents
+	- Resources
+		* Microsoft Agent Framework official docs: https://learn.microsoft.com/en-us/agent-framework/
+
+
+_______________________
+NOTES
+_______________________
+
+AI Agent
+At its simplest, an AI Agent is a software system that uses a Large Language Model (LLM) as its "reasoning engine" to achieve a goal by autonomously performing a sequence of tasks.
+
+An AI Agent = an LLM-centric system that makes decisions and can act (via tools, code, or workflows).
+
+------------
+
+LLM & Tools vs AI Agents
+LLM ≠ agent
+Agent = LLM + control loop + tools + memory + policies
+
+The Brain (LLM): Provides reasoning, planning, and natural language understanding. It decides what needs to be done.
+
+The Hands (Tools): These are the APIs, SDKs, and custom functions that allow the agent to interact with the real world. It executes the plan.
+
+------------
+
+RAG
+
+What Retrieval Actually Means?
+Retrieval means the ability of a system to fetch relevant information from a source of truth before it answers. It’s not about remembering everything; it’s about knowing where to look.
+
+Retrieval isn’t new. Search engines have been doing it for decades. What’s changed is the precision and structure of the data we can retrieve.
+
+Old search used keywords. New retrieval uses meaning. With vector databases and embeddings, we can now find information that’s semantically related, not just textually matched.
+
+------------
+
+MCP
+The Model Context Protocol creates a standardized, two-way connection for AI applications, allowing LLMs to easily connect with various data sources and tools (external systems).
+Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect electronic devices, MCP provides a standardized way to connect AI applications to external systems.
+https://modelcontextprotocol.io/docs/getting-started/intro
+
+------------
+
+Agent2Agent (A2A) protocol
+This open standard enables seamless integration and orchestration between AI agents, allowing them to work together even if they are from different developers, built on different frameworks, or owned by different organizations.
+A2A focusing on cross-platform interoperability (External agent collaboration).
+
+An AI agent from a media company could connect to a retailer’s agent to showcase the details and pricing on a specific product shown in streamed or broadcast content.
+Similarly, AI agents at hospitals could work directly with labs or insurance agents, provided the patient grants permission to handle their sensitive health data.
+
+------------
+
+AI Agents vs AI Workflows vs. Multi-Agentic Systems
+
+- AI Agents: Autonomous systems where an LLM dynamically decides the next steps, selects tools, and manages its own process to achieve a goal. Agents operate in a loop, reasoning, acting, and adapting based on environmental feedback, offering flexibility but introducing complexity.
+
+- AI Workflows: Structured pipelines where large language models (LLMs) and tools are orchestrated through predefined code paths. Each step is explicit, like a recipe, with clear inputs, processes, and outputs. Workflows are deterministic, making them predictable, testable, and cost-efficient.
+
+- Multi-Agentic Systems: A collection of agents working together, often coordinated by an orchestrator or operating independently to solve complex tasks. These systems leverage multiple LLMs to handle subtasks, share information, and collaborate, enabling sophisticated solutions but amplifying operational challenges.
+
+------------
+
+Microsoft Agent Framework
+MAF offers two primary categories of capabilities:
+	1. AI agents: Individual agents that use LLMs to process user inputs, call tools and MCP servers to perform actions, and generate responses. Agents support model providers including Azure OpenAI, OpenAI, and Azure AI.
+	2. Workflows: Graph-based workflows that connect multiple agents and functions to perform complex, multi-step tasks. Workflows support type-based routing, nesting, checkpointing, and request/response patterns for human-in-the-loop scenarios.
+
+------------
+
+Agents are stateless
+Agents are stateless and do not maintain any state internally between calls. 
+To have a multi-turn conversation with an agent, you need to create an object to hold the conversation state and pass this object to the agent when running it.
+
+------------
+
+https://www.youtube.com/watch?v=D7_ipDqhtwk
+1. Don't build Agents for everything!!!
+2. Keep it simple
+	- agents are models using tools in a loop - they have access to the environment (system that the agent is operating in), tools, system prompt and the action from the LLM
+3. Think like your agents

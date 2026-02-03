@@ -7,8 +7,8 @@ What are AI Agents? AI Agents history and .NET demos (with a presentation) that 
 
 ## Used techs and things
 - [.NET 8.0 SDK or later](https://dotnet.microsoft.com/download) (.NET 10 preferred)
+- Visual Studio (2026 versions for best experience)
 - dotnet cli
-- Visual Studio (Visual Studio 2026 for best experience)
 - Microsoft.Agents.AI
 - Azure.AI.OpenAI
 - Microsoft.Agents.AI.OpenAI
