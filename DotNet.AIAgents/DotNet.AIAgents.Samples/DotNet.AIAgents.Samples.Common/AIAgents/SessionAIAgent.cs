@@ -13,11 +13,11 @@
 
     public class SessionAIAgent
     {
-        private readonly AIAgent aiAgent;
+        public readonly AIAgent AIAgent;
 
         public SessionAIAgent(ModelConfig modelConfig, AIAgentInfo aiAgentInfo)
         {
-            this.aiAgent = CreateAIAgent(modelConfig, aiAgentInfo);
+            this.AIAgent = CreateAIAgent(modelConfig, aiAgentInfo);
         }
 
         private static AIAgent CreateAIAgent(ModelConfig modelConfig, AIAgentInfo aiAgentInfo)
@@ -40,12 +40,12 @@
 
         public ValueTask<AgentSession> GetNewSession()
         {
-            return this.aiAgent.GetNewSessionAsync();
+            return this.AIAgent.GetNewSessionAsync();
         }
 
         public Task<AgentResponse> Run(string message, AgentSession session)
         {
-            return this.aiAgent.RunAsync(message, session);
+            return this.AIAgent.RunAsync(message, session);
         }
     }
 }

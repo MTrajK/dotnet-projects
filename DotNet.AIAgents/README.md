@@ -11,6 +11,9 @@ What are AI Agents? AI Agents history and .NET demos (with a presentation) that 
 - Visual Studio (Visual Studio 2026 for best experience)
 - Microsoft.Agents.AI
 - Azure.AI.OpenAI
+- Microsoft.Agents.AI.OpenAI
+- ModelContextProtocol
+- Microsoft.Agents.AI.Workflows
 
 ## NuGet packages needed
 AI NuGet packages installation (in the DotNet.AIAgents.Samples.Common - all the AI Agents logic is there):
@@ -20,8 +23,6 @@ dotnet add package Azure.AI.OpenAI --prerelease
 dotnet add package Microsoft.Agents.AI.OpenAI --prerelease
 # Needed for MCP demo
 dotnet add package ModelContextProtocol --prerelease
-# Needed for A2A demo
-dotnet add package Microsoft.Agents.AI.Hosting.A2A.AspNetCore --prerelease
 # Needed for Workflow demo
 dotnet add package Microsoft.Agents.AI.Workflows --prerelease
 ```

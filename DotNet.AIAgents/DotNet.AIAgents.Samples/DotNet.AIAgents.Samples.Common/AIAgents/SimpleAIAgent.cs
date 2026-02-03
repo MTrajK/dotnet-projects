@@ -14,11 +14,11 @@
 
     public class SimpleAIAgent
     {
-        private readonly AIAgent aiAgent;
+        public readonly AIAgent AIAgent;
 
         public SimpleAIAgent(ModelConfig modelConfig, AIAgentInfo aiAgentInfo)
         {
-            this.aiAgent = CreateAIAgent(modelConfig, aiAgentInfo);
+            this.AIAgent = CreateAIAgent(modelConfig, aiAgentInfo);
         }
 
         private static AIAgent CreateAIAgent(ModelConfig modelConfig, AIAgentInfo aiAgentInfo)
@@ -41,12 +41,12 @@
 
         public Task<AgentResponse> Run(string message)
         {
-            return aiAgent.RunAsync(message);
+            return AIAgent.RunAsync(message);
         }
 
         public IAsyncEnumerable<AgentResponseUpdate> RunStreaming(string message)
         {
-            return aiAgent.RunStreamingAsync(message);
+            return AIAgent.RunStreamingAsync(message);
         }
     }
 }

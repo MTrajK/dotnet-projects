@@ -17,11 +17,11 @@
 
     public class StructuredOutputAIAgent<T>
     {
-        private readonly AIAgent aiAgent;
+        public readonly AIAgent AIAgent;
 
         public StructuredOutputAIAgent(ModelConfig modelConfig, AIAgentInfo aiAgentInfo)
         {
-            this.aiAgent = CreateAIAgent(modelConfig, aiAgentInfo);
+            this.AIAgent = CreateAIAgent(modelConfig, aiAgentInfo);
         }
 
         private static AIAgent CreateAIAgent(ModelConfig modelConfig, AIAgentInfo aiAgentInfo)
@@ -58,7 +58,7 @@
 
         public Task<AgentResponse> Run(string message)
         {
-            return aiAgent.RunAsync(message);
+            return AIAgent.RunAsync(message);
         }
 
         public T Deserialize(AgentResponse response)

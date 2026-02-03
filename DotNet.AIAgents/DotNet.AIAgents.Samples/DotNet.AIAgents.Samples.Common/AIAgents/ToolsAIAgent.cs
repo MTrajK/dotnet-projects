@@ -18,11 +18,11 @@
 
     public class ToolsAIAgent
     {
-        private AIAgent? aiAgent;
+        public readonly AIAgent AIAgent;
 
         public ToolsAIAgent(ModelConfig modelConfig, AIAgentInfo aiAgentInfo)
         {
-            this.aiAgent = this.CreateAIAgent(modelConfig, aiAgentInfo);
+            this.AIAgent = this.CreateAIAgent(modelConfig, aiAgentInfo);
         }
 
         public AIAgent CreateAIAgent(ModelConfig modelConfig, AIAgentInfo aiAgentInfo)
@@ -38,7 +38,7 @@
                 .AsAIAgent(
                     name: aiAgentInfo.Name,
                     instructions: aiAgentInfo.Instructions,
-                    tools: [AIFunctionFactory.Create(GetTimeZone)]
+                    tools: [AIFunctionFactory.Create(GetTimeZone), AIFunctionFactory.Create(GetTime), AIFunctionFactory.Create(GetTime)]
                 );
 
             return aiAgent;
@@ -50,6 +50,25 @@
             var timeZone = TimeZoneInfo.Local;
 
             return timeZone.Id;
+        }
+
+        [Description("Get the current time from the local machine using the defined time format.")]
+        public string GetTime(
+            [Description("Time format")] string timeFormat = "HH:mm:ss")
+        {
+            var currentTime = DateTime.Now;
+            var currentTimeToString = currentTime.ToString(timeFormat);
+
+            return currentTimeToString;
+        }
+
+        [Description("Get the current date from the local machine.")]
+        public string GetDate()
+        {
+            var currentDate = DateTime.Now;
+            var currentDateToString = currentDate.ToString("dd MM");
+
+            return currentDateToString;
         }
 
         private async Task<IList<AITool>> GetMCPTools()
@@ -68,7 +87,7 @@
 
         public Task<AgentResponse> Run(string message)
         {
-            return aiAgent.RunAsync(message);
+            return AIAgent.RunAsync(message);
         }
     }
 }

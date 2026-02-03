@@ -2,7 +2,7 @@
 using DotNet.AIAgents.Samples.Common.Utils;
 
 ModelConfig modelConfig = GetModelConfig.Get();
-AIAgentInfo agentInfo = new()
+AIAgentInfo aiAgentInfo = new()
 {
     Name = "CompanyInfo",
     Instructions =
@@ -16,7 +16,7 @@ if the company is public or private,
 and stock symbol if the company is publicly traded."
 };
 
-StructuredOutputAIAgent<CompanyInfo> structuredOutputAIAgent = new(modelConfig, agentInfo);
+StructuredOutputAIAgent<CompanyInfo> structuredOutputAIAgent = new(modelConfig, aiAgentInfo);
 
 
 Console.WriteLine("The Structured Output AI Agent is up. Try it.");
