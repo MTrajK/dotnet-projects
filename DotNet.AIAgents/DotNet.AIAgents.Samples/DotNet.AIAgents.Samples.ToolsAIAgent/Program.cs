@@ -5,7 +5,7 @@ ModelConfig modelConfig = GetModelConfig.Get();
 AIAgentInfo aiAgentInfo = new()
 {
     Name = "Time Assistant",
-    Instructions = "You are a local machine time assistant."
+    Instructions = "You are a local machine date time assistant."
 };
 
 ToolsAIAgent toolsAIAgent = new(modelConfig, aiAgentInfo);
